@@ -50,3 +50,4 @@ Para conectar a github
 git remote add origin https://github.com/mi_cuenta/nombre_repositorio.git
 git branch -M main
 git push -u origin main
+
