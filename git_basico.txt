@@ -1,0 +1,46 @@
+Configuración de GIT (Solo se hace una vez)
+
+git config --global user.name "nombre de usuario"
+git config --global user.email "dirección de email"
+
+Configurar el editor de codigo (VSC)
+
+git config --global core.editor "code --wait"
+
+Correción salto de linea
+
+git config --global core.autocrlf true (para Mac o Linux sustituir true por input)
+
+Para ver la Configuración
+
+git config --global -e
+
+Iniciar repositorio 
+
+git init
+
+Para ver el estado de los ficheros 
+
+git status
+
+Para omitir algun fichero hay que crear un fichero llamado .gitignore
+    dentro de este fichero poner
+    .*
+    .env
+    nombres de los ficheros a omitir
+
+Añadir fichero al repositorio
+
+git add nombre de fichero (. todos los ficheros, 0* todos los que empiezan por 0)
+
+Para volver al quitar el fichero 
+
+git rm --cached nombre fichero
+
+dar archivo por bueno para subirlo
+
+git commit -m "mensaje"
+
+Para ver los cambios 
+
+git log
