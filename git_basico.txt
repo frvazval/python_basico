@@ -44,3 +44,12 @@ git commit -m "mensaje"
 Para ver los cambios 
 
 git log
+
+git remote add origin https://github.com/frvazval/python_basico.git
+git branch -M main
+git push -u origin main
+
+
+git remote add origin https://github.com/mi_cuenta/nombre_repositorio.git
+git branch -M main
+git push -u origin main
