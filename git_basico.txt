@@ -45,7 +45,11 @@ Para ver los cambios
 
 git log
 
-Para conectar a github
+Cuando hay cambios en un fichero
+
+git commit -a
+
+Intrucciones para GitHub
 
 git remote add origin https://github.com/mi_cuenta/nombre_repositorio.git
 git branch -M main
