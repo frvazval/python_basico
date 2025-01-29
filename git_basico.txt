@@ -45,6 +45,8 @@ Para ver los cambios
 
 git log
 
+Para conectar a github
+
 git remote add origin https://github.com/frvazval/python_basico.git
 git branch -M main
 git push -u origin main
