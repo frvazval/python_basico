@@ -88,4 +88,14 @@ print(frase.replace("a", "i"))
 palabras_en_frase = frase.split(" ")
 print(len(palabras_en_frase))
 
+# Mini ejercicio
+
+texto = "bUeNos dÍAs" # Buenos días
+texto = texto.lower()
+
+print(texto.capitalize())
+
+# Compara palabras, para orden alfabetico
+
+print("abeja" > "flor") # es False porque la a va antes
 
