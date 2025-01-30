@@ -119,7 +119,7 @@ if num1.isnumeric() and num2.isnumeric():
             print("Error, no se puede dividir por cero")
     elif operacion == "modulo":
         if num2 != str(0):
-            print(str(num1) + " % " + str(num2) + " = " + str(intt(num1) % int(num2)))
+            print(str(num1) + " % " + str(num2) + " = " + str(int(num1) % int(num2)))
         else:
             print("Error, no se puede dividir por cero")
     else:
