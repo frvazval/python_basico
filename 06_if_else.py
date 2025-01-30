@@ -96,13 +96,11 @@ num1 = input("Escribe el primer número -> ")
 num2 = input("Escribe el segundo número -> ")
 
 if num1.isnumeric() and num2.isnumeric():    
-
     operacion = input("¿Que operación quieres realizar? -> ")
-
-    if operacion == "suma":
+    if operacion == "suma":       
         print(str(num1) + " + " + str(num2) + " = " + str(int(num1) + int(num2)))
     elif operacion == "resta":
-       print(str(num1) + " - " + str(num2) + " = " + str(int(num1) - int(num2)))
+        print(str(num1) + " - " + str(num2) + " = " + str(int(num1) - int(num2)))
     elif operacion == "multi":
         print(str(num1) + " * " + str(num2) + " = " + str(int(num1) * int(num2)))
     elif operacion == "division":
