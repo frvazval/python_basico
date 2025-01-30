@@ -100,7 +100,7 @@ if num1.isnumeric() and num2.isnumeric():
     operacion = input("¿Que operación quieres realizar? -> ")
 
     if operacion == "suma":
-        print(str(num1) + " + " + str(num2) + " = " + str(num1 + num2))
+        print(str(num1) + " + " + str(num2) + " = " + str(int(num1) + int(num2)))
     elif operacion == "resta":
        print(str(num1) + " - " + str(num2) + " = " + str(int(num1) - int(num2)))
     elif operacion == "multi":
