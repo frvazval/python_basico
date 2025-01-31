@@ -24,7 +24,13 @@ comparacion_2 = 1 != 2 mira si son diferentes (True)
 < Menor que
 >= Mayor o igual que
 <= Menor o igual que
-
-
-
 """
+# METODOS PARA NÚMEROS
+# Redondear un número a la izquierda o derecha
+
+redondear_izquierda = round(3.141592, 2)
+print(redondear_izquierda)
+
+# Valor absoluto
+
+print("E valor absoluto de -5 es -> ", abs(-5))
