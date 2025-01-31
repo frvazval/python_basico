@@ -192,7 +192,15 @@ try:
         case "%":        
             print(str(num1) + " % " + str(num2) + " = " + str(num1 % num2))      
         case _:
-            print("La operación introducida no es valida")    
+            print("La operación introducida no es valida")  
+
+    # match operacion:
+    #   case "+" | "-" | "*" | "/" | "**" | "//" | "%":
+    #       resultado = eval(f"{num1} {operacion} {num2}"") 
+    #       print(f"{num1} {operanion} {num2} = {resultado}")
+    #   case _:
+    #       print("Operación desconocida. Revise la entrada de datos")
+    
 except ZeroDivisionError:
     print("Error, no se puede dividir por cero")
 except ValueError:
