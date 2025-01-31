@@ -13,3 +13,6 @@ print("True or True -> ", True or True)        # True
 print("True or False -> ", True or False)      # False
 print("False or False -> ", False or False)    # False
 
+# not -> no
+print("not True -> ", not True)     # False
+print("not False -> ", not False)   # True
