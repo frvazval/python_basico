@@ -92,6 +92,9 @@ else:
 # ¿Qué operación quieres realizar -> suma
 # 1 + 3 = 4
 
+import os # importa libreria os
+os.system("cls") # Limpia la pantalla
+
 try:
     num1 = float(input("Escribe el primer número -> "))
     num2 = float(input("Escribe el segundo número -> "))
@@ -119,6 +122,6 @@ except ValueError:
     print("El valor introducido no es un número valido")
 except:
     print("Se ha producido un error indeterminado")
-    
+
 
 
