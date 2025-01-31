@@ -126,39 +126,70 @@ os.system("cls") # Limpia la pantalla
 # except:
 #     print("Se ha producido un error indeterminado")
 
+# try:
+#     # pedimor los números y los convertimos a float
+#     num1 = float(input("Escribe el primer número -> "))
+#     num2 = float(input("Escribe el segundo número -> "))
+
+#     # pedimos la operación que se quiere realizar con los numeros introducidos  
+
+#     print("""
+#           suma
+#           resta
+#           multi
+#           division
+#           exp
+#           div_ent
+#           modulo         
+           
+#     """) 
+#     operacion = input("¿Que operación quieres realizar? -> ")
+
+#     match operacion:       
+#         case "suma":
+#             print(str(num1) + " + " + str(num2) + " = " + str(num1 + num2))
+#         case "resta":
+#             print(str(num1) + " - " + str(num2) + " = " + str(num1 - num2))
+#         case "multi":
+#             print(str(num1) + " * " + str(num2) + " = " + str(num1 * num2))
+#         case "division":             
+#             print(str(num1) + " / " + str(num2) + " = " + str(num1 / num2))    
+#         case "exp":
+#             print(str(num1) + " ** " + str(num2) + " = " + str(num1 ** num2))
+#         case "div_ent":        
+#             print(str(num1) + " // " + str(num2) + " = " + str(num1 // num2))       
+#         case "modulo":        
+#             print(str(num1) + " % " + str(num2) + " = " + str(num1 % num2))      
+#         case _:
+#             print("La operación introducida no es valida")    
+# except ZeroDivisionError:
+#     print("Error, no se puede dividir por cero")
+# except ValueError:
+#     print("El valor introducido no es un número valido")
+# except:
+#     print("Se ha producido un error indeterminado")
+
 try:
     # pedimor los números y los convertimos a float
-    num1 = float(input("Escribe el primer número -> "))
-    num2 = float(input("Escribe el segundo número -> "))
-
-    # pedimos la operación que se quiere realizar con los numeros introducidos  
-
-    print("""
-          suma
-          resta
-          multi
-          division
-          exp
-          div_ent
-          modulo         
-           
-    """) 
-    operacion = input("¿Que operación quieres realizar? -> ")
+    respuesta = input("Indica los números y la operación a realizar:\nEjemplo: 10, 5, + -> ").split(", ") # Lo guarda en una lista
+    num1 = float(respuesta[0])
+    num2 = float(respuesta[1])
+    operacion = respuesta[2]      
 
     match operacion:       
-        case "suma":
+        case "+":
             print(str(num1) + " + " + str(num2) + " = " + str(num1 + num2))
-        case "resta":
+        case "-":
             print(str(num1) + " - " + str(num2) + " = " + str(num1 - num2))
-        case "multi":
+        case "*":
             print(str(num1) + " * " + str(num2) + " = " + str(num1 * num2))
-        case "division":             
+        case "/":             
             print(str(num1) + " / " + str(num2) + " = " + str(num1 / num2))    
-        case "exp":
+        case "**":
             print(str(num1) + " ** " + str(num2) + " = " + str(num1 ** num2))
-        case "div_ent":        
+        case "//":        
             print(str(num1) + " // " + str(num2) + " = " + str(num1 // num2))       
-        case "modulo":        
+        case "%":        
             print(str(num1) + " % " + str(num2) + " = " + str(num1 % num2))      
         case _:
             print("La operación introducida no es valida")    

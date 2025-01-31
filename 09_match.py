@@ -20,19 +20,19 @@ os.system("cls") # Limpia la pantalla
 # Ejercicio
 # Preguntar al usuario que dia de la semana es (lunes, martes ...)
 # si dice lunes diremos: "Toca sistemas"
-# si dice martes, miercoles, jueves o viernes,  diremos "Toca Python"
-# si dice sabado o domingo diremos: "Es fin de semana"
+# si dice martes, miércoles, jueves o viernes,  diremos "Toca Python"
+# si dice sábado o domingo diremos: "Es fin de semana"
 # si dice otra cosa diremos: "Creo que estas confundido/a"
 
-dia = input("Qué día de la semana es -> ")
-dia = dia.lower()
+dia = input("Qué día de la semana es -> ").lower() # Lo convierte a minusculas antes de asignarlo a la variable dia
 
 match dia:
     case "lunes":
         print("Toca sistemas")
-    case "martes" | "miercoles" | "jueves" | "viernes":
+    case "martes" | "miercoles" | "miércoles" | "jueves" | "viernes":
         print("Toca Python")
-    case "sabado" | "domingo":
+    case "sabado" | "sábado" |"domingo":
         print("Es fin de semana")
     case _:
         print("Creo que estás confundido/a")
+        
