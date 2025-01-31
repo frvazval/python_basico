@@ -95,33 +95,77 @@ else:
 import os # importa libreria os
 os.system("cls") # Limpia la pantalla
 
+# se puede introducir una excepción a causa de lo que introduzca el usuario
+# try:
+#     # pedimor los números y los convertimos a float
+#     num1 = float(input("Escribe el primer número -> "))
+#     num2 = float(input("Escribe el segundo número -> "))
+
+#     # pedimos la operación que se quiere realizar con los numeros introducidos   
+#     operacion = input("¿Que operación quieres realizar? -> ")
+#     if operacion == "suma":       
+#         print(str(num1) + " + " + str(num2) + " = " + str(num1 + num2))
+#     elif operacion == "resta":
+#         print(str(num1) + " - " + str(num2) + " = " + str(num1 - num2))
+#     elif operacion == "multi":
+#         print(str(num1) + " * " + str(num2) + " = " + str(num1 * num2))
+#     elif operacion == "division":             
+#         print(str(num1) + " / " + str(num2) + " = " + str(num1 / num2))    
+#     elif operacion == "exp":
+#         print(str(num1) + " ** " + str(num2) + " = " + str(num1 ** num2))
+#     elif operacion == "div_ent":        
+#         print(str(num1) + " // " + str(num2) + " = " + str(num1 // num2))       
+#     elif operacion == "modulo":        
+#         print(str(num1) + " % " + str(num2) + " = " + str(num1 % num2))      
+#     else:
+#         print("La operación introducida no es valida")    
+# except ZeroDivisionError:
+#     print("Error, no se puede dividir por cero")
+# except ValueError:
+#     print("El valor introducido no es un número valido")
+# except:
+#     print("Se ha producido un error indeterminado")
+
 try:
+    # pedimor los números y los convertimos a float
     num1 = float(input("Escribe el primer número -> "))
     num2 = float(input("Escribe el segundo número -> "))
-       
+
+    # pedimos la operación que se quiere realizar con los numeros introducidos  
+
+    print("""
+          suma
+          resta
+          multi
+          division
+          exp
+          div_ent
+          modulo         
+           
+    """) 
     operacion = input("¿Que operación quieres realizar? -> ")
-    if operacion == "suma":       
-        print(str(num1) + " + " + str(num2) + " = " + str(num1 + num2))
-    elif operacion == "resta":
-        print(str(num1) + " - " + str(num2) + " = " + str(num1 - num2))
-    elif operacion == "multi":
-        print(str(num1) + " * " + str(num2) + " = " + str(num1 * num2))
-    elif operacion == "division":             
-        print(str(num1) + " / " + str(num2) + " = " + str(num1 / num2))    
-    elif operacion == "exp":
-        print(str(num1) + " ** " + str(num2) + " = " + str(num1 ** num2))
-    elif operacion == "div_ent":        
-        print(str(num1) + " // " + str(num2) + " = " + str(num1 // num2))       
-    elif operacion == "modulo":        
-        print(str(num1) + " % " + str(num2) + " = " + str(num1 % num2))      
-    else:
-        print("La operación introducida no es valida")    
+
+    match operacion:       
+        case "suma":
+            print(str(num1) + " + " + str(num2) + " = " + str(num1 + num2))
+        case "resta":
+            print(str(num1) + " - " + str(num2) + " = " + str(num1 - num2))
+        case "multi":
+            print(str(num1) + " * " + str(num2) + " = " + str(num1 * num2))
+        case "division":             
+            print(str(num1) + " / " + str(num2) + " = " + str(num1 / num2))    
+        case "exp":
+            print(str(num1) + " ** " + str(num2) + " = " + str(num1 ** num2))
+        case "div_ent":        
+            print(str(num1) + " // " + str(num2) + " = " + str(num1 // num2))       
+        case "modulo":        
+            print(str(num1) + " % " + str(num2) + " = " + str(num1 % num2))      
+        case _:
+            print("La operación introducida no es valida")    
 except ZeroDivisionError:
     print("Error, no se puede dividir por cero")
 except ValueError:
     print("El valor introducido no es un número valido")
 except:
     print("Se ha producido un error indeterminado")
-
-
 
