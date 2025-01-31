@@ -92,37 +92,33 @@ else:
 # ¿Qué operación quieres realizar -> suma
 # 1 + 3 = 4
 
-num1 = input("Escribe el primer número -> ")
-num2 = input("Escribe el segundo número -> ")
-
-if num1.isnumeric() and num2.isnumeric():    
+try:
+    num1 = float(input("Escribe el primer número -> "))
+    num2 = float(input("Escribe el segundo número -> "))
+       
     operacion = input("¿Que operación quieres realizar? -> ")
     if operacion == "suma":       
-        print(str(num1) + " + " + str(num2) + " = " + str(int(num1) + int(num2)))
+        print(str(num1) + " + " + str(num2) + " = " + str(num1 + num2))
     elif operacion == "resta":
-        print(str(num1) + " - " + str(num2) + " = " + str(int(num1) - int(num2)))
+        print(str(num1) + " - " + str(num2) + " = " + str(num1 - num2))
     elif operacion == "multi":
-        print(str(num1) + " * " + str(num2) + " = " + str(int(num1) * int(num2)))
-    elif operacion == "division":
-        if num2 != str(0):           
-            print(str(num1) + " / " + str(num2) + " = " + str(int(num1) / int(num2)))
-        else:
-            print("Error, no se puede dividir por cero")
+        print(str(num1) + " * " + str(num2) + " = " + str(num1 * num2))
+    elif operacion == "division":             
+        print(str(num1) + " / " + str(num2) + " = " + str(num1 / num2))    
     elif operacion == "exp":
-        print(str(num1) + " ** " + str(num2) + " = " + str(int(num1) ** int(num2)))
-    elif operacion == "div_ent":
-        if num2 != str(0):
-            print(str(num1) + " // " + str(num2) + " = " + str(int(num1) // int(num2)))
-        else:
-            print("Error, no se puede dividir por cero")
-    elif operacion == "modulo":
-        if num2 != str(0):
-            print(str(num1) + " % " + str(num2) + " = " + str(int(num1) % int(num2)))
-        else:
-            print("Error, no se puede dividir por cero")
+        print(str(num1) + " ** " + str(num2) + " = " + str(num1 ** num2))
+    elif operacion == "div_ent":        
+        print(str(num1) + " // " + str(num2) + " = " + str(num1 // num2))       
+    elif operacion == "modulo":        
+        print(str(num1) + " % " + str(num2) + " = " + str(num1 % num2))      
     else:
-        print("La operación introducida no es valida")
-else:
-    print("Uno de los valores introducidos no es numerico")
+        print("La operación introducida no es valida")    
+except ZeroDivisionError:
+    print("Error, no se puede dividir por cero")
+except ValueError:
+    print("El valor introducido no es un número valido")
+except:
+    print("Se ha producido un error indeterminado")
+    
 
 
