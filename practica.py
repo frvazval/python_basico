@@ -23,3 +23,5 @@ if frase == frase[::-1]:
     print("Esta frase es un palindromo")
 else:
     print("Esta frase no es un palindromo")
+
+

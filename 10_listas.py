@@ -55,3 +55,21 @@ print(lista_nombres)
 print(lista_mixta)
 del lista_mixta[2]
 print(lista_mixta)
+
+# unir dos listas
+
+lista_1 = [0, 1, 2]
+lista_2 = [3, 4, 5]
+
+lista_1.extend(lista_2)
+print(lista_1)
+
+# otra forma de hacerlo
+
+lista_1 = [0, 1, 2]
+lista_2 = [3, 4, 5]
+
+lista_1 = lista_1 + lista_2 # tambien se puede hacer lista_1 += lista_2
+print(lista_1)
+
+
