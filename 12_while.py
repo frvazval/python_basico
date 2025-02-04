@@ -30,8 +30,7 @@ os.system("cls")
 monedas = 10
 while True:
     print(f"actualmente tienes {monedas} monedas\n")
-    prestamo = input("¿Cuantas monedas necesitas?: ")
-    
+    prestamo = input("¿Cuantas monedas necesitas?: ") # Recoge un string    
 
     if int(prestamo) > monedas:
         print("No hay suficientes monedas")        
