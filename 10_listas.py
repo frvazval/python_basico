@@ -10,7 +10,7 @@ lista
 lista_numeros = [1, 2, 3, 4, 5] # lista de números enteros
 lista_nombres = ["Maria", "Pau", "Pol"] # lista de strings
 lista_de_listas = [[1, 2], [3, 4], [5, 6]] # lista de listas
-lista_mixta = [1, "Hola", True] # lista mixta
+lista_mixta = [1, "Hola", 3.5, True] # lista mixta
 
 # Acceder al primer valor:
 
@@ -38,3 +38,20 @@ print(lista_numeros) # [1, 2, 3, 4, 5, 6]
 ultimo_numero = lista_numeros.pop() # nombre_lista.pop() 
 print(lista_numeros) # [1, 2, 3, 4, 5]
 print(ultimo_numero)
+
+# Poner un elemento en una posición concreta
+
+lista_numeros.insert(2, 3) # nombre_lista.insert(valor)
+print(lista_numeros)
+
+# quitar un elemento de la lista
+
+print(lista_nombres)
+lista_nombres.remove("Pol")
+print(lista_nombres)
+
+# para eliminar por una posicion concreta
+
+print(lista_mixta)
+del lista_mixta[2]
+print(lista_mixta)
