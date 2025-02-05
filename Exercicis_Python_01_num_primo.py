@@ -51,8 +51,7 @@ for intento in range(3): # Pide el número 3 veces
             break
         else:
             print(f"El número {num} no es primo")
-            break                       
-
+            break                     
     except ValueError: # Si el valor introducido no es un número entero
         print("Has de introducir un número entero")
 else:
