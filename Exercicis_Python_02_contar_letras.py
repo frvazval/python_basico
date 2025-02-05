@@ -99,40 +99,37 @@ Lo mismo que el ejercicio anterior, pero con palabras en lugar de letras.
 import os # importa libreria os        
 os.system("cls") # Limpia la pantalla
 
-print("Contar letras en un texto")
-print("=========================")
+print("Contar palabras en un texto")
+print("===========================")
 print()
 
-texto = input("Por favor, introduzca un texto (Puede contener números y caracteres con tilde) -> ").lower() # Pide un texto al usuario, ya lo guarda en minúsculas
+# Pide un texto al usuario, ya lo guarda en minúsculas y sin espacios al principio ni al final
+texto = input("Por favor, introduzca un texto (Puede contener números y caracteres con tilde) -> ").strip().lower()
+texto2 = [] # Guardara el texto sin los caracteres que hay que ignorar
+palabras = [] # Guardara las palabras diferentes
 
-caracteres_ign = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", " ", "¡", "!", "¿", "?", ".", ",", ":", ";", ] # lista de caracteres a ignorar
-letras_diferentes = [] # Lista que contendra las diferentes letras
-num_letras = len(texto) # numero de caracteres que tiene la cadena
+# lista de caracteres a ignorar, en este caso no pòngo el " " para poder separar las palabras después
+caracteres_ign = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "¡", "!", "¿", "?", ".", ",", ":", ";", ]  
+
+# Elimino del texto todos los caracteres no validos, menos el espacio
+for letra in texto:
+    if letra not in caracteres_ign:
+        texto2.append(letra)
+
+
+
 
 print()
-print("El texto contiene las letras:")
+print("El texto contiene las palabras:")
 print("Ignoraremos los números, los espacios y los signos de puntuación")
 print("(punto, coma, punto y coma, exclamación, etc.)")
 print("Consideremos mayúsculas y minúsculas como la misma letra.")
 print("=========================================================")
 print()
 
-for posicion in range(num_letras): # Recorro toda el texto
+texto = texto.split(" ") # lo separa por los espacios, asi obtenemos las diferentes palabras
 
-    # Si no es un caracter que hay que ignorar
-    if texto[posicion] not in caracteres_ign:
-        if texto[posicion] not in letras_diferentes: # Si no esta en la lista de letras diferentes la añado
-            letras_diferentes.append(texto[posicion])
-        
-# Ordenos las letras diferentes por orden alfabetico
-letras_diferentes.sort()
 
-for letra in range(len(letras_diferentes)):
-    caracter = letras_diferentes[letra] # Guarda cada caracter le la lista para mostrarlo
-    cantidad = texto.count(letras_diferentes[letra]) # Cuenta cuantas hay de cada letra en el texto
-    
-    # Si la cantidas es 1 pongo "vez" y si no pongo "veces"
-    if cantidad == 1:
-        print(f"{caracter}, {cantidad} vez")
-    else:
-        print(f"{caracter}, {cantidad} veces")
+for palabra in texto2:
+
+    print(palabra)
