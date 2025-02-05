@@ -52,6 +52,50 @@ Lo mismo que el ejercicio anterior, pero con palabras en lugar de letras.
 # Ejercicio 2a
 # ============
 
+# import os # importa libreria os        
+# os.system("cls") # Limpia la pantalla
+
+# print("Contar letras en un texto")
+# print("=========================")
+# print()
+
+# texto = input("Por favor, introduzca un texto (Puede contener números y caracteres con tilde) -> ").lower() # Pide un texto al usuario, ya lo guarda en minúsculas
+
+# caracteres_ign = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", " ", "¡", "!", "¿", "?", ".", ",", ":", ";", ] # lista de caracteres a ignorar
+# letras_diferentes = [] # Lista que contendra las diferentes letras
+# num_letras = len(texto) # numero de caracteres que tiene la cadena
+
+# print()
+# print("El texto contiene las letras:")
+# print("Ignoraremos los números, los espacios y los signos de puntuación")
+# print("(punto, coma, punto y coma, exclamación, etc.)")
+# print("Consideremos mayúsculas y minúsculas como la misma letra.")
+# print("=========================================================")
+# print()
+
+# for posicion in range(num_letras): # Recorro toda el texto
+
+#     # Si no es un caracter que hay que ignorar
+#     if texto[posicion] not in caracteres_ign:
+#         if texto[posicion] not in letras_diferentes: # Si no esta en la lista de letras diferentes la añado
+#             letras_diferentes.append(texto[posicion])
+        
+# # Ordenos las letras diferentes por orden alfabetico
+# letras_diferentes.sort()
+
+# for letra in range(len(letras_diferentes)):
+#     caracter = letras_diferentes[letra] # Guarda cada caracter le la lista para mostrarlo
+#     cantidad = texto.count(letras_diferentes[letra]) # Cuenta cuantas hay de cada letra en el texto
+    
+#     # Si la cantidas es 1 pongo "vez" y si no pongo "veces"
+#     if cantidad == 1:
+#         print(f"{caracter}, {cantidad} vez")
+#     else:
+#         print(f"{caracter}, {cantidad} veces")
+
+# Ejercicio 2b
+# ============
+
 import os # importa libreria os        
 os.system("cls") # Limpia la pantalla
 
@@ -92,8 +136,3 @@ for letra in range(len(letras_diferentes)):
         print(f"{caracter}, {cantidad} vez")
     else:
         print(f"{caracter}, {cantidad} veces")
-
-# Ejercicio 2b
-# ============
-
-
