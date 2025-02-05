@@ -105,6 +105,7 @@ print()
 
 # Pide un texto al usuario, ya lo guarda en minúsculas y sin espacios al principio ni al final
 texto = input("Por favor, introduzca un texto (Puede contener números y caracteres con tilde) -> ").strip().lower()
+palabra = [] # Guardara las palabras correctas, sin los caracteres ignorados
 texto2 = [] # Guardara el texto sin los caracteres que hay que ignorar
 palabras = [] # Guardara las palabras diferentes
 
@@ -115,6 +116,8 @@ caracteres_ign = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "¡", "!", "
 for letra in texto:
     if letra not in caracteres_ign:
         texto2.append(letra)
+
+palabra.append(texto2)
 
 
 
