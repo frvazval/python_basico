@@ -35,10 +35,35 @@ print()
 palabra_1 = input("Introduce la primera palabra -> ").lower()
 palabra_2 = input("Introduce la segunda palabra -> ").lower()
 
+
 # Comprueba si la palabra 2 es un anagrama de la palabra 1
 
-if len(palabra_1) == len(palabra_2): # Si tienen la misma longitud puede ser un anagrama
-    pass
+if len(palabra_1) != len(palabra_2): # Si no tienen la misma longitud no puede ser un anagrama
+    es_anagrama = False
 else:  # Si no tienen la misma longitud, no puede ser un anagrama
-    pass
+    # Creo dos listas, cada una con las letras de cada palabra ordenada alfabeticamente
+    es_anagrama = True
+    letras_1 = []
+    letras_2 = []
+
+    for letra in palabra_1:
+        letras_1.append(letra)
+
+    for letra in palabra_2:
+        letras_2.append(letra)
+
+    letras_1.sort()
+    letras_2.sort()
+
+    # Compruebo las dos listas letra a letra
+
+    for posicion in range(len(letras_1)):
+        if letras_1[posicion] != letras_2[posicion]:
+            es_anagrama = False
+            break
+
+if es_anagrama:
+    print("Son anagramas --> Sí")
+else:
+    print("Son anagramas --> No")
 
