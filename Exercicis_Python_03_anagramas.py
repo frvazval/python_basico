@@ -24,3 +24,14 @@ Otro ejemplo:
     "Son anagramas --> No"
  
 """
+import os # importa libreria os        
+os.system("cls") # Limpia la pantalla
+
+print("Anagramas")
+print("=========")
+print()
+
+# Guardo las palabras en las variables "palabra_1" y "palabra_2", las guardo en minúsculas
+palabra_1 = input("Introduce la primera palabra -> ").lower()
+palabra_2 = input("Introduce la segunda palabra -> ").lower()
+
