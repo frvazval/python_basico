@@ -17,16 +17,15 @@ letra = input("Introduce una letra: ")
 # muestra los animales de la lista que contienen la letra introducida
 
 print("Los animales de la lista que contienen la letra '" + letra + "' son:")
-print()
 
 for animal in animales:
     if letra in animal:
         print(animal)
-        existe = True
+        existe = True # Si lo ha encontrado
 
-print()
-if existe == False:
+if existe == False: # Si no lo ha encontrado
     print("Ningún animal contiene esa letra")
+
 
 
 
