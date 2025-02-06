@@ -9,12 +9,14 @@ try:
 
         if num >= 0 and num <= 100: # El número introducido es correcto            
 
-            for num in range(num):
+            for num in range(num + 1):
                 texto = str(num)                
 
-                if num % 3:
+                if num % 3 == 0 and num % 5 == 0 and num != 0:
+                    texto += " - FIZZ-BUZZ"
+                elif num % 3 == 0 and num != 0:
                     texto += " - FIZZ"
-                if num % 5:
+                elif num % 5 == 0 and num != 0:
                     texto += " - BUZZ"
                 
                 print(texto) # Imprimo el mensaje final
