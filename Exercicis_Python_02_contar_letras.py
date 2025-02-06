@@ -67,6 +67,7 @@ Lo mismo que el ejercicio anterior, pero con palabras en lugar de letras.
 
 # print()
 # print("El texto contiene las letras:")
+# print("=============================")
 # print("Ignoraremos los números, los espacios y los signos de puntuación")
 # print("(punto, coma, punto y coma, exclamación, etc.)")
 # print("Consideremos mayúsculas y minúsculas como la misma letra.")
@@ -105,9 +106,10 @@ print()
 
 # Pide un texto al usuario, ya lo guarda en minúsculas y sin espacios al principio ni al final
 texto = input("Por favor, introduzca un texto (Puede contener números y caracteres con tilde) -> ").strip().lower()
-palabra = [] # Guardara las palabras correctas, sin los caracteres ignorados
-texto2 = [] # Guardara el texto sin los caracteres que hay que ignorar
-palabras = [] # Guardara las palabras diferentes
+texto2 = "" # uardara la frase correcta, sin los caracteres ignorados
+
+palabras = [] # Guardara las palabras del texto2
+palabras_diferentes =  []
 
 # lista de caracteres a ignorar, en este caso no pòngo el " " para poder separar las palabras después
 caracteres_ign = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "¡", "!", "¿", "?", ".", ",", ":", ";", ]  
@@ -115,24 +117,34 @@ caracteres_ign = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "¡", "!", "
 # Elimino del texto todos los caracteres no validos, menos el espacio
 for letra in texto:
     if letra not in caracteres_ign:
-        texto2.append(letra)
-
-palabra.append(texto2)
-
-
+        texto2 += letra # va añadiendo las letras a la cadena texto2
 
 
 print()
 print("El texto contiene las palabras:")
+print("===============================")
 print("Ignoraremos los números, los espacios y los signos de puntuación")
 print("(punto, coma, punto y coma, exclamación, etc.)")
 print("Consideremos mayúsculas y minúsculas como la misma letra.")
 print("=========================================================")
 print()
 
-texto = texto.split(" ") # lo separa por los espacios, asi obtenemos las diferentes palabras
+palabras = texto2.split(" ") # lo separa por los espacios, asi obtenemos las diferentes palabras
 
+for palabra in palabras:
+    if palabra not in palabras_diferentes:
+        palabras_diferentes.append(palabra) # Guarda las palabras diferentes
 
-for palabra in texto2:
+# Ordenos afabeticamente las palabras diferentes
+palabras_diferentes.sort()
 
-    print(palabra)
+# Cuenta cuantas palabras hay de cada una
+for valor in palabras_diferentes:
+    cantidad = texto2.count(valor) # Guarda cuantas veces se repite la palabra en el texto
+
+    # Si la cantidas es 1 pongo "vez" y si no pongo "veces"
+    if cantidad == 1:
+        print(f"{valor}, {cantidad} vez")
+    else:
+         print(f"{valor}, {cantidad} veces")
+
