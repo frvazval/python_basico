@@ -37,3 +37,27 @@ try:
 
 except ValueError:
     print("Has de introducir un número , no se pueden introducir letras")
+
+# Soluccion hecha por el profesor
+
+# try:
+#     referencia = int(input("Indica el número de referencia -> "))
+#     # if referencia <0 or referencia > 100:
+#     #     print("El número es incorrecto")
+#     #     exit()
+#     if 0<= referencia <= 100:
+#         for num in range(0, referencia+1, 1):
+#             if num == 0:
+#                 print(0)
+#             elif num % 3 == 0 and num % 5 == 0:
+#                 print(f"{num} - FIZZBUZZ")
+#             elif num % 3 == 0:
+#                 print(f"{num} - FIZZ")
+#             elif num % 5 == 0:
+#                 print(f"{num} - BUZZ")
+#             else:
+#                 print(f"{num}")
+#     else:
+#         print("El número es incorrecto")
+# except:
+#     print("Ha de ser un número entero")
