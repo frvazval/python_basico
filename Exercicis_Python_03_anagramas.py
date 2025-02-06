@@ -35,3 +35,10 @@ print()
 palabra_1 = input("Introduce la primera palabra -> ").lower()
 palabra_2 = input("Introduce la segunda palabra -> ").lower()
 
+# Comprueba si la palabra 2 es un anagrama de la palabra 1
+
+if len(palabra_1) == len(palabra_2): # Si tienen la misma longitud puede ser un anagrama
+    pass
+else:  # Si no tienen la misma longitud, no puede ser un anagrama
+    pass
+
