@@ -25,7 +25,3 @@ for animal in animales:
 
 if existe == False: # Si no lo ha encontrado
     print("Ningún animal contiene esa letra")
-
-
-
-
