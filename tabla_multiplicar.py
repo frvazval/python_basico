@@ -11,5 +11,4 @@ try:
         print(f"{num} * {n} = {num * n}")
 except ValueError:
     print("Numero incorrecto")
-
     
