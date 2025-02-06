@@ -4,10 +4,10 @@
 import os # importa libreria os        
 os.system("cls") # Limpia la pantalla
 
+# Guardo el texto en una variable
 texto = input("Escribe un texto: ")
 
 # En texto_2 guardare el texto sin vocales ni espacios
-
 texto_2 = ""
 vocales = ["a", "e", "i", "o", "u"]
 
