@@ -24,6 +24,7 @@ for animal in animales:
         print(animal)
         existe = True
 
+print()
 if existe == False:
     print("Ningún animal contiene esa letra")
 
