@@ -35,12 +35,13 @@ nueva_lista_2 = lista_nombres[:]
 # Mini ejercicio: obtener los números elevados al cuadrado de la serie
 
 lista_numeros = list(range(0, 11)) # Hay que obtener --> 0, 1, 4, 9, ...
+print(lista_numeros) # muestra los números de la lista
 
 # necesitamos otra lista sólo con los números elevados al cuadrado de lista_numeros
 
-lista_num_cuadrado = []
+lista_num_cuadrado = [] # Contendra la lista de números al cuadrado
 
 for numero in lista_numeros:
     lista_num_cuadrado.append(numero * numero)
 
-print(lista_num_cuadrado)
+print(lista_num_cuadrado) # Muestra los números al cuadrado
