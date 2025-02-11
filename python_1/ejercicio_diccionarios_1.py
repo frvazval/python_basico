@@ -27,22 +27,27 @@ while not salir:
     print("X. Salir")
     print()
     
-    opcion = input("Elige una opción: ").strip().title() # Le quito los espacios y pongo la primera letra en mayusculas
+    opcion = input("Elige una opción: ").strip() # Le quito los espacios
 
     match opcion:
-        case "x" | "x": # Salir
+        case "x" | "X": # Salir
             salir = True
             print("Salimos del programa")
         case "1": # añadir usuario            
-            nombre = input("Nombre del nuevo usuario: ")
+            nombre = input("Nombre del nuevo usuario: ").strip().title() # Quita los espacios y pone la primera en mayusculas
 
-            if lista_usuarios: 
+            if lista_usuarios: # Si la lista de usuarios no esta vacia
+                existe = False
                 for usuario in lista_usuarios:
                     if usuario["nombre"] == nombre:
+                        existe = True     
+
+                    if existe:
                         print("El usuario ya existe")
                     else:
                         dic_usuario = {"nombre" : nombre, "visitas": 0} 
-                        lista_usuarios.append(dic_usuario)                
+                        lista_usuarios.append(dic_usuario)                               
+
             else:             
                  dic_usuario = {"nombre" : nombre, "visitas": 0} 
                  lista_usuarios.append(dic_usuario)                
