@@ -18,3 +18,9 @@ Lo mismo si supera un día o una semana.
 
 . 
 """
+import os # importa libreria os        
+os.system("cls") # Limpia la pantalla
+
+print("Conversor de segundos")
+print("=====================")
+
