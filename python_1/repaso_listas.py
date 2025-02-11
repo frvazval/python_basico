@@ -51,7 +51,7 @@ print(lista_num_cuadrado) # Muestra los números al cuadrado
 # Forma 2:
 lista_num_cuadrado2 = print([ numero**2 for numero in lista_numeros])
 
-
+# =========================================================================
 lista_ciudades = ["NY", "LA", "BCN"]
 ny, la, bcn = lista_ciudades # Guarda cada valor en una variable
 print(bcn)
