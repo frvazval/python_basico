@@ -30,5 +30,10 @@ try:
 
     segundos = int(input("Cantidad de segundos: "))
 
+    if segundos < 60:
+        print(f"{segundos} segundos son menos de 1 minuto")
+    elif segundos >= 60:
+        pass
+
 except ValueError: # Error de que ha introducido letras en lugar de números
     print("Hay que introducir un número valido")

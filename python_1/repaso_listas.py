@@ -39,9 +39,20 @@ print(lista_numeros) # muestra los números de la lista
 
 # necesitamos otra lista sólo con los números elevados al cuadrado de lista_numeros
 
+# Forma 1:
 lista_num_cuadrado = [] # Contendra la lista de números al cuadrado
+lista_num_cuadrado2 = []
 
 for numero in lista_numeros:
-    lista_num_cuadrado.append(numero * numero)
+    lista_num_cuadrado.append(numero * numero) # Tambien se puede poner (numero ** 2)
 
 print(lista_num_cuadrado) # Muestra los números al cuadrado
+
+# Forma 2:
+lista_num_cuadrado2 = print([ numero**2 for numero in lista_numeros])
+
+
+lista_ciudades = ["NY", "LA", "BCN"]
+ny, la, bcn = lista_ciudades # Guarda cada valor en una variable
+print(bcn)
+
