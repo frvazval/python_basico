@@ -21,6 +21,14 @@ Lo mismo si supera un día o una semana.
 import os # importa libreria os        
 os.system("cls") # Limpia la pantalla
 
-print("Conversor de segundos")
-print("=====================")
+try:
 
+    print("Conversor de segundos")
+    print("=====================")
+
+    # pido la cantidad de segundos
+
+    segundos = int(input("Cantidad de segundos: "))
+
+except ValueError: # Error de que ha introducido letras en lugar de números
+    print("Hay que introducir un número valido")
