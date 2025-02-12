@@ -42,7 +42,7 @@ def mostrar_datos_alumno(nombre, apellido, becado = False):
         becado = "Sí"
     else:
         becado = "No"
-        
+
     return f"el alumno {nombre} {apellido} tiene beca? --> {becado}"
 
 alumno_1 = mostrar_datos_alumno("Anna", "Garcia")
@@ -50,3 +50,17 @@ print(alumno_1)
 alumno_2 = mostrar_datos_alumno("Joan", "Pou", True)
 print(alumno_2)
 
+# Queremos hacer una función que sume los numeros que le pasemos por argumento, (cualquier cantidad)
+# ejemplos
+# ========
+# sumar(1,2)
+# sumar(3,4,5)
+# sumar(6,4,5,3)
+
+def sumar(*argv): # argumentos variados, se puede llamar de otra forma, pero se suele llamar argv
+    print(argv)
+    print(type(argv)) # argv es una tupla
+
+sumar(1,2)
+sumar(3,4,5)
+sumar(3,4,5,3)
