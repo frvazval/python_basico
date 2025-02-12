@@ -42,9 +42,11 @@ try:
         if num_seg % 60 != 0: # Si despues de calcular los minutos aun queda algun segundo 
             mensaje += (" y " + str(num_seg % 60) + " segundos")         
     elif num_seg >= 3600 and num_seg < 86400: # de una hora a menos de un día (en 24 horas hay 86400 segundos, 60 * 60 * 24)
-        horas = num_seg // 3600
+        mensaje  += (" son " + str(num_seg // 3600) + " horas") 
+            
         if num_seg % 3600 != 0:
-            minutos = num_seg % 3600
+            mensaje += (" y " + str(num_seg % 3600) + "")
+            minutos = num_seg % 3600  
             if minutos % 60 != 0:
                 segundos = minutos % 60
     elif num_seg >= 86400 and num_seg < 604800: # de un día hasta menos de una semana (en 7 días hay 604800 segundos, 86400 * 7)

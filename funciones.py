@@ -27,3 +27,26 @@ print(sumar("Hola ","y adios"))
 resultado = sumar(3,2)
 print(resultado)
 
+variable = "otra cosa"
+
+def prueba_variables():
+    variable = "Soy una prueba" # solo es accesible desde dentro de la variable
+
+print(variable)
+
+
+# valor por defecto
+
+def mostrar_datos_alumno(nombre, apellido, becado = False):
+    if becado:
+        becado = "Sí"
+    else:
+        becado = "No"
+        
+    return f"el alumno {nombre} {apellido} tiene beca? --> {becado}"
+
+alumno_1 = mostrar_datos_alumno("Anna", "Garcia")
+print(alumno_1)
+alumno_2 = mostrar_datos_alumno("Joan", "Pou", True)
+print(alumno_2)
+
