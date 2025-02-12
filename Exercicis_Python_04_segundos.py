@@ -42,7 +42,7 @@ try:
         segundos = num_seg % 60
         mensaje += f" son {minutos} minutos" 
         if segundos != 0: # Si despues de calcular los minutos aun queda algun segundo 
-            mensaje += f" y  {segundos} segundos"
+            mensaje += f" y {segundos} segundos"
 
     elif num_seg >= 3600 and num_seg < 86400: # de una hora a menos de un día (en 24 horas hay 86400 segundos, 60 * 60 * 24)
         horas = num_seg // 3600
@@ -65,28 +65,47 @@ try:
     elif num_seg >= 86400 and num_seg < 604800: # de un día hasta menos de una semana (en 7 días hay 604800 segundos, 86400 * 7)       
         dias = num_seg // 86400
         segundos = num_seg % 86400 # segundos restantes despues de calcular los dias
-        minutos = horas % 60
-        segundos = minutos % 60
-
+        
         mensaje += f" son {dias} días"
 
-        if segundos < 3600: # los segundos restantes no llegan a 1 hora
-            minutos = segundos // 60
-            seg_restantes = segundos % 60
-
-            mensaje += f" son {minutos} minutos" 
-
-            if seg_restantes != 0: # Si despues de calcular los minutos aun queda algun segundo 
-                mensaje += f" y  {seg_restantes} segundos"
-        else:
-            horas = segundos // 3600
-            seg_restantes = segundos % 3600 # segundos que quedan despues de calcular las horas
-
-            
-
-            
+        # Si después de calcular los dias aun quedan segundos
+        if segundos != 0:
+            if segundos < 3600: # los segundos restantes no llegan a 1 hora
+                minutos = segundos // 3600
+                seg_restantes = segundos % 3600
                 
+                mensaje += f" y {minutos} minutos"
 
+                if seg_restantes != 0: # si aun quedan segundos despues de calcular los minutos
+                    mensaje += f" y {seg_restantes} segundos"            
+        else:
+            pass
+
+        # if segundos < 3600: # los segundos restantes no llegan a 1 hora
+        #     minutos = segundos // 3600
+        #     seg_restantes = segundos % 3600
+
+        #     if minutos > 0:
+        #         mensaje += f" son {minutos} minutos"
+
+        #     if seg_restantes != 0: # Si despues de calcular los minutos aun queda algun segundo 
+        #         mensaje += f" y  {seg_restantes} segundos"
+        #     else:
+        #         horas = segundos // 3600
+        #         seg_restantes = segundos % 3600 # segundos que quedan despues de calcular las horas
+
+        #         if horas > 0:
+        #             mensaje += f" y {horas} horas"
+
+        #         if seg_restantes != 0: # si despues de calcular las horas aun quedan segundos
+        #             if seg_restantes < 60: # Si son menos de 60 , no llega a un minuto
+        #                 mensaje += f" y {seg_restantes} segundos"
+        #         else:
+        #             minutos = seg_restantes // 60 # si son más de 60 calcula los minutos
+        #             if seg_restantes % 60 != 0: # si despues de calcular los minutos, aun queda algun segundo
+        #                 mensaje += f" y {minutos} minutos y {seg_restantes % 60} segundos"                     
+
+    # muestra por pantalla el mensaje final
     print(f"\n{mensaje}\n")
     
 
