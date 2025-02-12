@@ -38,37 +38,41 @@ try:
         mensaje += " son menos de 1 minuto"
                 
     elif num_seg >= 60 and num_seg < 3600: # de un minuto hasta menos de una hora (60 minutos * 60 son 3600 segundos)
-        mensaje += (" son " + str(num_seg // 60) + " minutos") 
-
-        if num_seg % 60 != 0: # Si despues de calcular los minutos aun queda algun segundo 
-            mensaje += (" y " + str(num_seg % 60) + " segundos")   
+        minutos = num_seg // 60
+        segundos = num_seg % 60
+        mensaje += f" son {minutos} minutos" 
+        if segundos != 0: # Si despues de calcular los minutos aun queda algun segundo 
+            mensaje += f" y  {segundos} segundos"
 
     elif num_seg >= 3600 and num_seg < 86400: # de una hora a menos de un día (en 24 horas hay 86400 segundos, 60 * 60 * 24)
         horas = num_seg // 3600
-        mensaje  += (" son " + str(horas) + " horas")  
+        minutos = num_seg % 3600
+        segundos = minutos % 60
 
-        if num_seg % 3600 != 0:
-            minutos = num_seg % 3600 
-            mensaje += (" y " + str(minutos) + " minutos") 
+        mensaje  += f" son {horas} horas"  
 
-            if minutos % 60 != 0:
-                segundos = minutos % 60
-                mensaje += (" y " + str(segundos) + " segundos")
+        if minutos != 0:           
+            mensaje += f" y {minutos} minutos"
 
-    elif num_seg >= 86400 and num_seg < 604800: # de un día hasta menos de una semana (en 7 días hay 604800 segundos, 86400 * 7)
+        if segundos != 0:            
+            mensaje += f" y {segundos} segundos"
 
+    elif num_seg >= 86400 and num_seg < 604800: # de un día hasta menos de una semana (en 7 días hay 604800 segundos, 86400 * 7)       
         dias = num_seg // 86400
-        mensaje += (" son " + str(dias) + " días")
+        horas = dias % 24
+        minutos = horas % 60
+        segundos = minutos % 60
 
-        if num_seg % 86400 != 0:
-            horas = num_seg % 86400
-            mensaje += (" y " + str(horas) + " horas")
+        mensaje += f" son {dias} días"
 
-            if horas % 60 != 0:
-                minutos = horas % 60
-                
-                if minutos % 60 != 0:
-                    segundos = minutos % 60
+        if horas != 0:            
+            mensaje += f" y {horas} horas"
+
+        if minutos != 0:
+            mensaje += f" y {minutos} minutos"
+
+        if segundos != 0:
+             mensaje += f" y {segundos} segundos"            
 
     print(mensaje)
     

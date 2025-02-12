@@ -43,7 +43,7 @@ def mostrar_datos_alumno(nombre, apellido, becado = False):
     else:
         becado = "No"
 
-    return f"el alumno {nombre} {apellido} tiene beca? --> {becado}"
+    return f"el alumno {nombre} {apellido} tiene beca? --> {becado}" # es la ultima instruccion, porque lo que va detras ya no lo ejecuta
 
 alumno_1 = mostrar_datos_alumno("Anna", "Garcia")
 print(alumno_1)
