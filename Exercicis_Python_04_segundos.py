@@ -22,18 +22,47 @@ import os # importa libreria os
 os.system("cls") # Limpia la pantalla
 
 try:
+    # variables para guardar los segundos, minutos, horas, dias, etc....
+    segundos = 0
+    minutos = 0
+    horas = 0
+    dias = 0
 
     print("Conversor de segundos")
     print("=====================")
 
     # pido la cantidad de segundos
+    num_seg = int(input("Cantidad de segundos: "))
+    mensaje = str(num_seg)
+    if num_seg < 60: # Hasta menos de un minuto
+        mensaje += " son menos de 1 minuto"
+                
+    elif num_seg >= 60 and num_seg < 3600: # de un minuto hasta menos de una hora (60 minutos * 60 son 3600 segundos)
+        mensaje += (" son " + str(num_seg // 60) + " minutos") 
+        if num_seg % 60 != 0: # Si despues de calcular los minutos aun queda algun segundo 
+            mensaje += (" y " + str(num_seg % 60) + " segundos")         
+    elif num_seg >= 3600 and num_seg < 86400: # de una hora a menos de un día (en 24 horas hay 86400 segundos, 60 * 60 * 24)
+        horas = num_seg // 3600
+        if num_seg % 3600 != 0:
+            minutos = num_seg % 3600
+            if minutos % 60 != 0:
+                segundos = minutos % 60
+    elif num_seg >= 86400 and num_seg < 604800: # de un día hasta menos de una semana (en 7 días hay 604800 segundos, 86400 * 7)
+        dias = num_seg // 86400
+        if num_seg % 86400 != 0:
+            horas = num_seg % 86400
+            if horas % 60 != 0:
+                minutos = horas % 60
+                if minutos % 60 != 0:
+                    segundos = minutos % 60
 
-    segundos = int(input("Cantidad de segundos: "))
+    print(mensaje)
+    
 
-    if segundos < 60: # Hasta un minuto
-        print(f"{segundos} segundos son menos de 1 minuto")
-    elif segundos >= 60 and segundos <= 3600: # 
-        pass
+
+
+    
+        
 
 except ValueError: # Error de que ha introducido letras en lugar de números
     print("Hay que introducir un número valido")
