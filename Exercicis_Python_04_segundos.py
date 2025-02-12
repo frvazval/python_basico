@@ -46,16 +46,25 @@ try:
 
     elif num_seg >= 3600 and num_seg < 86400: # de una hora a menos de un día (en 24 horas hay 86400 segundos, 60 * 60 * 24)
         horas = num_seg // 3600
-        minutos = horas % 3600
-        segundos = minutos % 60
-
+        segundos = num_seg % 3600
+        
         mensaje  += f" son {horas} horas"  
 
-        if minutos != 0:           
-            mensaje += f" y {minutos} minutos"
+        if segundos != 0:
+            if segundos < 60:
+                mensaje += f" y {segundos} segundos"
+            else:
+                minutos = segundos // 60
+                if segundos % 60 != 0:
+                    mensaje += f" y {minutos} minutos y {segundos % 60} segundos"
+                else:
+                    mensaje += f" y {minutos} minutos"
 
-        if segundos != 0:            
-            mensaje += f" y {segundos} segundos"
+
+
+        # else:
+        #     minutos = segundos // 60
+        #     mensaje += f" y {minutos} minutos"        
 
     elif num_seg >= 86400 and num_seg < 604800: # de un día hasta menos de una semana (en 7 días hay 604800 segundos, 86400 * 7)       
         dias = num_seg // 86400
