@@ -37,20 +37,26 @@ while not salir:
             nombre = input("Nombre del nuevo usuario: ").strip().title() # Quita los espacios y pone la primera en mayusculas
 
             if lista_usuarios: # Si la lista de usuarios no esta vacia
-                existe = False
-                for usuario in lista_usuarios:
-                    if usuario["nombre"] == nombre:
-                        existe = True     
 
-                    if existe:
-                        print("El usuario ya existe")
-                    else:
-                        dic_usuario = {"nombre" : nombre, "visitas": 0} 
-                        lista_usuarios.append(dic_usuario)                               
+                # Guardo los usuarios existentes en una lista auxiliar
+                nombres_existentes = []
+                for nombre_usuario in lista_usuarios:
+                    nombres_existentes.append(nombre_usuario["nombre"])
+                
+                # Si el nombre introducido no existe
+                if nombre not in nombres_existentes:
+                    # Lo añado a un diccionario y este a la lista "lista_usuarios"
+                    dic_usuario = {"nombre" : nombre, "visitas" : 0}
+                    lista_usuarios.append(dic_usuario)  
+                    print(f"Usuario {nombre} añadido correctamente")
+                else:
+                    print(f"El usuario {nombre} no se puede añadir porque ya existe")
+                                                      
 
             else:             
                  dic_usuario = {"nombre" : nombre, "visitas": 0} 
-                 lista_usuarios.append(dic_usuario)                
+                 lista_usuarios.append(dic_usuario)
+                 print(f"Usuario {nombre} añadido correctamente")                
         case "2": # añadir visita
             pass
         case "3": # mostrar visita
