@@ -32,7 +32,10 @@ while not salir:
     match opcion:
         case "x" | "X": # Salir
             salir = True
+            print()
             print("Salimos del programa")
+            print()
+            
         case "1": # añadir usuario            
             nombre = input("Nombre del nuevo usuario: ").strip().title() # Quita los espacios y pone la primera en mayusculas
 
@@ -48,14 +51,21 @@ while not salir:
                     # Lo añado a un diccionario y este a la lista "lista_usuarios"
                     dic_usuario = {"nombre" : nombre, "visitas" : 0}
                     lista_usuarios.append(dic_usuario)  
+                    print()
                     print(f"Usuario {nombre} añadido correctamente")
+                    print()
                 else:
-                    print(f"El usuario {nombre} no se puede añadir porque ya existe")                                                      
+                    print()
+                    print(f"El usuario {nombre} no se puede añadir porque ya existe")   
+                    print()                                                   
 
             else:             
                  dic_usuario = {"nombre" : nombre, "visitas": 0} 
                  lista_usuarios.append(dic_usuario)
-                 print(f"Usuario {nombre} añadido correctamente")                
+                 print()
+                 print(f"Usuario {nombre} añadido correctamente")   
+                 print()
+
         case "2": # añadir visita          
 
             # Si la lista esta vacia no se pueden añadir visitas
@@ -73,14 +83,48 @@ while not salir:
                     for nom in lista_usuarios:
                         if nom["nombre"] == nombre:
                             nom["visitas"] += 1 # Añado una visita a las existentes
+                            print()
                             print(f"Se ha añadido correctamente la visita al usuario {nombre}")
+                            print()
                 else:
+                    print()
                     print(f"No se pueden añadir visitas al usuario {nombre} porque no existe")
+                    print()
                 
             else:
+                print()
                 print("No exite ningún usuario en la lista")
+                print()
+
         case "3": # mostrar visita
-            pass
+            # Comprueba si la lista esta vacia
+            if lista_usuarios:
+                # Si existen usuarios pido el nombre le quito los espacios y le pongo la primera en mayusculas
+                nombre = input("Nombre del nuevo usuario para añadir visita: ").strip().title()
+
+                # Guardo los usuarios existentes en una lista auxiliar
+                nombres_existentes = []
+                for nombre_usuario in lista_usuarios:
+                    nombres_existentes.append(nombre_usuario["nombre"])
+
+                # Compruebo si el usuario introducido existe en la lista
+                if nombre in nombres_existentes:
+                    for nom in lista_usuarios:
+                        if nom["nombre"] == nombre:
+                            print()
+                            print(f"El usuario {nombre} tiene {nom['visitas']} visitas")
+                            print()
+                            
+                else:
+                    pritn()
+                    print(f"No se pueden mostrar las visitas del usuario {nombre} porque no existe")
+                    print()
+
+            else:
+                print()
+                print("No exite ningún usuario en la lista")
+                print()
+
         case "4": # mostrar todas las visitas
             if lista_usuarios:
                 for u in lista_usuarios:
@@ -91,7 +135,7 @@ while not salir:
                 print()
         case _: # opción incorrecta
             print()
-            print(f"La opción {opcion} elegida es incorrecta")
+            print(f"La opción {opcion} es incorrecta")
             print()
    
     
