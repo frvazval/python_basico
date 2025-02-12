@@ -71,16 +71,20 @@ try:
         mensaje += f" son {dias} días"
 
         if segundos < 3600: # los segundos restantes no llegan a 1 hora
-            minutos = num_seg // 60
-            segundos = num_seg % 60
+            minutos = segundos // 60
+            seg_restantes = segundos % 60
 
             mensaje += f" son {minutos} minutos" 
 
-            if segundos != 0: # Si despues de calcular los minutos aun queda algun segundo 
-                mensaje += f" y  {segundos} segundos"
+            if seg_restantes != 0: # Si despues de calcular los minutos aun queda algun segundo 
+                mensaje += f" y  {seg_restantes} segundos"
         else:
+            horas = segundos // 3600
+            seg_restantes = segundos % 3600 # segundos que quedan despues de calcular las horas
 
-            pass
+            
+
+            
                 
 
     print(f"\n{mensaje}\n")
