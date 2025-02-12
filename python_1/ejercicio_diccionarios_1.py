@@ -116,7 +116,7 @@ while not salir:
                             print()
                             
                 else:
-                    pritn()
+                    print()
                     print(f"No se pueden mostrar las visitas del usuario {nombre} porque no existe")
                     print()
 
