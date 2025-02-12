@@ -33,7 +33,7 @@ try:
 
     # pido la cantidad de segundos
     num_seg = int(input("Cantidad de segundos: "))
-    mensaje = str(num_seg)
+    mensaje = f"{num_seg} segundos ->"
     if num_seg < 60: # Hasta menos de un minuto        
         mensaje += " son menos de 1 minuto"
                 
@@ -50,21 +50,17 @@ try:
         
         mensaje  += f" son {horas} horas"  
 
+        # Si después de calcular las horas aun quedan segundos
         if segundos != 0:
-            if segundos < 60:
+            if segundos < 60: # Si son menos de 60 , no llega a un minuto
                 mensaje += f" y {segundos} segundos"
             else:
-                minutos = segundos // 60
-                if segundos % 60 != 0:
+                minutos = segundos // 60 # si son más de 60 calcula los minutos
+                if segundos % 60 != 0: # si despues de calcular los minutos, aun queda algun segundo
                     mensaje += f" y {minutos} minutos y {segundos % 60} segundos"
                 else:
                     mensaje += f" y {minutos} minutos"
-
-
-
-        # else:
-        #     minutos = segundos // 60
-        #     mensaje += f" y {minutos} minutos"        
+           
 
     elif num_seg >= 86400 and num_seg < 604800: # de un día hasta menos de una semana (en 7 días hay 604800 segundos, 86400 * 7)       
         dias = num_seg // 86400
@@ -83,7 +79,7 @@ try:
         if segundos != 0:
              mensaje += f" y {segundos} segundos"            
 
-    print(mensaje)
+    print(f"\n{mensaje}\n")
     
 
 
