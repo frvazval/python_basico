@@ -46,7 +46,7 @@ try:
 
     elif num_seg >= 3600 and num_seg < 86400: # de una hora a menos de un día (en 24 horas hay 86400 segundos, 60 * 60 * 24)
         horas = num_seg // 3600
-        minutos = num_seg % 3600
+        minutos = horas % 60
         segundos = minutos % 60
 
         mensaje  += f" son {horas} horas"  
