@@ -15,4 +15,7 @@ de un adulto.
 Al finalizar la compra mostraremos las entradas 
 y el importe total. 
 
+En cualquier momento hay que poder finalizar
+el proceso sin que se produzca la compra
+
 """
