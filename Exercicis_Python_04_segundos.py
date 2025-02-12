@@ -64,20 +64,24 @@ try:
 
     elif num_seg >= 86400 and num_seg < 604800: # de un día hasta menos de una semana (en 7 días hay 604800 segundos, 86400 * 7)       
         dias = num_seg // 86400
-        horas = dias % 24
+        segundos = num_seg % 86400 # segundos restantes despues de calcular los dias
         minutos = horas % 60
         segundos = minutos % 60
 
         mensaje += f" son {dias} días"
 
-        if horas != 0:            
-            mensaje += f" y {horas} horas"
+        if segundos < 3600: # los segundos restantes no llegan a 1 hora
+            minutos = num_seg // 60
+            segundos = num_seg % 60
 
-        if minutos != 0:
-            mensaje += f" y {minutos} minutos"
+            mensaje += f" son {minutos} minutos" 
 
-        if segundos != 0:
-             mensaje += f" y {segundos} segundos"            
+            if segundos != 0: # Si despues de calcular los minutos aun queda algun segundo 
+                mensaje += f" y  {segundos} segundos"
+        else:
+
+            pass
+                
 
     print(f"\n{mensaje}\n")
     
