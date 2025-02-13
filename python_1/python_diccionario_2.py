@@ -35,8 +35,8 @@ def comprar_entradas():
 
 # Programa principal
 entradas = [] # para guardar las entradas compradas
-try:
-    
+PRECIO
+try:    
     mostrar_precios()
 except ValueError:
     print("Has de introducir un número del 1 al 4")
