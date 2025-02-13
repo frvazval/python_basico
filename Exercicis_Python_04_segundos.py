@@ -83,8 +83,9 @@ try:
         if segundos != 0:
             mensaje += f"{segundos} segundos y "
     
+    # Antes de mostrar el mensaje final le tengo que quitar la " y " del final
     
-    print(f"{mensaje}\n") # muestro el mensaje final con el resultado
+    print(f"{mensaje[:-3]}\n") # muestro el mensaje final con el resultado
 
 except ValueError: # Error de que ha introducido letras en lugar de números
     print("\nHay que introducir un número valido\n")
