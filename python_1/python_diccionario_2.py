@@ -31,12 +31,13 @@ def mostrar_precios():
 
              
 
-def comprar_entradas(*argv):
+def comprar_entradas(tipo, cant):
     pass
 
 # Programa principal
 # definición de variables, listas, etc...
-entradas_compradas = [] # para guardar las entradas compradas
+entradas_compradas = [] # para guardar todas las entradas compradas
+dic_entradas_compradas = {} # para ir añadiendo nuevas entradas a la lista
 PR_ESTANDAR = 9.00
 PR_SENIOR = 6.00
 PR_INFANTIL = 7.20
@@ -45,15 +46,42 @@ salir = False
 try:    
     while not salir:
         mostrar_precios()
-        opcion = int(input("Introduce el tipo de entrada que quieres comprar, (4 - para salir): -> "))
+        opcion = int(input("Introduce el tipo de entrada que quieres comprar, (4 - para salir , 5 - terminar): -> "))
 
-        if opcion == 4:
-            salir = True
+        match opcion:
+            case 1:
+               tipo = 1
+               cantidad = int(input("Cuantas entradas estandar quieres comprar (0 - para salir ): -> "))
+               if cantidad > 0:
+                   comprar_entradas(tipo, cantidad)
+               else:
+                   continue              
+
+            case 2:
+                tipo = 2
+                cantidad = int(input("Cuantas entradas senior quieres comprar (0 - para salir ): -> "))
+                if cantidad > 0:                    
+                    comprar_entradas(tipo, cantidad)
+                else:
+                   continue
+            case 3:
+                tipo = 3
+                cantidad = int(input("Cuantas entradas infantiles quieres comprar (0 - para salir ): -> "))
+                if cantidad > 0:
+                   comprar_entradas(tipo, cantidad)
+                else:
+                   continue
+            case 4:
+                salir = True
+            case 5:
+                pass
+            case _:
+                print("\nLa opción introducida no es correcta\n")
 
 except ValueError:
-    print("Has de introducir un número del 1 al 4")
+    print("\nHas de introducir un número del 1 al 4\n")
 
 except:
-    print("Ha ocurrido un error en el programa")
+    print("\nHa ocurrido un error en el programa\n")
 
 
