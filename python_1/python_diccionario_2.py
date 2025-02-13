@@ -19,3 +19,13 @@ En cualquier momento hay que poder finalizar
 el proceso sin que se produzca la compra
 
 """
+import os # importa libreria os        
+os.system("cls") # Limpia la pantalla
+
+# Definicion de funciones
+def elegir_opcion_menu():
+    pass
+
+# Programa principal
+elegir_opcion_menu()
+
