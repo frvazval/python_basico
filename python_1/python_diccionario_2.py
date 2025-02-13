@@ -31,7 +31,7 @@ def mostrar_precios():
 
              
 
-def comprar_entradas(tipo, cantidad):
+def comprar_entradas(*argv):
     pass
 
 # Programa principal
@@ -40,9 +40,16 @@ entradas_compradas = [] # para guardar las entradas compradas
 PR_ESTANDAR = 9.00
 PR_SENIOR = 6.00
 PR_INFANTIL = 7.20
+salir = False
 
 try:    
-    mostrar_precios()
+    while not salir:
+        mostrar_precios()
+        opcion = int(input("Introduce el tipo de entrada que quieres comprar, (4 - para salir): -> "))
+
+        if opcion == 4:
+            salir = True
+
 except ValueError:
     print("Has de introducir un número del 1 al 4")
 

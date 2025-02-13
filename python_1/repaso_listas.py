@@ -48,7 +48,7 @@ for numero in lista_numeros:
 
 print(lista_num_cuadrado) # Muestra los números al cuadrado
 
-# Forma 2:
+# Forma 2: lista comprimida
 lista_num_cuadrado2 = print([ numero**2 for numero in lista_numeros])
 
 # =========================================================================
