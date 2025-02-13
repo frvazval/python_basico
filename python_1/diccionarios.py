@@ -33,6 +33,11 @@ for propiedad in dic_1: # Muestra las claves
 for propiedad in dic_1.keys():
     print(propiedad)
 
+# iteraccion por valores
+
+for valor in dic_1.values():
+    print(valor)
+
 # iteracion especifica de valores
 
 for clave, valor in dic_1.items():

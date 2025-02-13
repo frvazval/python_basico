@@ -27,22 +27,21 @@ def mostrar_precios():
     print("Hay tres precios:")
     print("1 - Entrada estandar: 9.00")
     print("2 - Mayores de 65 años (seniors) : 6.00")
-    print("3 - Infantiles : 7.20")
-
-          
+    print("3 - Infantiles : 7.20\n") 
+             
 
 def comprar_entradas():
     pass
 
 # Programa principal
 entradas = [] # para guardar las entradas compradas
-
 try:
-
+    
+    mostrar_precios()
 except ValueError:
     print("Has de introducir un número del 1 al 4")
 
 except:
-    
+    print("Ha ocurrido un error en el programa")
 
-mostrar_precios()
+
