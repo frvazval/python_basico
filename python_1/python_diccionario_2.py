@@ -23,9 +23,26 @@ import os # importa libreria os
 os.system("cls") # Limpia la pantalla
 
 # Definicion de funciones
-def elegir_opcion_menu():
+def mostrar_precios():
+    print("Hay tres precios:")
+    print("1 - Entrada estandar: 9.00")
+    print("2 - Mayores de 65 años (seniors) : 6.00")
+    print("3 - Infantiles : 7.20")
+
+          
+
+def comprar_entradas():
     pass
 
 # Programa principal
-elegir_opcion_menu()
+entradas = [] # para guardar las entradas compradas
 
+try:
+
+except ValueError:
+    print("Has de introducir un número del 1 al 4")
+
+except:
+    
+
+mostrar_precios()

@@ -4,6 +4,8 @@ El acceso al dato se produce mediante un identificador
 llamado "clave", así: "clave" : "valor"
 La clave puede ser un string, un número, una tupla, .....
 los diccionarios son mutables, se le puede cambiar el contenido
+
+No importa el orden en el que esten puestos los datos, importa la clave
 {} <-- llaves
 """
 
