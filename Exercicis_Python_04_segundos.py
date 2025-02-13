@@ -21,106 +21,70 @@ Lo mismo si supera un día o una semana.
 import os # importa libreria os        
 os.system("cls") # Limpia la pantalla
 
-try:
-    # variables para guardar los segundos, minutos, horas, dias, etc....
-    segundos = 0
-    minutos = 0
-    horas = 0
-    dias = 0
+try:    
+    # Definiciones de tiempo
+    segundos_por_minuto = 60 # un minuto son 60 segundos
+    segundos_por_hora = 3600 # una hora son 60 * 60 = 3600 segundos
+    segundos_por_dia = 86400 # un día son 3600 * 24 = 86400 segundos
+    segundos_por_semana = 604800 # una semana son 86400 * 7 = 604800 segundos
+    # 365 dias de un año son 365 * 86400 = 31536000 segundos
+    # 31536000 / 12 = 2628000 segundos en un mes
+    segundos_por_mes =  2628000 
+
+    mensaje = "" # guardara el mensaje final con el resultado
 
     print("Conversor de segundos")
     print("=====================")
+    
+    # Pido al usuario el numero de segundos
+    segundos = int(input("Introduce la cantidad de segundos: "))
 
-    # pido la cantidad de segundos
-    num_seg = int(input("Cantidad de segundos: "))
-    mensaje = f"{num_seg} segundos ->"
-    if num_seg < 60: # Hasta menos de un minuto        
-        mensaje += " son menos de 1 minuto"
-                
-    elif num_seg >= 60 and num_seg < 3600: # de un minuto hasta menos de una hora (60 minutos * 60 son 3600 segundos)
-        minutos = num_seg // 60
-        segundos = num_seg % 60
-        mensaje += f" son {minutos} minutos" 
-        if segundos != 0: # Si despues de calcular los minutos aun queda algun segundo 
-            mensaje += f" y {segundos} segundos"
+    mensaje += f"\n{segundos} segundos son "
 
-    elif num_seg >= 3600 and num_seg < 86400: # de una hora a menos de un día (en 24 horas hay 86400 segundos, 60 * 60 * 24)
-        horas = num_seg // 3600
-        segundos = num_seg % 3600
+    # Cálculos
+    # Con la división entera // para que siempre que sea menos de 1 de como resustado 0
+    # y el modulo % para ir guardando el resto de segundos
+
+    if segundos < 60:
+        mensaje += "menos de 1 minuto"
+    else:
+        meses = segundos // segundos_por_mes
+        segundos = segundos % segundos_por_mes
+
+        semanas = segundos // segundos_por_semana
+        segundos = segundos % segundos_por_semana
+
+        dias = segundos // segundos_por_dia
+        segundos = segundos % segundos_por_dia
+
+        horas = segundos // segundos_por_hora
+        segundos = segundos % segundos_por_hora
+
+        minutos = segundos // segundos_por_minuto
+        segundos = segundos % segundos_por_minuto
+
         
-        mensaje  += f" son {horas} horas"  
+        # Configuro el mensaje final
+        if meses != 0:
+            mensaje += f"{meses} meses y "
 
-        # Si después de calcular las horas aun quedan segundos
+        if semanas != 0:
+            mensaje += f"{semanas} semanas y "
+
+        if dias != 0:
+            mensaje += f"{dias} días y "
+
+        if horas != 0:
+            mensaje += f"{horas} horas y "
+
+        if minutos != 0:
+            mensaje += f"{minutos} minutos y "
+
         if segundos != 0:
-            if segundos < 60: # Si son menos de 60 , no llega a un minuto
-                mensaje += f" y {segundos} segundos"
-            else:
-                minutos = segundos // 60 # si son más de 60 calcula los minutos
-                if segundos % 60 != 0: # si despues de calcular los minutos, aun queda algun segundo
-                    mensaje += f" y {minutos} minutos y {segundos % 60} segundos"
-                else:
-                    mensaje += f" y {minutos} minutos"
-           
-
-    elif num_seg >= 86400 and num_seg < 604800: # de un día hasta menos de una semana (en 7 días hay 604800 segundos, 86400 * 7)       
-        dias = num_seg // 86400
-        segundos = num_seg % 86400 # segundos restantes despues de calcular los dias
-        
-        mensaje += f" son {dias} días"
-
-        # Si después de calcular los dias aun quedan segundos
-        if segundos != 0:
-            if segundos < 3600: # los segundos restantes no llegan a 1 hora
-                minutos = segundos // 3600
-                seg_restantes = segundos % 3600
-                
-                mensaje += f" y {minutos} minutos"
-
-                if seg_restantes != 0: # si aun quedan segundos despues de calcular los minutos
-                    mensaje += f" y {seg_restantes} segundos"            
-            else:
-                horas = segundos // 3600 # calcula las horas
-                seg_restantes = segundos % 3600
-
-                mensaje += f" y {horas} horas"
-
-                if seg_restantes != 0: # si aun quedan segundos
-                    pass
-
-    print(f"\n{mensaje}\n")
-
-        # if segundos < 3600: # los segundos restantes no llegan a 1 hora
-        #     minutos = segundos // 3600
-        #     seg_restantes = segundos % 3600
-
-        #     if minutos > 0:
-        #         mensaje += f" son {minutos} minutos"
-
-        #     if seg_restantes != 0: # Si despues de calcular los minutos aun queda algun segundo 
-        #         mensaje += f" y  {seg_restantes} segundos"
-        #     else:
-        #         horas = segundos // 3600
-        #         seg_restantes = segundos % 3600 # segundos que quedan despues de calcular las horas
-
-        #         if horas > 0:
-        #             mensaje += f" y {horas} horas"
-
-        #         if seg_restantes != 0: # si despues de calcular las horas aun quedan segundos
-        #             if seg_restantes < 60: # Si son menos de 60 , no llega a un minuto
-        #                 mensaje += f" y {seg_restantes} segundos"
-        #         else:
-        #             minutos = seg_restantes // 60 # si son más de 60 calcula los minutos
-        #             if seg_restantes % 60 != 0: # si despues de calcular los minutos, aun queda algun segundo
-        #                 mensaje += f" y {minutos} minutos y {seg_restantes % 60} segundos"                     
-
-    # muestra por pantalla el mensaje final
+            mensaje += f"{segundos} segundos y "
     
     
-
-
-
-    
-        
+    print(f"{mensaje}\n") # muestro el mensaje final con el resultado
 
 except ValueError: # Error de que ha introducido letras en lugar de números
-    print("Hay que introducir un número valido")
+    print("\nHay que introducir un número valido\n")
