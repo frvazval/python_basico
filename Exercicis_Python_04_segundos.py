@@ -78,8 +78,16 @@ try:
 
                 if seg_restantes != 0: # si aun quedan segundos despues de calcular los minutos
                     mensaje += f" y {seg_restantes} segundos"            
-        else:
-            pass
+            else:
+                horas = segundos // 3600 # calcula las horas
+                seg_restantes = segundos % 3600
+
+                mensaje += f" y {horas} horas"
+
+                if seg_restantes != 0: # si aun quedan segundos
+                    pass
+
+    print(f"\n{mensaje}\n")
 
         # if segundos < 3600: # los segundos restantes no llegan a 1 hora
         #     minutos = segundos // 3600
@@ -106,7 +114,7 @@ try:
         #                 mensaje += f" y {minutos} minutos y {seg_restantes % 60} segundos"                     
 
     # muestra por pantalla el mensaje final
-    print(f"\n{mensaje}\n")
+    
     
 
 
