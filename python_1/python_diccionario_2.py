@@ -28,13 +28,19 @@ def mostrar_precios():
     print("1 - Entrada estandar: 9.00")
     print("2 - Mayores de 65 años (seniors) : 6.00")
     print("3 - Infantiles : 7.20\n") 
+
              
 
-def comprar_entradas():
+def comprar_entradas(tipo, cantidad):
     pass
 
 # Programa principal
-entradas = [] # para guardar las entradas compradas
+# definición de variables, listas, etc...
+entradas_compradas = [] # para guardar las entradas compradas
+PR_ESTANDAR = 9.00
+PR_SENIOR = 6.00
+PR_INFANTIL = 7.20
+
 try:    
     mostrar_precios()
 except ValueError:
