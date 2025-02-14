@@ -95,7 +95,8 @@ while contador_de_partidas <= numero_partidas:
             print(f"{nombre_usuario} has perdido!!!")
             partidas_perdidas += 1
 
+        resultado_actual = f"Ganadas: {partidas_ganadas} | Empates: {partidas_empatadas} | Perdidas: {partidas_perdidas}"
+        print(resultado_actual)
+
+
 print("\nAplicación finalizada\n")
-print(f"Has ganado {partidas_ganadas} partidas")
-print(f"Has perdido {partidas_perdidas} partidas")
-print(f"Has empatado {partidas_empatadas} partidas")
