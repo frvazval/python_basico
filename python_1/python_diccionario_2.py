@@ -34,7 +34,7 @@ acomp_adulto = False
 
 # Definicion de funciones
 def mostrar_precios():
-    print("Hay tres precios:")
+    print("Hay cuatro precios:")
     print("=================")
     print("1 - Entrada estandar: 9.00")
     print("2 - Mayores de 65 años (seniors) : 6.00")
