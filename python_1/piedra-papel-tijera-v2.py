@@ -74,28 +74,30 @@ while contador_de_partidas <= numero_partidas:
     else:
         opcion_pc = str(random.randint(1,3))
 
+        # variable que guarda la elección del jugador y del pc
         resultado_partida = f"""
         Has elegido {opciones_juego[int(opcion_humano)-1]}
         La maquina ha elegido {opciones_juego[int(opcion_pc)-1]}
     """
 
-
+        # según el resultado incremento en 1 el contador correspondiente (partidad_ganadas, partidas_perdidas y partidas_empatadas)
         if opcion_humano == opcion_pc:
-            print(resultado_partida)
-            print(f"{nombre_usuario} has empatado!!!")
+            print(resultado_partida) # muestra el resultado de la partida actual
+            print(f"\t{nombre_usuario} has empatado!!!") # \t es para que haga una tabulación
             partidas_empatadas += 1
         elif (opcion_humano == "1" and opcion_pc == "3") \
             or (opcion_humano == "2" and opcion_pc == "1") \
                 or (opcion_humano == "3" and opcion_pc == "2"):
             print(resultado_partida)
-            print(f"{nombre_usuario} has ganado!!!")
+            print(f"\t{nombre_usuario} has ganado!!!")
             partidas_ganadas += 1
         else:
             print(resultado_partida)
-            print(f"{nombre_usuario} has perdido!!!")
+            print(f"\t{nombre_usuario} has perdido!!!")
             partidas_perdidas += 1
 
-        resultado_actual = f"Ganadas: {partidas_ganadas} | Empates: {partidas_empatadas} | Perdidas: {partidas_perdidas}"
+        # en cada partida mostraremos los resultados
+        resultado_actual = f"\tGanadas: {partidas_ganadas} | Empates: {partidas_empatadas} | Perdidas: {partidas_perdidas}"
         print(resultado_actual)
 
 
