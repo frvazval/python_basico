@@ -58,16 +58,16 @@ def mostrar_total():
     # Lee los valores de la lista
     for entrada in entradas_compradas:
         match entrada["tipo"]:
-            case 1:
+            case 1:                
                 ent_estandar += entrada["cantidad"]
                 total += (PR_ESTANDAR * entrada["cantidad"])
-            case 2:
+            case 2:                
                 ent_senior += entrada["cantidad"]
                 total += (PR_SENIOR * entrada["cantidad"])
-            case 3:
+            case 3:                
                 ent_infantil += entrada["cantidad"]
                 total += (PR_INFANTIL * entrada["cantidad"])
-            case 4:
+            case 4:                
                 ent_dia_esp += entrada["cantidad"]
                 total += (PR_DIA_ESPECTADOR * entrada["cantidad"])
             case _:
@@ -93,22 +93,24 @@ try:
             case 1:
                tipo = 1
                acomp_adulto = True
+               print("\nHas elegido entrada estandar\n")
                cantidad = int(input("Cuantas entradas estandar quieres comprar (0 - para salir ): -> "))
                if cantidad > 0:
                    comprar_entradas(tipo, cantidad)
                else:
-                   continue              
-
+                   continue       
             case 2:
                 tipo = 2
                 acomp_adulto = True
+                print("\nHas elegido entrada senior\n")
                 cantidad = int(input("Cuantas entradas senior quieres comprar (0 - para salir ): -> "))
                 if cantidad > 0:                    
                     comprar_entradas(tipo, cantidad)
                 else:
                    continue
             case 3:
-                tipo = 3                
+                tipo = 3
+                print("\nHas elegido entrada infantil\n")                
                 if acomp_adulto:                    
                     cantidad = int(input("Cuantas entradas infantiles quieres comprar (0 - para salir ): -> "))
                     if cantidad > 0:
@@ -121,7 +123,8 @@ try:
             case 4:
                 tipo = 4
                 acomp_adulto = True
-                cantidad = int(input("Cuantas entradas infantiles quieres comprar (0 - para salir ): -> "))
+                print("\nHas elegido entrada día del espectador\n")
+                cantidad = int(input("Cuantas entradas día del espectador quieres comprar (0 - para salir ): -> "))
                 if cantidad > 0:                    
                     comprar_entradas(tipo, cantidad)
                 else:
