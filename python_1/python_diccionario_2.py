@@ -35,6 +35,7 @@ acomp_adulto = False
 # Definicion de funciones
 def mostrar_precios():
     print("Hay tres precios:")
+    print("=================")
     print("1 - Entrada estandar: 9.00")
     print("2 - Mayores de 65 años (seniors) : 6.00")
     print("3 - Infantiles : 7.20") 
@@ -58,16 +59,16 @@ def mostrar_total():
     for entrada in entradas_compradas:
         match entrada["tipo"]:
             case 1:
-                ent_estandar += 1
+                ent_estandar += entrada["cantidad"]
                 total += (PR_ESTANDAR * entrada["cantidad"])
             case 2:
-                ent_senior += 1
+                ent_senior += entrada["cantidad"]
                 total += (PR_SENIOR * entrada["cantidad"])
             case 3:
-                ent_infantil += 1
+                ent_infantil += entrada["cantidad"]
                 total += (PR_INFANTIL * entrada["cantidad"])
             case 4:
-                ent_dia_esp += 1
+                ent_dia_esp += entrada["cantidad"]
                 total += (PR_DIA_ESPECTADOR * entrada["cantidad"])
             case _:
                 print("\nNo es un tipo de entrada valido\n")
@@ -84,8 +85,7 @@ def mostrar_total():
 # Programa principal
 
 try:    
-    while not salir:
-        print(entradas_compradas)
+    while not salir:        
         mostrar_precios()
         opcion = int(input("Introduce el tipo de entrada que quieres comprar: -> "))
 
@@ -127,9 +127,12 @@ try:
                 else:
                    continue            
             case 5:
-                mostrar_total()
-                salir = True
-                print("\nEl programa ha finalizado\n")                
+                if entradas_compradas:
+                    mostrar_total()
+                    salir = True
+                    print("\nEl programa ha finalizado\n")                    
+                else:
+                    print("\nAun no has realizado ninguna compra\n")              
             case 6:
                 salir = True
                 print("\nEl programa ha finalizado\n")
