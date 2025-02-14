@@ -98,7 +98,7 @@ try:
                if cantidad > 0:
                    comprar_entradas(tipo, cantidad)
                else:
-                   continue       
+                   continue # Para que continue sin salir del bucle      
             case 2:
                 tipo = 2
                 acomp_adulto = True
@@ -107,7 +107,7 @@ try:
                 if cantidad > 0:                    
                     comprar_entradas(tipo, cantidad)
                 else:
-                   continue
+                   continue # Para que continue sin salir del bucle
             case 3:
                 tipo = 3
                 print("\nHas elegido entrada infantil\n")                
@@ -116,7 +116,7 @@ try:
                     if cantidad > 0:
                         comprar_entradas(tipo, cantidad)
                     else:
-                        continue
+                        continue # Para que continue sin salir del bucle
                 else:
                     print("\nLas entradas infantiles solo se pueden vender si van acompañados de adultos\n")
                                
@@ -128,7 +128,7 @@ try:
                 if cantidad > 0:                    
                     comprar_entradas(tipo, cantidad)
                 else:
-                   continue            
+                   continue # Para que continue sin salir del bucle           
             case 5:
                 if entradas_compradas:
                     mostrar_total()
