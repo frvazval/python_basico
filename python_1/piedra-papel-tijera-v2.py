@@ -9,8 +9,6 @@ Guardar los resultados
 
 '''
 
-
-
 import random # Para poder utilizar números aleatorios
 import os # Para poder utilizar comandos del sistema
 os.system("cls") # Utiliza el comando del sistema cls para borrar la pantalla
@@ -53,8 +51,10 @@ while True:
 contador_de_partidas = 1 # Se le da el valor 1, porque sino no entraria en el bucle la primera vez
 
 while contador_de_partidas <= numero_partidas:
-    contador_de_partidas += 1
+    # incrementa en 1 el número de partidas jugadas, pera que salga del bucle cuando llegue al número elegido
+    contador_de_partidas += 1 
     # Informar al usuario de las opciones del juego
+    # muestra el icono correspondieste a cada opcion, guardado en la lista opciones_juego
     menu = f"""
     PIEDRA - PAPEL - TIJERAS
     ========================
@@ -69,36 +69,48 @@ while contador_de_partidas <= numero_partidas:
 
     print(menu) # Se muestra por pantalla el menú que contiena la variable menu
 
+    # El jugador hace la elcción de su jugada
     opcion_humano = input("Elige tu opción --> ").strip()
 
-    if opcion_humano not in ["1","2","3"]:
+    if opcion_humano not in ["1","2","3"]: # Si no es una elección valida
         print("Juego finalizado. ¡Hasta pronto!")
     else:
+        # Si es una elección valida
 
+        # La maquina genera un número aleatorio entre 1 y 3 para jugar 
         opcion_maquina = str(random.randint(1,3))
 
+        # guarda lo que han elegido el jugador y la maquina en la variabe resultado_partida
         resultado_partida = f"""
         Has elegido {opciones_juego[int(opcion_humano)-1]}
         La máquina ha elegido {opciones_juego[int(opcion_maquina)-1]}
     """
-        print(resultado_partida)
+        print(resultado_partida) # Muestra por pantalla el valor de la variable resultado_partida
 
+        # Si ha habido un empate
         if opcion_humano == opcion_maquina:
-            empates += 1
+            empates += 1 # incrementa en 1 el contador correspondiente
             print(f"{nombre_usuario}, habéis empatado")
+
+        # Si ha ganado el jugador
         elif (opcion_humano=="1" and opcion_maquina=="3") \
             or (opcion_humano=="2" and opcion_maquina=="1") \
                 or (opcion_humano=="3" and opcion_maquina=="2"):
-            partidas_ganadas += 1
+            partidas_ganadas += 1 # incrementa en 1 el contador correspondiente
             print(f"{nombre_usuario} has ganado!!!")
+
+        # Si ha ganado la maquina
         else:
-            partidas_perdidas += 1
+            partidas_perdidas += 1 # incrementa en 1 el contador correspondiente
             print(f"{nombre_usuario} has perdido!!!")
 
+        # Guarda en una variable las estadisticas de juego
         resultado_actual = f"""
     Ganadas: {partidas_ganadas} | Empates : {empates} | Perdidas : {partidas_perdidas}
         \n\n    
-""" 
+"""     
+        # Muestra por pantalla las estadisticas de juego
         print(resultado_actual)
 
+# Al acabar la aplicación, muestra por pantalla un mensaje
 print("\nAplicación finalizada.")
