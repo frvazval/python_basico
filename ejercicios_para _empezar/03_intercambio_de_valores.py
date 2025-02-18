@@ -11,3 +11,7 @@ es decir, deben intercambiar sus valores
 La respuesta del programa será:
 "Ahora a vale Y y b vale X" (los valores que sean)
 """
+
+import os # importa libreria os        
+os.system("cls") # Limpia la pantalla
+

@@ -5,3 +5,7 @@ La respuesta del programa será:
 "X grados Fahrenheit equivalen a Y grados Celsius" (los valores que sean)
 Formúla de conversión : Fahrenheit = (Celsius * 9/5) + 32
 '''
+
+import os # importa libreria os        
+os.system("cls") # Limpia la pantalla
+

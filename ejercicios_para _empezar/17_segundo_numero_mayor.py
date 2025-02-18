@@ -9,3 +9,7 @@ Por ejemplo, si escribe:
 La respuesta debe ser:
 "El segundo número mayor es 6"
 '''
+
+import os # importa libreria os        
+os.system("cls") # Limpia la pantalla
+

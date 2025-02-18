@@ -5,3 +5,7 @@ La respuesta del programa será:
 "X euros equivalen a Y dólares" (los valores que sean)
 Formúla de conversión : 1 euro = 1.18 dólares
 '''
+
+import os # importa libreria os        
+os.system("cls") # Limpia la pantalla
+

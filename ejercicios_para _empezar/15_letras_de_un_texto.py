@@ -8,3 +8,7 @@ y siempre en minúsculas.
 Por ejemplo, si escribe: "Hoy es domingo"
 La respuesta debe ser: "deghimny"
 '''
+
+import os # importa libreria os        
+os.system("cls") # Limpia la pantalla
+

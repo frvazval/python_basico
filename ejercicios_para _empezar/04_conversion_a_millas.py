@@ -6,3 +6,7 @@ La respuesta del programa será:
 "X km equivalen a Y millas" (los valores que sean)
 Nota: 1 km son 0.621371 millas
 """
+
+import os # importa libreria os        
+os.system("cls") # Limpia la pantalla
+

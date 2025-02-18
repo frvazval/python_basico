@@ -9,3 +9,7 @@ Por ejemplo, si escribe
 La respuesta debe ser:
 "El valor máximo es 5" 
 '''
+
+import os # importa libreria os        
+os.system("cls") # Limpia la pantalla
+

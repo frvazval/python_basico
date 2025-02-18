@@ -10,3 +10,6 @@ La respuesta debe ser:
 4, 25, 9
 '''
 
+import os # importa libreria os        
+os.system("cls") # Limpia la pantalla
+

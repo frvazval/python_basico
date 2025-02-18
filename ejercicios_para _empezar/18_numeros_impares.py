@@ -10,3 +10,7 @@ Por ejemplo, si escribe:
 La respuesta debe ser:
 5, 3, 9
 '''
+
+import os # importa libreria os        
+os.system("cls") # Limpia la pantalla
+

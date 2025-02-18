@@ -8,3 +8,7 @@ Nota: Hay que verificar año, mes y día para obtener la edad real.
 No vale sólo el año.
 Si alguien nació el 6/2/2000 y hoy es 7/2/2025 tiene 24 años
 '''
+
+import os # importa libreria os        
+os.system("cls") # Limpia la pantalla
+

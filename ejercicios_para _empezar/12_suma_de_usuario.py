@@ -10,3 +10,7 @@ Por ejemplo, si escribe
 La respuesta debe ser:
 "El resultado de la suma es 10" 
 '''
+
+import os # importa libreria os        
+os.system("cls") # Limpia la pantalla
+

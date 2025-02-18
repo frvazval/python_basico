@@ -4,3 +4,7 @@ Haz un programa que pida al usuario un número
 y muestre la tabla de multiplicar de ese número
 desde 1 hasta 10, ambos incluidos
 '''
+
+import os # importa libreria os        
+os.system("cls") # Limpia la pantalla
+

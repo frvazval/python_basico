@@ -6,3 +6,7 @@ El programa debe ordenar las palabras del texto de forma alfabética.
 Por ejemplo, si escribe: "hoy es domingo"
 La respuesta debe ser: "domingo es hoy"
 '''
+
+import os # importa libreria os        
+os.system("cls") # Limpia la pantalla
+

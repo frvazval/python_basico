@@ -10,3 +10,7 @@ Si escribe 5,
 la operación debe ser 1 + 2 + 3 + 4 + 5 = 15
 
 '''
+
+import os # importa libreria os        
+os.system("cls") # Limpia la pantalla
+
