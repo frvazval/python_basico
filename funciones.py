@@ -64,3 +64,32 @@ def sumar(*argv): # argumentos variados, se puede llamar de otra forma, pero se 
 sumar(1,2)
 sumar(3,4,5)
 sumar(3,4,5,3)
+
+# El return puede devolver más de un valor
+# Opcionalmente se le puede indicar que es un string y que devuelve un string
+def separarNombre(apellido_nombre : str) -> str:
+    # Para que muestre la ayuda al poner el cursor encima
+    """
+    Devolverá de forma separada el nombre y el apellido
+
+    @ Params\n
+    str -> "Apellido, Nombre"
+
+    @ Return\n
+    str -> Nombre, str -> Apellido\n
+    """
+    palabras = apellido_nombre.split(",")
+    apellido = palabras[0].strip()
+    nombre = palabras[1].strip()
+    return nombre, apellido
+
+nombre, apellido = separarNombre("Vázquez, Francisco")
+print(f"Nombre: {nombre}")
+print(f"Apellido: {apellido}")
+
+# Muestra la ayuda de la función
+help(separarNombre)
+print(separarNombre.__doc__)
+
+
+
