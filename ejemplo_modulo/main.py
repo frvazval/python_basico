@@ -10,5 +10,6 @@ Formas de importar un modulo
 
 from edad import calcula_edad # Solo importa la funcion calcula_edad
 
-print(calcula_edad("08/10/1969", "18/02/2025")) # en este caso no hace falta poner ed.calcula_edad
+if __name__ == "__main__": # si se ejecuta desde el fichero main.py
+    print(calcula_edad("08/10/1969", "18/02/2025")) # en este caso no hace falta poner ed.calcula_edad
 
