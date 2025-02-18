@@ -42,11 +42,10 @@ def calcula_edad(fecha_nacimiento: str, fecha_actual: str) -> int:
    edad = int(any2) - int(any1) # Primero resto los años
 
    # Compruebo los meses y los dias para saber si ha cumplido los años o aun no los ha cumplido
-   if (edad == 0 and int(mes2) < int(mes1)) \
-         or (edad == 0 and int(mes2) == int(mes1) and int(dia2) < int(dia1)) : 
-      edad -= 1
-  
-   return edad
+   if (int(mes2) < int(mes1)) or (int(mes2) == int(mes1) and int(dia2) < int(dia1)): 
+      edad -= 1 # Le resta 1 a la diferencia de años
+   
+   return edad # Retorna la edad
       
 
     
@@ -60,5 +59,5 @@ def calcula_edad(fecha_nacimiento: str, fecha_actual: str) -> int:
 # fecha_actual = input("Introduce la fecha actual, formato (dd/mm/aaaa): ")
 
 # edad = calcula_edad(fecha_nacimiento, fecha_actual)
-edad = calcula_edad("08/10/1969", "18/02/2025")
-print(edad)
+# edad = calcula_edad("08/10/1969", "18/02/2025")
+# print(edad)
