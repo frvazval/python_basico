@@ -16,23 +16,39 @@ def calcula_edad(fecha_nacimiento: str, fecha_actual: str) -> int:
    -2 : la fecha de nacimiento debe ser igual o menor que la actual
    '''
    dia1, mes1, any1 = fecha_nacimiento.split("/")
+   dia2, mes2, any2 = fecha_actual.split("/")
+
+   # Día o mes incorrecto
    if int(dia1) <= 0 or int(dia1) > 31:
       return -1
    if int(mes1) <= 0 or int(mes1) > 12:
-      return -1
-    
-   dia2, mes2, any2 = fecha_actual.split("/")
+      return -1    
+   
    if int(dia2) <= 0 or int(dia2) > 31:
       return -1
    if int(mes2) <= 0 or int(mes2) > 12:
       return -1
     
-   if int(any2) < int(any1):
+   # No se puede calcular la edad si la fecha de nacimiento
+   # es posterior a la actual
+   dif_any = int(any2) - int(any1)
+   dif_meses = int(mes2) - int(mes1)
+   dif_dias = int(dia2) - int(dia1)
+   if (dif_any < 0) or (dif_any == 0 and dif_meses < 0) \
+         or (dif_any == 0 and dif_meses == 0 and dif_dias < 0):
       return -2
-    
-   edad = int(any2) - int(any1)
-   if int(mes2) < int(mes1):
+  
+   # Calculo de la edad
+   edad = int(any2) - int(any1) # Primero resto los años
+
+   # Compruebo los meses y los dias para saber si ha cumplido los años o aun no los ha cumplido
+   if (edad == 0 and int(mes2) < int(mes1)) \
+         or (edad == 0 and int(mes2) == int(mes1) and int(dia2) < int(dia1)) : 
       edad -= 1
+  
+   return edad
+      
+
     
     
 
@@ -45,8 +61,4 @@ def calcula_edad(fecha_nacimiento: str, fecha_actual: str) -> int:
 
 # edad = calcula_edad(fecha_nacimiento, fecha_actual)
 edad = calcula_edad("08/10/1969", "18/02/2025")
- 
-if edad == -1 or edad == -2:
-   pass
-else:
-   pass
+print(edad)
