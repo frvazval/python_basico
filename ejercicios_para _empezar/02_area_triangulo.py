@@ -5,3 +5,7 @@ indicando que son la base y la altura de un triángulo
 La respuesta del programa será:
 "El área de un triángulo de base X y altura Y es Z" (los valores que sean)
 """
+
+import os # importa libreria os        
+os.system("cls") # Limpia la pantalla
+
