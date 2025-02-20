@@ -30,7 +30,7 @@ class Persona():
         self.apellido = apellido
         self.ciudad = ciudad
     def __str__(self):
-        return f"nombre: {self.nombre}, apellido: {self.apellido} y ciudad: {self.ciudad}\n"
+        print(f"nombre: {self.nombre}, apellido: {self.apellido} y ciudad: {self.ciudad}\n")
     
 # Creo una clase heredada de Persona, llamada Cliente
 class Cliente(Persona):
@@ -42,14 +42,19 @@ class Cliente(Persona):
         self.dni = dni
         self.compras = compras
     def __str__(self):
-        return f"nombre: {self.nombre}, apellido: {self.apellido}, ciudad: {self.ciudad}, DNI: {self.dni} y compras {self.compras} €\n"
-    def compras_realizadas():
-        print(f"El cliente {self.nombre} {self.apellidos} ha comprado {self.compras} €")
+        super().__str__()
+        return (f"Su DNI: {self.dni} y compras: {self.compras} €\n")
+    def compras_realizadas(self):
+        return(f"El cliente {self.nombre} {self.apellido} ha comprado {self.compras} €\n")
 
 # Creo un objeto de la clase Persona
 persona = Persona("Maria", "Pau", "BCN")
 
 # Creo un objeto de la clase Cliente
-cliente_1 = Cliente("Pepito", "García", "Vic", "1234", 30_000)
+cliente_1 = Cliente("Pepito", "García", "Vic", "1234", 30_000.00) # El guión baje en 30_000.00 es el punto de los miles
 print(cliente_1)
+
+
+print(cliente_1.compras_realizadas())
+
     
