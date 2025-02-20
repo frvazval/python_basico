@@ -30,12 +30,15 @@ class Vehiculo():
         print(f"El vehículo {self.marca} modelo {self.modelo} ha arrancado")
     def detener(self):
         print(f"El vehículo {self.marca} modelo {self.modelo} se ha detenido")
+
 # Creo las clases hijas Coche y Moto
 class Coche(Vehiculo):
     def __init__(self, marca, modelo, any_const, num_puertas, AC):
         super().__init__(marca, modelo, any_const)
         self.num_puertas = num_puertas
         self.AC = AC
+    
+    # Metodos
     def abrir_maletero(self):
         print(f"El maletero del {self.marca} {self.modelo} está abierto")
 
