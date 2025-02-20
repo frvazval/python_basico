@@ -42,6 +42,5 @@ class Coche():
 coche = Coche("Opel", "rojo", "electrico", 1.6)
 
 # Ejecuto los metodos del objeto
-
 print(coche.__str__())
 print(coche.mostrar_caracteristicas())
