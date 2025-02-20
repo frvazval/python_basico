@@ -1,57 +1,41 @@
-Configuración de GIT (Solo se hace una vez)
+Configuración de GIT (sólo se hace una vez)
 
-git config --global user.name "nombre de usuario"
-git config --global user.email "dirección de email"
+Nombre del usuario
+git config --global user.name "nombre usuario"
 
-Configurar el editor de codigo (VSC)
+Dirección de email
+git config --global user.email tu.email@lo.que.sea
 
+Configurar el editor de código (VSC)
 git config --global core.editor "code --wait"
 
-Correción salto de linea
+Corrección del salto de línea (true -> windows input -> mac/linux)
+git config --global core.autocrlf true
 
-git config --global core.autocrlf true (para Mac o Linux sustituir true por input)
-
-Para ver la Configuración
-
+Para ver la configuración actual
 git config --global -e
 
-Iniciar repositorio 
+====================================================
 
+Iniciamos el repositorio (solo al empezar el proyecto)
 git init
 
-Para ver el estado de los ficheros 
-
+Para ver el estado del repositorio
 git status
 
-Para omitir algun fichero hay que crear un fichero llamado .gitignore
-    dentro de este fichero poner
-    .*
-    .env
-    nombres de los ficheros a omitir
+Para pasar a la fase Stage
+git add .
 
-Añadir fichero al repositorio
+Para volver a la fase inicial
+git rm --cached nom_de_fichero
 
-git add nombre de fichero (. todos los ficheros, 0* todos los que empiezan por 0)
-
-Para volver al quitar el fichero 
-
-git rm --cached nombre fichero
-
-dar archivo por bueno para subirlo
-
+Para pasar a commit (ficheros validados)
 git commit -m "mensaje"
 
-Para ver los cambios 
-
-git log
-
 Cuando hay cambios en un fichero
-
 git commit -a
 
-Intrucciones para GitHub
-
-git remote add origin https://github.com/mi_cuenta/nombre_repositorio.git
+Instrucciones para GitHub
+git remote add origin https://github.com/mi_cuenta/nombre_del_repo.git
 git branch -M main
 git push -u origin main
-
