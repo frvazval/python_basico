@@ -17,6 +17,12 @@ class Rectangulo():
     def __init__(self, base: int, altura: int):
         self.base = base
         self.altura = altura
-    
+    # Metodos de la clase
+    def area(self):
+        return base * altura
+    def perimetro(self):
+        pass
+    def diagonal(self):
+        pass
 
         
