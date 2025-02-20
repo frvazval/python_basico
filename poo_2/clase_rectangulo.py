@@ -23,6 +23,11 @@ class Rectangulo():
     def perimetro(self):
         return (self.base + self.altura) * 2
     def diagonal(self):
-        return ((self.base ** 2) + (self.altura ** 2) ** 0.5)
+        return (self.base ** 2 + self.altura ** 2) ** 0.5
 
-        
+# Creo un objeto del tipo Rectangulo
+
+rectangulo = Rectangulo(3,4) 
+print(f"Area = {rectangulo.area()}")
+print(f"Perimetro = {rectangulo.perimetro()}")
+print(f"Diagonal = {rectangulo.diagonal()}")
