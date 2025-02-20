@@ -12,3 +12,11 @@ Lo probaremos con un rectangulo de lados 3 y 4
 import os # importa libreria os        
 os.system("cls") # Limpia la pantalla
 
+# Creo la clase Rectangulo
+class Rectangulo():
+    def __init__(self, base: int, altura: int):
+        self.base = base
+        self.altura = altura
+    
+
+        
