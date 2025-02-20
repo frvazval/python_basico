@@ -2,62 +2,63 @@
 RESUMEN SIMPLIFICADO DE LO ESENCIAL
 """
 
-# SINTAXIS BASICA
-# Python indenta lo que pertenece al mismo bloque dentro de una condición
-# Python diferencia mayusculas de minusculas
+# SINTAXIS BÁSICA
+# Python "indenta" los bloques de código
+# Diferncia mayúsculas de minúsculas
+
 
 # VARIABLES
-# Es un contenedor de un elemento
-# es un identificador para ubicar un elemento guardado en la memoria
+# es un contenedor de un elemento
+# es un identificador para ubicar un elemento guadado en la memoria
 
+# La variables siempre se declaran antes de ser utilizadas
+# también deben ser iniciadas
 int = 1
 float = 1.0
 string = "hola"
-boolean = True  # o False
+boolean = True # False
 
-# Aunque sean vacíos hay que indicar valores
-
-string =""
+# aunque sean vacíos hay que indicar valores
+string = ""
 int = 0
 lista = []
 
 # OPERADORES
+
 # -- de tipo matématico :
-# + (suma), - (resta). etc...
-# el signo + permite concatinar strings
+# + (suma), - (resta), etc
+# el signo + permite concatenar strings
+saludo = "buenas" + " " + "tardes"
+repeticion = "hola" * 3 # "holaholahola"
 
-saludo = "buenas" + " " + "tardes" # el resultado es : buenas tardes
-repeticion = "hola" * 3 # El resultado seria holaholahola
-
-# -- de comparación
-# == (igual), != (diferente), > (mayor), >= (mayor o igual), < (menor), <= (menor o igual)
+# -- de comparación :
+# == (igual), != (diferente), > (mayor), >= (mayor o igual a ), < (menor), etc
 # -- siempre devuelven un valor booleano
-# -- también se pueden comparar string
+# -- También podemos comparar strings
+print("Hola" > "hola")
 
-
-# -- de asignación : 
-# -- = (asignación), += (suma y asignación). -= (resta y asignación)
-
+# -- de asignación :
+# -- = (asignación), += (suma y asignación), -= (resta y asignación
 int = 5
 int = int + 5 # es lo mismo que int += 5
 int += 5 # este es un poco más óptimo
 
 num_str = "5"
-num_str = int(num_str) # pasa "5" a entero
-num = 5
-num = str(num) # lo pasa a string "5" , esto se llama casting
+num_int = int(num_str) # casting -> convierte un string a un entero
+num_5 = 5 # es un entero
+num_5_str = str(num_5) # casting -> convierte un entero a un string
 
 # ESTRUCTURAS DE CONTROL
 # CONDICIONALES
-# if condición -> ejecutara un código si la condición es verdadera
-# if condición/ else -> si la condición no se cumple ejecutara el else
-# if condición / elif condición
-# if condición / elif condición / más elif ........ / else
+# if condicion: -> ejecutará un codigo si la condición es verdadera
+# if condicion / else (para todo lo demás)
+# if condicion / elif condicion
+# if condicion / elif condicion / más elif / else
 
 # match variable:
-#   case valor: # si la variable tiene este valor
+#   case valor : # si la variable tiene el valor indicado 
 #       se ejecuta el código siguiente
-# case _: # equivale al else o "default"
+# case _ : # equivale al "default"o un else 
 
 
 
