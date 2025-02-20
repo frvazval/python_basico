@@ -57,3 +57,6 @@ coche_1.arrancar()
 coche_1.detener()
 
 moto_1.revisar_seguridad()
+moto_1.arrancar()
+moto_1.detener()
+
