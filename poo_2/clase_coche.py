@@ -34,7 +34,7 @@ class Coche():
     def __str__(self):
         return f"Es de la marca {self.marca} y su color es {self.color}\n"
     def mostrar_caracteristicas(self):
-        return f"marca: {self.marca}, color: {self.color}, combustible: {self.combustible} y cilindrada {self.cilindrada}\n"
+        print(f"marca: {self.marca}, color: {self.color}, combustible: {self.combustible} y cilindrada {self.cilindrada}\n")
     
 
 
@@ -43,4 +43,4 @@ coche = Coche("Opel", "rojo", "electrico", 1.6)
 
 # Ejecuto los metodos del objeto
 print(coche)
-print(coche.mostrar_caracteristicas())
+coche.mostrar_caracteristicas()
