@@ -27,20 +27,20 @@ class Restaurante():
         self.nombre = nombre
         self.especialidad = especialidad
         self.turnos = turnos # Es una tupla
-        self.lista_clientes = []          
+        self.lista_reservas = []          
         self.reserva = {}  
 
     # Metodos       
     def hacer_reserva(self, cliente, hora):
-        if self.lista_clientes:
+        if self.lista_reservas:
             contador = 0
-            for res_cliente in self.lista_clientes:
+            for res_cliente in self.lista_reservas:
                 if hora == res_cliente["hora"]:
                     contador += 1
             if contador < 3:
                 if hora in self.turnos:
                     reserva = {"cliente": cliente, "hora": hora}
-                    self.lista_clientes.append(reserva)
+                    self.lista_reservas.append(reserva)
                     print(f"Reserva realizada a {cliente.nombre} a las {hora} horas")
                 else:
                     print(f"El turno elegido (Hora: {hora}) no existe en el restaurante '{self.nombre}', elige otro turno")
@@ -50,7 +50,7 @@ class Restaurante():
         else:
             if hora in self.turnos:
                 reserva = {"cliente": cliente, "hora": hora}
-                self.lista_clientes.append(reserva)
+                self.lista_reservas.append(reserva)
                 print(f"Reserva realizada a {cliente.nombre}  a las {hora} horas")
             else:
                 print(f"El turno elegido (Hora: {hora}) no existe en el restaurante '{self.nombre}', elige otro turno")
@@ -82,7 +82,3 @@ restaurante_1.hacer_reserva(cliente_6, 13)
 restaurante_2.hacer_reserva(cliente_1, 15)
 restaurante_2.hacer_reserva(cliente_3, 20)
 restaurante_2.hacer_reserva(cliente_6, 16)
-
-
-
-
