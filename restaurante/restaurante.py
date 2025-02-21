@@ -41,19 +41,19 @@ class Restaurante():
                 if hora in self.turnos:
                     reserva = {"cliente": cliente, "hora": hora}
                     self.lista_clientes.append(reserva)
-                    print(f"Reserva realizada a {cliente.nombre}")
+                    print(f"Reserva realizada a {cliente.nombre} a las {hora} horas")
                 else:
                     print("El turno elegido no existe, elige otro turno")
             else:
-                print(f"No se ha podido realizar la reserva. prueba en otro turno") 
+                print(f"No se ha podido realizar la reserva a las {hora} horas. prueba en otro turno") 
 
         else:
             if hora in self.turnos:
                 reserva = {"cliente": cliente, "hora": hora}
                 self.lista_clientes.append(reserva)
-                print(f"Reserva realizada a {cliente.nombre}")
+                print(f"Reserva realizada a {cliente.nombre}  a las {hora} horas")
             else:
-                print("El turno elegido no existe, elige otro turno")
+                print(f"El turno elegido (Hora: {hora}) no existe en el restaurante {self.nombre}, elige otro turno")
 
 
 class Cliente():
