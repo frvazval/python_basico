@@ -27,30 +27,57 @@ class Restaurante():
         self.nombre = nombre
         self.especialidad = especialidad
         self.turnos = turnos
-        self.lista_clientes = []
-        self.hora = None  
+        self.lista_clientes = []          
         self.reserva = {}  
-    # Metodos
-    def reservado(self):
-        print(f"Reserva realizada a ")
-    def no_reservado(self):
-        print(f"No se ha podido realizar la reserva. pruebe en otro turno")
+
+    # Metodos       
     def hacer_reserva(self, cliente, hora):
-        if self.clientes:
-            reserva = {"cliente": cliente, "hora": hora}
-            self.lista_clientes.append(reserva)
+        if self.lista_clientes:
+            contador = 0
+            for res_cliente in self.lista_clientes:
+                if hora == res_cliente["hora"]:
+                    contador += 1
+            if contador < 3:
+                if hora in self.turnos:
+                    reserva = {"cliente": cliente, "hora": hora}
+                    self.lista_clientes.append(reserva)
+                    print(f"Reserva realizada a {cliente.nombre}")
+                else:
+                    print("El turno elegido no existe, elige otro turno")
+            else:
+                print(f"No se ha podido realizar la reserva. pruebe en otro turno") 
+
         else:
-            pass
+            if hora in self.turnos:
+                reserva = {"cliente": cliente, "hora": hora}
+                self.lista_clientes.append(reserva)
+                print(f"Reserva realizada a {cliente.nombre}")
+            else:
+                print("El turno elegido no existe, elige otro turno")
+
 
 class Cliente():
     def __init__(self, nombre):
         self.nombre = nombre
 
 # Creo los objetos
-
 restaurante_1 = Restaurante("Can Pizza", "Italiana", (13, 14, 15, 20, 21, 22))
+restaurante_2 = Restaurante("Casa Carmen", "De mercado", (14, 16, 20))
 
 cliente_1 = Cliente("Antonio")
+cliente_2 = Cliente("Ana")
+cliente_3 = Cliente("Paco")
+cliente_4 = Cliente("Maria")
+cliente_5 = Cliente("Pepe")
 
-restaurante_1.hacer_reserva(cliente_1,13)
+restaurante_1.hacer_reserva(cliente_1, 13)
+restaurante_1.hacer_reserva(cliente_2, 13)
+restaurante_1.hacer_reserva(cliente_3, 23)
+restaurante_1.hacer_reserva(cliente_3, 20)
+restaurante_1.hacer_reserva(cliente_4, 13)
+restaurante_1.hacer_reserva(cliente_5, 15)
+restaurante_2.hacer_reserva(cliente_1, 15)
+restaurante_2.hacer_reserva(cliente_3, 20)
+
+
 
