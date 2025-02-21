@@ -76,6 +76,7 @@ restaurante_1.hacer_reserva(cliente_3, 23)
 restaurante_1.hacer_reserva(cliente_3, 20)
 restaurante_1.hacer_reserva(cliente_4, 13)
 restaurante_1.hacer_reserva(cliente_5, 15)
+
 restaurante_2.hacer_reserva(cliente_1, 15)
 restaurante_2.hacer_reserva(cliente_3, 20)
 
