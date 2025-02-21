@@ -26,7 +26,7 @@ class Restaurante():
     def __init__(self, nombre, especialidad, turnos):
         self.nombre = nombre
         self.especialidad = especialidad
-        self.turnos = turnos
+        self.turnos = turnos # Es una tupla
         self.lista_clientes = []          
         self.reserva = {}  
 
