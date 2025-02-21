@@ -11,6 +11,10 @@ Actualizaremos las cantidades de dos productos cualquiera.
 Mostrar ahora todos los productos y sus cantidades
 
 """
+
+import os # importa libreria os        
+os.system("cls") # Limpia la pantalla
+
 # Creo un inventario con 5 productos
 inventario = {"manzanas": 10, "peras": 15, "kiwis": 5, "limones": 4, "naranjas": 7}
 
@@ -29,6 +33,15 @@ inventario["kiwis"] +=2
 print(inventario)
 
 # Quitar un elemento
-inventario.pop("peras")
+fruta = inventario.pop("peras") # guarda el valor de peras en fruta, quita el elemento del diccionario
 
+print(fruta)
 print(inventario)
+
+inventario.popitem() # Quita el ultimo elemento
+print(inventario)
+
+# Ordenar alfabeticamente el diccionario
+for producto in sorted(inventario): # el inventario no se modifica, solo lo ordena alfabeticamente momentaneamente
+    print(f"producto: {producto}")
+    
