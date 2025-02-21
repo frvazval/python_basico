@@ -7,7 +7,7 @@ cada uno tiene:
 -- turnos
     -- puede haber como máximo 3 clientes
     -- si se realiza la reserva diremos "Reserva realizada a [nombre_cliente]"
-    -- y sino "No se ha podido realizar la reserva. pruebe en otro turno"
+    -- y sino "No se ha podido realizar la reserva. prueba en otro turno"
 -- clientes
 
 Del cliente vamos a necesitar (de momento)
@@ -45,7 +45,7 @@ class Restaurante():
                 else:
                     print("El turno elegido no existe, elige otro turno")
             else:
-                print(f"No se ha podido realizar la reserva. pruebe en otro turno") 
+                print(f"No se ha podido realizar la reserva. prueba en otro turno") 
 
         else:
             if hora in self.turnos:
@@ -69,6 +69,7 @@ cliente_2 = Cliente("Ana")
 cliente_3 = Cliente("Paco")
 cliente_4 = Cliente("Maria")
 cliente_5 = Cliente("Pepe")
+cliente_6 = Cliente("Rosa")
 
 restaurante_1.hacer_reserva(cliente_1, 13)
 restaurante_1.hacer_reserva(cliente_2, 13)
@@ -76,9 +77,12 @@ restaurante_1.hacer_reserva(cliente_3, 23)
 restaurante_1.hacer_reserva(cliente_3, 20)
 restaurante_1.hacer_reserva(cliente_4, 13)
 restaurante_1.hacer_reserva(cliente_5, 15)
+restaurante_1.hacer_reserva(cliente_6, 13)
 
 restaurante_2.hacer_reserva(cliente_1, 15)
 restaurante_2.hacer_reserva(cliente_3, 20)
+restaurante_2.hacer_reserva(cliente_6, 16)
+
 
 
 
