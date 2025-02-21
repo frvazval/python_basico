@@ -44,4 +44,7 @@ print(inventario)
 # Ordenar alfabeticamente el diccionario
 for producto in sorted(inventario): # el inventario no se modifica, solo lo ordena alfabeticamente momentaneamente
     print(f"producto: {producto}")
-    
+
+for producto in sorted(inventario, reverse = True): # Lo ordena de forma descendente
+    print(f"producto: {producto}")
+
