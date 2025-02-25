@@ -41,39 +41,44 @@ class Biblioteca():
         self.nombre = nombre
         self.direccion = direccion
         self.lista_lectores = []
-        self.lista_libros = [] 
-        self.libro = {}
-        self.lector = {}      
+        self.lista_libros = []        
 
     # Metodos de la clase Biblioteca
-    def mostrar_libros():
+    def mostrar_libros(self):
         if self.lista_libros:
             for libro in self.lista_libros:
-                print(f"Titulo: {libro['titulo']}, Autor: {libro['nombre']} {libro['apellido']}")
+                print(f"Titulo: {libro.titulo}, Autor: {libro.nombre_autor} {libro.apellido_autor}\n")
         
-    def mostrar_lectores():
+    def mostrar_lectores(self):
         if self.lista_lectores:
             for lector in self.lista_lectores:
-                print(f"Nombre: {lector['nombre']} Apellido: {lector['apellido']} ")
+                print(f"Nombre: {lector.nombre} Apellido: {lector.apellido}\n")
 
     def agregar_lector(self, lector):
-        self.lector = {"nombre": lector.nombre, "apellido": lector.apellido}
-        self.lista_lectores.append(self.lector)
+        
+        self.lista_lectores.append(lector)
 
     def agregar_libro(self, libro):
-        self.libro = {"nombre": libro.nombre_autor, "apellido": libro.apellido_autor, "titulo": libro.titulo}
-        self.lista_libros.append(self.libro)
+        
+        self.lista_libros.append(libro)
 
-    def buscar_libro(self, libro):
-        pass
+    def buscar_libro(self, libro_buscado):
+        valor = "El libro que buscas no existe en esta biblioteca"
+        if self.lista_libros:
+            for libro in self.lista_libros:
+                if libro_buscado == libro and libro_buscado == libro and libro_buscado == libro:
+                    valor = "El libro si que existe en la biblioteca"        
+        return valor
+        
 
 
 # Creo los ojetos -> lector, libro y biblioteca
 lector_1 = Lector("Antonio", "Lopez")
 lector_2 = Lector("Maria", "Perez")
 
-libro_1 = Libro("Carlos", "Zafón", "La sombra del viento")
+libro_1 = Libro("Carlos", "Ruiz Zafón", "La sombra del viento")
 libro_2 = Libro("Dolores", "Redondo", "Ofrenda a la tormenta")
+libro_3 = Libro("Michael", "Ende", "La historia interminable")
 
 biblioteca_1 = Biblioteca("Biblioteca municipal", "Av. Masnou")
 
@@ -91,3 +96,5 @@ biblioteca_1.mostrar_lectores()
 
 biblioteca_1.mostrar_libros()
 
+print(biblioteca_1.buscar_libro(libro_1))
+print(biblioteca_1.buscar_libro(libro_3))
