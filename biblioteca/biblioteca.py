@@ -58,19 +58,15 @@ class Biblioteca():
     def agregar_lector(self, lector):        
         self.lista_lectores.append(lector)
 
-    def agregar_libro(self, libro):
+    def agregar_libro(self, libro_nuevo, cantidad):
         if self.lista_libros: # Si la lista no esta vacia
-            if libro not in self.lista_libros:  # Si no esta en la lista , lo añade      
-                self.lista_libros.append(libro) 
-                self.cantidad_libros[libro] == 1 # Y pone la cantidad a 1
-            else:
-                for libro_actual in self.lista_libros:
-                    if libro_actual == libro:
-                        self.cantidad_libros[libro_actual] += 1 # Si ya existe, le añado 1 a la cantidad
-        else: # Si la lista esta vacia
-            self.lista_libros.append(libro) 
-            self.cantidad_libros[libro] == 1 # Y pone la cantidad a 1
-        
+            for libro in self.lista_libros:
+                if libro.titulo == libro_nuevo.titulo:
+                    self.cantidad_libros[libro_nuevo] += cantidad
+                    return f"libro actualizado correctamente"
+
+
+            
 
     def buscar_libro(self, libro_buscado):
         valor = f"El libro '{libro_buscado.titulo}' no existe en esta biblioteca\n"
@@ -93,9 +89,9 @@ libro_3 = Libro("Michael", "Ende", "La historia interminable")
 biblioteca_1 = Biblioteca("Biblioteca municipal", "Av. Masnou")
 
 # Agrego los libros a la biblioteca
-biblioteca_1.agregar_libro(libro_1)
-biblioteca_1.agregar_libro(libro_2)
-biblioteca_1.agregar_libro(libro_2)
+biblioteca_1.agregar_libro(libro_1, 1)
+biblioteca_1.agregar_libro(libro_2, 1)
+biblioteca_1.agregar_libro(libro_2, 3)
 
 # Agrego los lectores a la biblioteca
 biblioteca_1.agregar_lector(lector_1)
