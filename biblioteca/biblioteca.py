@@ -61,10 +61,12 @@ class Biblioteca():
     def agregar_libro(self, libro_nuevo, cantidad):
         if self.lista_libros: # Si la lista no esta vacia
             for libro in self.lista_libros:
-                if libro.titulo == libro_nuevo.titulo:
+                if libro.titulo == libro_nuevo.titulo:                    
                     self.cantidad_libros[libro_nuevo] += cantidad
                     return f"libro actualizado correctamente"
-
+                else:
+                    self.lista_libros.append(libro_nuevo)
+                    self.cantidad_libros[libro_nuevo] = cantidad
 
             
 
