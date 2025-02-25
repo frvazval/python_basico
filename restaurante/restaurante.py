@@ -23,12 +23,12 @@ os.system("cls") # Limpia la pantalla
 
 # Creo las clases
 class Restaurante():
+    lista_reservas = []          
+    reserva = {}  
     def __init__(self, nombre, especialidad, turnos):
         self.nombre = nombre
         self.especialidad = especialidad
-        self.turnos = turnos # Es una tupla
-        self.lista_reservas = []          
-        self.reserva = {}  
+        self.turnos = turnos # Es una tupla        
 
     # Metodos       
     def hacer_reserva(self, cliente, hora):
