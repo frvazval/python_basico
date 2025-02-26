@@ -91,8 +91,18 @@ class Biblioteca():
                     valor = f"El libro '{libro_buscado.titulo}' si que existe en la biblioteca, \n"        
         return valor 
 
-    def reserva_libro(self, libro_reservado: object):
-        pass
+    def reservar_libro(self, libro_reservado: object):
+        if self.lista_libros: # Si hay libros en la lista de libros
+            if libro_reservado in self.lista_libros: # Si el libro esta en la biblioteca
+                if self.libro_y_cantidad[libro_reservado] > 0: # Si hay algun ejemplar disponible
+                    self.libro_y_cantidad[libro_reservado] -= 1 # Le resta 1 a la cantidad
+                    return f"El libro '{libro_reservado.titulo}' ha sido reservado correctamente, ahora quedan {self.libro_y_cantidad[libro_reservado]} disponibles\n"
+                else: # Si no hay ningún ejemplar disponible
+                    return f"El libro '{libro_reservado.titulo}' no se puede reservar, porque quedan {self.libro_y_cantidad[libro_reservado]} disponibles\n"
+            else: # Si el libro no esta en la biblioteca
+                return f"El libro '{libro_reservado.titulo}' no se puede reservar, porque no existe en la biblioteca\n"
+        else: # Si no hay libros en la lista de libros
+            return f"No hay libros en la biblioteca, no se puede reservar\n"
 
     def devolucion_libro(self, libro_devuelto: object):
         pass  
@@ -120,12 +130,25 @@ print(biblioteca_1.agregar_lector(lector_1))
 
 # Utilizo los metodos del objeto biblioteca
 
+# Muestra todos los lectores añadidos a la biblioteca
 biblioteca_1.mostrar_lectores()
 
+# Muestra todos los libros añadidos a la biblioteca
 biblioteca_1.mostrar_libros()
 
+# Busqueda de libros, muestran si existe en la biblioteca o no existe
 print(biblioteca_1.buscar_libro(libro_1))
 print(biblioteca_1.buscar_libro(libro_2))
 print(biblioteca_1.buscar_libro(libro_3))
+
+# Reserva de un libro
+print(biblioteca_1.reservar_libro(libro_2)) # Libro existente en la biblioteca
+print(biblioteca_1.reservar_libro(libro_3)) # Libro que no existe en la biblioteca
+
+# Devolución de un libro
+print(biblioteca_1.devolucion_libro(libro_2))
+
+
+
 
 
