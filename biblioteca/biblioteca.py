@@ -42,13 +42,13 @@ class Biblioteca():
         self.direccion = direccion
         self.lista_lectores = []
         self.lista_libros = [] 
-        self.cantidad_libros = {}       
+        self.libro_y_cantidad = {}       
 
     # Metodos de la clase Biblioteca
     def mostrar_libros(self):
         if self.lista_libros:
             for libro in self.lista_libros:
-                print(f"Titulo: {libro.titulo}, Autor: {libro.nombre_autor} {libro.apellido_autor}, Cantidad: {self.cantidad_libros[libro]}\n")
+                print(f"Titulo: {libro.titulo}, Autor: {libro.nombre_autor} {libro.apellido_autor}\n")
         
     def mostrar_lectores(self):
         if self.lista_lectores:
@@ -69,21 +69,28 @@ class Biblioteca():
             return f"El lector {lector_nuevo.nombre} {lector_nuevo.apellido} se ha añadido correctamente\n"
 
     def agregar_libro(self, libro_nuevo: object, cantidad: int):
-        if self.lista_libros: # Si la lista no esta vacia
-            for libro in self.lista_libros: # Si el libro ya existe en la lista
-                if libro.titulo == libro_nuevo.titulo:                    
-                    self.cantidad_libros[libro_nuevo] += cantidad # Actualiza la cantidad que hay de este libro
-                    return f"libro {libro.titulo} actualizado correctamente\n"
-                else: # Si el libro no existe en la lista
-                    self.lista_libros.append(libro_nuevo)
-                    self.cantidad_libros[libro_nuevo] = cantidad
-                    return f"libro {libro_nuevo.titulo} añadido correctamente\n"
-        else: # Si la lista esta vacia
-            self.lista_libros.append(libro_nuevo)
-            self.cantidad_libros[libro_nuevo] = cantidad # Actualiza la cantidad que hay de este libro
-            return f"libro {libro_nuevo.titulo} añadido correctamente\n"            
+        if self.lista_libros: # Si la lista de libros no esta vacia
+            existe = False
+        else: # Si la lista de libros esta vacia
+            self.libro_y_cantidad = {libro_nuevo: cantidad}
+            self.lista_libros.append(self.libro_y_cantidad)
+            return f"libro '{libro_nuevo.titulo}' añadido correctamente\n"
 
-    def buscar_libro(self, libro_buscado):
+        # if self.lista_libros: # Si la lista no esta vacia
+        #     for libro in self.lista_libros: # Si el libro ya existe en la lista
+        #         if libro.titulo == libro_nuevo.titulo:                    
+        #             self.cantidad_libros[libro_nuevo] += cantidad # Actualiza la cantidad que hay de este libro
+        #             return f"libro {libro.titulo} actualizado correctamente\n"
+        #         else: # Si el libro no existe en la lista
+        #             self.lista_libros.append(libro_nuevo)
+        #             self.cantidad_libros[libro_nuevo] = cantidad
+        #             return f"libro {libro_nuevo.titulo} añadido correctamente\n"
+        # else: # Si la lista esta vacia
+        #     self.lista_libros.append(libro_nuevo)
+        #     self.cantidad_libros[libro_nuevo] = cantidad # Actualiza la cantidad que hay de este libro
+        #     return f"libro {libro_nuevo.titulo} añadido correctamente\n"            
+
+    def buscar_libro(self, libro_buscado: object):
         valor = f"El libro '{libro_buscado.titulo}' no existe en esta biblioteca\n"
         if self.lista_libros:
             for libro in self.lista_libros:
@@ -117,7 +124,7 @@ print(biblioteca_1.agregar_lector(lector_1))
 
 biblioteca_1.mostrar_lectores()
 
-biblioteca_1.mostrar_libros()
+# biblioteca_1.mostrar_libros()
 
 print(biblioteca_1.buscar_libro(libro_1))
 print(biblioteca_1.buscar_libro(libro_2))
