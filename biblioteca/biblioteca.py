@@ -48,7 +48,7 @@ class Biblioteca():
     def mostrar_libros(self):
         if self.lista_libros:
             for libro in self.lista_libros:
-                print(f"Titulo: {libro.titulo}, Autor: {libro.nombre_autor} {libro.apellido_autor}\n")
+                print(f"Titulo: {libro.titulo}, Autor: {libro.nombre_autor} {libro.apellido_autor} Cantidad: {self.libro_y_cantidad[libro]}\n")
         
     def mostrar_lectores(self):
         if self.lista_lectores:
@@ -89,8 +89,7 @@ class Biblioteca():
             for libro in self.lista_libros:
                 if libro_buscado == libro:
                     valor = f"El libro '{libro_buscado.titulo}' si que existe en la biblioteca, \n"        
-        return valor
-        
+        return valor     
 
 
 # Creo los ojetos -> lector, libro y biblioteca
@@ -117,7 +116,7 @@ print(biblioteca_1.agregar_lector(lector_1))
 
 biblioteca_1.mostrar_lectores()
 
-# biblioteca_1.mostrar_libros()
+biblioteca_1.mostrar_libros()
 
 print(biblioteca_1.buscar_libro(libro_1))
 print(biblioteca_1.buscar_libro(libro_2))
