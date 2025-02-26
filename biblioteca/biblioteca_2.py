@@ -64,11 +64,22 @@ class Biblioteca():
 
     def mostrar_libros(self):
         if self.lista_libros: # Si la lista de libros no esta vacia
-            print("Lista de libros")
-            print("==========================================================================================\n")
+            col_autor = 20
+            col_titulo = 30
+
+            # print("| Autor              | Titulo                       | Cantidad")
+            cabecera = "| Autor" + " " * (col_autor - len("| Autor"))
+            cabecera += "| Titulo" + " " * (col_titulo - len("| Titulo"))
+            cabecera += "| Cantidad"
+            print(cabecera)
+            print("-" * (col_autor + col_titulo + len("| Cantidad")))
+
             for libro in self.lista_libros:
-                mensaje = f"Titulo: {libro.titulo}, Autor: {libro.nombre_autor} {libro.apellido_autor} Cantidad: {self.libro_y_cantidad[libro]}, "
-                mensaje += f"Disponibles: {self.libro_y_disponibles[libro]}\n"               
+                autor = libro.nombre_autor + " " + libro.apellido_autor
+                long_autor = len(autor)
+                mensaje = f"| {autor[:-(col_autor - long_autor)]}...|"
+                # mensaje = f"Titulo: {libro.titulo}, Autor: {libro.nombre_autor} {libro.apellido_autor} Cantidad: {self.libro_y_cantidad[libro]}, "
+                # mensaje += f"Disponibles: {self.libro_y_disponibles[libro]}\n"               
 
                 print(mensaje)
             print("==========================================================================================\n")
