@@ -130,14 +130,19 @@ class Biblioteca():
 
         if self.lista_libros: # Si hay libros en la lista de libros            
             if self.buscar_libro(libro_devuelto): # Si el libro esta en la biblioteca
-                self.libro_y_cantidad[libro_devuelto] += 1 # Añado 1 a la cantidad
                 self.lector_reserva = {"lector": f"{lector.nombre} {lector.apellido}", "libro": libro_devuelto.titulo}
-                for reserva in self.lista_reservas:
-                    if reserva == self.lector_reserva:
-                        self.lista_reservas.remove(reserva)
-                        mensaje = f"{lector.nombre} {lector.apellido} ha devuelto el libro '{libro_devuelto.titulo}' correctamente, "
-                        mensaje += f"ahora quedan {self.libro_y_cantidad[libro_devuelto]} disponibles\n"
-                        return mensaje                    
+                if self.lector_reserva in self.lista_reservas: # Si existe la reserva
+                    self.libro_y_cantidad[libro_devuelto] += 1 # Añado 1 a la cantidad
+                
+                    # Busca la reserva en la lista para eliminarla
+                    for reserva in self.lista_reservas:
+                        if reserva == self.lector_reserva:
+                            self.lista_reservas.remove(reserva)
+                            mensaje = f"{lector.nombre} {lector.apellido} ha devuelto el libro '{libro_devuelto.titulo}' correctamente, "
+                            mensaje += f"ahora quedan {self.libro_y_cantidad[libro_devuelto]} disponibles\n"
+                            return mensaje   
+                else: # Si no existe la reserva
+                    return f"{lector.nombre} {lector.apellido} no tiene el libro '{libro_devuelto.titulo}' reservado\n"                 
             else: # Si el libro no esta en la biblioteca
                 return f"El libro '{libro_devuelto.titulo}' no se puede devolver, porque no pertenece a esta biblioteca\n"   
         else: # Si no hay libros en la lista de libros
@@ -184,6 +189,7 @@ print(biblioteca_1.reservar_libro(libro_3, lector_1)) # Libro que no existe en l
 print(biblioteca_1.devolucion_libro(libro_2, lector_3)) # Libro existente en la biblioteca, pero el lector no esiste
 print(biblioteca_1.devolucion_libro(libro_3, lector_1)) # Libro que no existe en la biblioteca
 print(biblioteca_1.devolucion_libro(libro_2, lector_1)) # Libro y lector existente en la lista de reservados
+print(biblioteca_1.devolucion_libro(libro_2, lector_1)) # Como ya lo ha devuelto altes, ya no existe esta reserva
 
 
 
