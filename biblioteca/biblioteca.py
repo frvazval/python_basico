@@ -83,7 +83,7 @@ class Biblioteca():
         print("Lista de reservas")
         print("==========================================================================================\n")
         for reserva in self.lista_reservas:
-            print(f"libro: {reserva['libro']}, reservado por {reserva['lector']}\n")
+            print(f"Libro: {reserva['libro']}, reservado por {reserva['lector']}\n")
         print("==========================================================================================\n")
 
     def agregar_lector(self, lector_nuevo: str):
@@ -105,18 +105,18 @@ class Biblioteca():
                 self.libro_y_cantidad[libro_nuevo] += cantidad
                 self.libro_y_disponibles[libro_nuevo] += cantidad
                             
-                return f"libro '{libro_nuevo.titulo}' actualizado correctamente\n"
+                return f"Libro '{libro_nuevo.titulo}' actualizado correctamente\n"
             else:
                 self.libro_y_cantidad[libro_nuevo] = cantidad
                 self.libro_y_disponibles[libro_nuevo] = cantidad
                 self.lista_libros.append(libro_nuevo)
-                return f"libro '{libro_nuevo.titulo}' añadido correctamente\n"
+                return f"Libro '{libro_nuevo.titulo}' añadido correctamente\n"
             
         else: # Si la lista de libros esta vacia
             self.libro_y_cantidad[libro_nuevo] = cantidad
             self.libro_y_disponibles[libro_nuevo] = cantidad
             self.lista_libros.append(libro_nuevo)
-            return f"libro '{libro_nuevo.titulo}' añadido correctamente\n"         
+            return f"Libro '{libro_nuevo.titulo}' añadido correctamente\n"         
 
     def reservar_libro(self, libro_reservado: object, lector: object):
         # Si el lector no esta registrado en la biblioteca
