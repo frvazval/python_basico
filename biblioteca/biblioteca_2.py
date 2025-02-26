@@ -64,7 +64,8 @@ class Biblioteca():
 
     def mostrar_libros(self):
         if self.lista_libros: # Si la lista de libros no esta vacia
-            col_autor = 18
+            # Caracteres de anchura de las columnas
+            col_autor = 20
             col_titulo = 30
             col_cantidad = 11
             
@@ -80,14 +81,14 @@ class Biblioteca():
 
             for libro in self.lista_libros:
                 autor = "| " + libro.nombre_autor + " " + libro.apellido_autor
-                caracteres = (col_autor - len(autor)) - 5 # Los 2 caracteres son de '| ' y 3 de '...'
+                caracteres = col_autor - 3 # Los 3 que le resto son los '...'
                 if len(autor) > col_autor: # Si es mas largo que la columna Autor
-                    mensaje = f"{autor[:(col_autor - caracteres)]}..."
+                    mensaje = f"{autor[:caracteres]}..."
                 else:
                     mensaje = f"{autor}" + " " * (col_autor - len(autor))
 
                 titulo = "| " + libro.titulo
-                caracteres = col_titulo - len(titulo) - 2 # Los 2 caracteres son de '| '
+                caracteres = col_titulo - 3 # Los 3 que le resto son los '...'
                 if len(titulo) > col_titulo: # Si es mas largo que la columna Titulo
                     mensaje += f"{titulo[:caracteres]}..."
                 else:
