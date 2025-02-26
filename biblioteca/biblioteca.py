@@ -89,7 +89,13 @@ class Biblioteca():
             for libro in self.lista_libros:
                 if libro_buscado == libro:
                     valor = f"El libro '{libro_buscado.titulo}' si que existe en la biblioteca, \n"        
-        return valor     
+        return valor 
+
+    def reserva_libro(self, libro_reservado: object):
+        pass
+
+    def devolucion_libro(self, libro_devuelto: object):
+        pass  
 
 
 # Creo los ojetos -> lector, libro y biblioteca
