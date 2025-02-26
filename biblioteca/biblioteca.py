@@ -51,6 +51,8 @@ class Biblioteca():
         self.lector_reserva = {} # Contiene el libro que ha reservado un lector
         self.lista_reservas = [] # Contiene la lista de reservas de libros
 
+    def __str__(self):
+        return f"{self.nombre}, Dirección: {self.direccion}\n"
     # Metodos de la clase Biblioteca
     def buscar_libro(self, libro_buscado: object):
         valor = False
@@ -188,6 +190,9 @@ libro_3 = Libro("Michael", "Ende", "La historia interminable") # No existira en 
 
 biblioteca_1 = Biblioteca("Biblioteca municipal", "Av. Masnou")
 
+# Muestro los datos de la biblioteca
+print(biblioteca_1)
+
 # Agrego los libros a la biblioteca
 print(biblioteca_1.agregar_libro(libro_1, 1))
 print(biblioteca_1.agregar_libro(libro_2, 1))
@@ -211,11 +216,11 @@ print(biblioteca_1.reservar_libro(libro_2, lector_1)) # Libro existente en la bi
 print(biblioteca_1.reservar_libro(libro_2, lector_3)) # Libro existente en la biblioteca, pero el lector no existe
 print(biblioteca_1.reservar_libro(libro_3, lector_1)) # Libro que no existe en la biblioteca
 
-# Muestro los libros para ver cuantos hay disponibles despues de las reservas
-biblioteca_1.mostrar_libros()
-
 # Muestro la lista de reservas
 biblioteca_1.mostrar_reservas()
+
+# Muestro los libros para ver cuantos hay disponibles despues de las reservas
+biblioteca_1.mostrar_libros()
 
 # Devolución de un libro
 print(biblioteca_1.devolucion_libro(libro_2, lector_3)) # Libro existente en la biblioteca, pero el lector no esiste
