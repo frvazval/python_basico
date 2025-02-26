@@ -69,7 +69,6 @@ class Biblioteca():
         else: # Si la lista de lectores esta vacia
             print("Actualmente no hay lectores registrados en esta biblioteca\n")
 
-
     def agregar_lector(self, lector_nuevo: str):
         if self.lista_lectores: # Si la lista de lectores no esta vacia
            
@@ -96,9 +95,7 @@ class Biblioteca():
         else: # Si la lista de libros esta vacia
             self.libro_y_cantidad[libro_nuevo] = cantidad
             self.lista_libros.append(libro_nuevo)
-            return f"libro '{libro_nuevo.titulo}' añadido correctamente\n"        
-
-    
+            return f"libro '{libro_nuevo.titulo}' añadido correctamente\n"         
 
     def reservar_libro(self, libro_reservado: object, lector: object):
         # Si el lector no esta registrado en la biblioteca
@@ -147,8 +144,6 @@ class Biblioteca():
                 return f"El libro '{libro_devuelto.titulo}' no se puede devolver, porque no pertenece a esta biblioteca\n"   
         else: # Si no hay libros en la lista de libros
             return f"No hay libros en la biblioteca, no se pueden hacer devoluciones\n"
-
-
 
 # Creo los ojetos -> lector, libro y biblioteca
 lector_1 = Lector("Antonio", "Lopez")
