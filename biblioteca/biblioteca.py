@@ -43,8 +43,18 @@ class Biblioteca():
         self.lista_lectores = [] # Contiene los lectores añadidos a la biblioteca
         self.lista_libros = [] # Contiene los libros añadidos a la biblioteca
         self.libro_y_cantidad = {} # Contiene las cantidades que hay de cada libro
+        self.lector_reserva = {} # Contiene el libro que ha reservado un lector
+        self.lista_reservas = [] # Contiene la lista de reservas de libros
 
     # Metodos de la clase Biblioteca
+    def buscar_libro(self, libro_buscado: object):
+        valor = False
+        if self.lista_libros:
+            for libro in self.lista_libros:
+                if libro_buscado == libro:
+                    valor = True        
+        return valor 
+
     def mostrar_libros(self):
         if self.lista_libros: # Si la lista de libros no esta vacia
             for libro in self.lista_libros:
@@ -75,7 +85,7 @@ class Biblioteca():
 
     def agregar_libro(self, libro_nuevo: object, cantidad: int):
         if self.lista_libros: # Si la lista de libros no esta vacia
-            if libro_nuevo in self.lista_libros:
+            if self.buscar_libro(libro_nuevo):
                 self.libro_y_cantidad[libro_nuevo] += cantidad                
                 return f"libro '{libro_nuevo.titulo}' actualizado correctamente\n"
             else:
@@ -88,19 +98,21 @@ class Biblioteca():
             self.lista_libros.append(libro_nuevo)
             return f"libro '{libro_nuevo.titulo}' añadido correctamente\n"        
 
-    def buscar_libro(self, libro_buscado: object):
-        valor = f"El libro '{libro_buscado.titulo}' no existe en esta biblioteca\n"
-        if self.lista_libros:
-            for libro in self.lista_libros:
-                if libro_buscado == libro:
-                    valor = f"El libro '{libro_buscado.titulo}' si que existe en la biblioteca, \n"        
-        return valor 
+    
 
-    def reservar_libro(self, libro_reservado: object):
+    def reservar_libro(self, libro_reservado: object, lector: object):
+        # Si el lector no esta registrado en la biblioteca
+        if lector not in self.lista_lectores:
+            return f"{lector.nombre} {lector.apellido} no puede reservar, porque no esta registrado en esta biblioteca\n"
+
         if self.lista_libros: # Si hay libros en la lista de libros
-            if libro_reservado in self.lista_libros: # Si el libro esta en la biblioteca
+            if self.buscar_libro(libro_reservado): # Si el libro esta en la biblioteca
                 if self.libro_y_cantidad[libro_reservado] > 0: # Si hay algun ejemplar disponible
                     self.libro_y_cantidad[libro_reservado] -= 1 # Le resta 1 a la cantidad
+
+                    # Crea la reserva y la añade a la lista de reservas
+                    self.lector_reserva = {"lector": f"{lector.nombre} {lector.apellido}", "libro": libro_reservado.titulo}
+                    self.lista_reservas.append(self.lector_reserva)
                     return f"El libro '{libro_reservado.titulo}' ha sido reservado correctamente, ahora quedan {self.libro_y_cantidad[libro_reservado]} disponibles\n"
                 else: # Si no hay ningún ejemplar disponible
                     return f"El libro '{libro_reservado.titulo}' no se puede reservar, porque quedan {self.libro_y_cantidad[libro_reservado]} disponibles\n"
@@ -109,17 +121,26 @@ class Biblioteca():
         else: # Si no hay libros en la lista de libros
             return f"No hay libros en la biblioteca, no se puede reservar\n"
 
-    def devolucion_libro(self, libro_devuelto: object):
-        pass  
+    def devolucion_libro(self, libro_devuelto: object, lector: object):
+        # Si el lector no esta registrado en la biblioteca
+        if lector not in self.lista_lectores:
+            return f"{lector.nombre} {lector.apellido} no puede reservar, porque no esta registrado en esta biblioteca\n"
+
+        if self.lista_libros: # Si hay libros en la lista de libros
+            pass
+        else: # Si no hay libros en la lista de libros
+            return f"No hay libros en la biblioteca, no se pueden hacer devoluciones\n"
+
 
 
 # Creo los ojetos -> lector, libro y biblioteca
 lector_1 = Lector("Antonio", "Lopez")
 lector_2 = Lector("Maria", "Perez")
+lector_3 = Lector("Pedro", "Martinez") # No existira en la biblioteca
 
 libro_1 = Libro("Carlos", "Ruiz Zafón", "La sombra del viento")
 libro_2 = Libro("Dolores", "Redondo", "Ofrenda a la tormenta")
-libro_3 = Libro("Michael", "Ende", "La historia interminable")
+libro_3 = Libro("Michael", "Ende", "La historia interminable") # No existira en la biblioteca
 
 biblioteca_1 = Biblioteca("Biblioteca municipal", "Av. Masnou")
 
@@ -147,11 +168,16 @@ print(biblioteca_1.buscar_libro(libro_2))
 print(biblioteca_1.buscar_libro(libro_3))
 
 # Reserva de un libro
-print(biblioteca_1.reservar_libro(libro_2)) # Libro existente en la biblioteca
-print(biblioteca_1.reservar_libro(libro_3)) # Libro que no existe en la biblioteca
+print(biblioteca_1.reservar_libro(libro_2, lector_1)) # Libro existente en la biblioteca
+print(biblioteca_1.reservar_libro(libro_2, lector_3)) # Libro existente en la biblioteca, pero el lector no existe
+print(biblioteca_1.reservar_libro(libro_3, lector_1)) # Libro que no existe en la biblioteca
+
 
 # Devolución de un libro
-print(biblioteca_1.devolucion_libro(libro_2))
+print(biblioteca_1.devolucion_libro(libro_2, lector_3)) # Libro existente en la biblioteca, pero el lector no esiste
+print(biblioteca_1.devolucion_libro(libro_3, lector_1)) # Libro que no existe en la biblioteca
+
+
 
 
 
