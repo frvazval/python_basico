@@ -18,6 +18,10 @@ El programa debe crear las siguientes clases con sus métodos:
         indicando si lo tiene o no
     - mostrar libros de la biblioteca
 
+    Opcional:
+
+    Hacer reservas y devoluciones de libros
+
 
 """
 
