@@ -59,14 +59,14 @@ class Biblioteca():
         if self.lista_lectores: # Si la lista de lectores no esta vacia
            
             if lector_nuevo in self.lista_lectores:
-                print(f"El lector {lector_nuevo.nombre} {lector_nuevo.apellido} no se puede añadir porque ya existe\n")
+                return f"El lector {lector_nuevo.nombre} {lector_nuevo.apellido} no se puede añadir porque ya existe\n"
             else:
                 self.lista_lectores.append(lector_nuevo) # Lo añade a la lista                
-                print(f"El lector {lector_nuevo.nombre} {lector_nuevo.apellido} se ha añadido correctamente\n")
+                return f"El lector {lector_nuevo.nombre} {lector_nuevo.apellido} se ha añadido correctamente\n"
 
         else: # Si la lista de lectores esta vacia, lo añade a la lista
             self.lista_lectores.append(lector_nuevo)       
-            print(f"El lector {lector_nuevo.nombre} {lector_nuevo.apellido} se ha añadido correctamente\n")
+            return f"El lector {lector_nuevo.nombre} {lector_nuevo.apellido} se ha añadido correctamente\n"
 
     def agregar_libro(self, libro_nuevo: object, cantidad: int):
         if self.lista_libros: # Si la lista no esta vacia
@@ -109,9 +109,9 @@ print(biblioteca_1.agregar_libro(libro_2, 1))
 print(biblioteca_1.agregar_libro(libro_2, 3))
 
 # Agrego los lectores a la biblioteca
-biblioteca_1.agregar_lector(lector_1)
-biblioteca_1.agregar_lector(lector_2)
-biblioteca_1.agregar_lector(lector_1)
+print(biblioteca_1.agregar_lector(lector_1))
+print(biblioteca_1.agregar_lector(lector_2))
+print(biblioteca_1.agregar_lector(lector_1))
 
 # Utilizo los metodos del objeto biblioteca
 
