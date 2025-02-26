@@ -64,7 +64,7 @@ class Biblioteca():
 
     def mostrar_libros(self):
         if self.lista_libros: # Si la lista de libros no esta vacia
-            col_autor = 20
+            col_autor = 18
             col_titulo = 30
             col_cantidad = 11
             
@@ -80,14 +80,14 @@ class Biblioteca():
 
             for libro in self.lista_libros:
                 autor = "| " + libro.nombre_autor + " " + libro.apellido_autor
-                caracteres = col_autor - len(autor)
+                caracteres = (col_autor - len(autor)) - 5 # Los 2 caracteres son de '| ' y 3 de '...'
                 if len(autor) > col_autor: # Si es mas largo que la columna Autor
-                    mensaje = f"{autor[:-caracteres]}..."
+                    mensaje = f"{autor[:(col_autor - caracteres)]}..."
                 else:
                     mensaje = f"{autor}" + " " * (col_autor - len(autor))
 
                 titulo = "| " + libro.titulo
-                caracteres = col_titulo - len(titulo)
+                caracteres = col_titulo - len(titulo) - 2 # Los 2 caracteres son de '| '
                 if len(titulo) > col_titulo: # Si es mas largo que la columna Titulo
                     mensaje += f"{titulo[:caracteres]}..."
                 else:
@@ -117,11 +117,11 @@ class Biblioteca():
             print("Actualmente no hay lectores registrados en esta biblioteca\n")
 
     def mostrar_reservas(self):
-        print("Lista de reservas")
-        print("==========================================================================================\n")
+        print(f"Lista de reservas de {self.nombre}")
+        print("-" * 41)
         for reserva in self.lista_reservas:
-            print(f"Libro: {reserva['libro']}, reservado por {reserva['lector']}\n")
-        print("==========================================================================================\n")
+            print(f"Libro: {reserva['libro']}, reservado por {reserva['lector']}")
+        print("-" * 41 + "\n")
 
     def agregar_lector(self, lector_nuevo: str):
         if self.lista_lectores: # Si la lista de lectores no esta vacia
