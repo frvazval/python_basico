@@ -108,11 +108,11 @@ class Biblioteca():
         
     def mostrar_lectores(self):
         if self.lista_lectores: # Si la lista de lectores no esta vacia
-            print("Lista de lectores")
-            print("==========================================================================================\n")
+            print(f"Liectores registrados en '{self.nombre}'")
+            print("-" * 47)
             for lector in self.lista_lectores:
-                print(f"Nombre: {lector.nombre} Apellido: {lector.apellido}\n")
-            print("==========================================================================================\n")
+                print(f"{lector.nombre} {lector.apellido}")
+            print("-" * 47 +"\n")
         else: # Si la lista de lectores esta vacia
             print("Actualmente no hay lectores registrados en esta biblioteca\n")
 
