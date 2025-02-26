@@ -42,7 +42,8 @@ class Biblioteca():
         self.direccion = direccion
         self.lista_lectores = [] # Contiene los lectores añadidos a la biblioteca
         self.lista_libros = [] # Contiene los libros añadidos a la biblioteca
-        self.libro_y_cantidad = {} # Contiene las cantidades que hay de cada libro
+        self.libro_y_cantidad = {} # Contiene las cantidades que hay de cada libro y los que hay disponibles
+        self.libro_y_disponibles = {} # Contiene los que hay disponibles del total
         self.lector_reserva = {} # Contiene el libro que ha reservado un lector
         self.lista_reservas = [] # Contiene la lista de reservas de libros
 
@@ -58,7 +59,10 @@ class Biblioteca():
     def mostrar_libros(self):
         if self.lista_libros: # Si la lista de libros no esta vacia
             for libro in self.lista_libros:
-                print(f"Titulo: {libro.titulo}, Autor: {libro.nombre_autor} {libro.apellido_autor} Cantidad: {self.libro_y_cantidad[libro]}\n")
+                mensaje = f"Titulo: {libro.titulo}, Autor: {libro.nombre_autor} {libro.apellido_autor} Cantidad: {self.libro_y_cantidad[libro]}, "
+                mensaje += f"Disponibles: {self.libro_y_disponibles[libro]}\n"               
+
+                print(mensaje)
         else: # Si la lista de libros esta vacia
             print("Actualmente no hay libros disponibles en esta biblioteca\n")
         
@@ -85,15 +89,19 @@ class Biblioteca():
     def agregar_libro(self, libro_nuevo: object, cantidad: int):
         if self.lista_libros: # Si la lista de libros no esta vacia
             if self.buscar_libro(libro_nuevo):
-                self.libro_y_cantidad[libro_nuevo] += cantidad                
+                self.libro_y_cantidad[libro_nuevo] += cantidad
+                self.libro_y_disponibles[libro_nuevo] += cantidad
+                            
                 return f"libro '{libro_nuevo.titulo}' actualizado correctamente\n"
             else:
                 self.libro_y_cantidad[libro_nuevo] = cantidad
+                self.libro_y_disponibles[libro_nuevo] = cantidad
                 self.lista_libros.append(libro_nuevo)
                 return f"libro '{libro_nuevo.titulo}' añadido correctamente\n"
             
         else: # Si la lista de libros esta vacia
             self.libro_y_cantidad[libro_nuevo] = cantidad
+            self.libro_y_disponibles[libro_nuevo] = cantidad
             self.lista_libros.append(libro_nuevo)
             return f"libro '{libro_nuevo.titulo}' añadido correctamente\n"         
 
@@ -104,14 +112,14 @@ class Biblioteca():
 
         if self.lista_libros: # Si hay libros en la lista de libros
             if self.buscar_libro(libro_reservado): # Si el libro esta en la biblioteca
-                if self.libro_y_cantidad[libro_reservado] > 0: # Si hay algun ejemplar disponible
-                    self.libro_y_cantidad[libro_reservado] -= 1 # Le resta 1 a la cantidad
+                if self.libro_y_disponibles[libro_reservado] > 0: # Si hay algun ejemplar disponible
+                    self.libro_y_disponibles[libro_reservado] -= 1 # Le resta 1 a la cantidad
 
                     # Crea la reserva y la añade a la lista de reservas
                     self.lector_reserva = {"lector": f"{lector.nombre} {lector.apellido}", "libro": libro_reservado.titulo}
                     self.lista_reservas.append(self.lector_reserva)
                     mensaje = f"El libro '{libro_reservado.titulo}' ha sido reservado correctamente "
-                    mensaje += f"por {lector.nombre} {lector.apellido}, ahora quedan {self.libro_y_cantidad[libro_reservado]} disponibles\n"
+                    mensaje += f"por {lector.nombre} {lector.apellido}, ahora quedan {self.libro_y_disponibles[libro_reservado]} disponibles\n"
                     return mensaje
                 else: # Si no hay ningún ejemplar disponible
                     return f"El libro '{libro_reservado.titulo}' no se puede reservar, porque quedan {self.libro_y_cantidad[libro_reservado]} disponibles\n"
@@ -129,15 +137,16 @@ class Biblioteca():
             if self.buscar_libro(libro_devuelto): # Si el libro esta en la biblioteca
                 self.lector_reserva = {"lector": f"{lector.nombre} {lector.apellido}", "libro": libro_devuelto.titulo}
                 if self.lector_reserva in self.lista_reservas: # Si existe la reserva
-                    self.libro_y_cantidad[libro_devuelto] += 1 # Añado 1 a la cantidad
+                    self.libro_y_disponibles[libro_devuelto] += 1 # Añado 1 a la cantidad
                 
                     # Busca la reserva en la lista para eliminarla
                     for reserva in self.lista_reservas:
                         if reserva == self.lector_reserva:
                             self.lista_reservas.remove(reserva)
                             mensaje = f"{lector.nombre} {lector.apellido} ha devuelto el libro '{libro_devuelto.titulo}' correctamente, "
-                            mensaje += f"ahora quedan {self.libro_y_cantidad[libro_devuelto]} disponibles\n"
-                            return mensaje   
+                            mensaje += f"ahora quedan {self.libro_y_disponibles[libro_devuelto]} disponibles\n"
+                            return mensaje 
+                          
                 else: # Si no existe la reserva
                     return f"{lector.nombre} {lector.apellido} no tiene el libro '{libro_devuelto.titulo}' reservado\n"                 
             else: # Si el libro no esta en la biblioteca
