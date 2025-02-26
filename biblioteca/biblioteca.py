@@ -126,8 +126,11 @@ class Biblioteca():
         if lector not in self.lista_lectores:
             return f"{lector.nombre} {lector.apellido} no puede reservar, porque no esta registrado en esta biblioteca\n"
 
-        if self.lista_libros: # Si hay libros en la lista de libros
-            pass
+        if self.lista_libros: # Si hay libros en la lista de libros            
+            if self.buscar_libro(libro_devuelto): # Si el libro esta en la biblioteca
+                pass
+            else:
+                pass    
         else: # Si no hay libros en la lista de libros
             return f"No hay libros en la biblioteca, no se pueden hacer devoluciones\n"
 
@@ -161,11 +164,6 @@ biblioteca_1.mostrar_lectores()
 
 # Muestra todos los libros añadidos a la biblioteca
 biblioteca_1.mostrar_libros()
-
-# Busqueda de libros, muestran si existe en la biblioteca o no existe
-print(biblioteca_1.buscar_libro(libro_1))
-print(biblioteca_1.buscar_libro(libro_2))
-print(biblioteca_1.buscar_libro(libro_3))
 
 # Reserva de un libro
 print(biblioteca_1.reservar_libro(libro_2, lector_1)) # Libro existente en la biblioteca
