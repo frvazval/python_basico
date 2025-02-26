@@ -68,6 +68,7 @@ class Biblioteca():
             col_titulo = 30
             col_cantidad = 11
             
+            print(f"Libros disponibles en '{self.nombre}'")
             # Creo el valor de la cabecera en la variable 'cabecera'
             cabecera = "| Autor" + " " * (col_autor - len("| Autor"))
             cabecera += "| Titulo" + " " * (col_titulo - len("| Titulo"))
@@ -99,11 +100,9 @@ class Biblioteca():
                 disponibles = "| " + str(self.libro_y_disponibles[libro])
                 mensaje += f"{disponibles}" # No hay que poner nada mas porque es el ultimo
 
-                # mensaje = f"Titulo: {libro.titulo}, Autor: {libro.nombre_autor} {libro.apellido_autor} Cantidad: {self.libro_y_cantidad[libro]}, "
-                # mensaje += f"Disponibles: {self.libro_y_disponibles[libro]}\n"               
-
+                # Muestro por pantalla la linea entera
                 print(mensaje)
-            print("==========================================================================================\n")
+            print("-" * (col_autor + col_titulo + len("| Cantidad") + len("| Disponibles")) + "-\n")
         else: # Si la lista de libros esta vacia
             print("Actualmente no hay libros disponibles en esta biblioteca\n")
         
