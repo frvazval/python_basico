@@ -58,20 +58,33 @@ class Biblioteca():
 
     def mostrar_libros(self):
         if self.lista_libros: # Si la lista de libros no esta vacia
+            print("Lista de libros")
+            print("==========================================================================================\n")
             for libro in self.lista_libros:
                 mensaje = f"Titulo: {libro.titulo}, Autor: {libro.nombre_autor} {libro.apellido_autor} Cantidad: {self.libro_y_cantidad[libro]}, "
                 mensaje += f"Disponibles: {self.libro_y_disponibles[libro]}\n"               
 
                 print(mensaje)
+            print("==========================================================================================\n")
         else: # Si la lista de libros esta vacia
             print("Actualmente no hay libros disponibles en esta biblioteca\n")
         
     def mostrar_lectores(self):
         if self.lista_lectores: # Si la lista de lectores no esta vacia
+            print("Lista de lectores")
+            print("==========================================================================================\n")
             for lector in self.lista_lectores:
                 print(f"Nombre: {lector.nombre} Apellido: {lector.apellido}\n")
+            print("==========================================================================================\n")
         else: # Si la lista de lectores esta vacia
             print("Actualmente no hay lectores registrados en esta biblioteca\n")
+
+    def mostrar_reservas(self):
+        print("Lista de reservas")
+        print("==========================================================================================\n")
+        for reserva in self.lista_reservas:
+            print(f"libro: {reserva['libro']}, reservado por {reserva['lector']}\n")
+        print("==========================================================================================\n")
 
     def agregar_lector(self, lector_nuevo: str):
         if self.lista_lectores: # Si la lista de lectores no esta vacia
@@ -188,6 +201,11 @@ print(biblioteca_1.reservar_libro(libro_2, lector_1)) # Libro existente en la bi
 print(biblioteca_1.reservar_libro(libro_2, lector_3)) # Libro existente en la biblioteca, pero el lector no existe
 print(biblioteca_1.reservar_libro(libro_3, lector_1)) # Libro que no existe en la biblioteca
 
+# Muestro los libros para ver cuantos hay disponibles despues de las reservas
+biblioteca_1.mostrar_libros()
+
+# Muestro la lista de reservas
+biblioteca_1.mostrar_reservas()
 
 # Devolución de un libro
 print(biblioteca_1.devolucion_libro(libro_2, lector_3)) # Libro existente en la biblioteca, pero el lector no esiste
