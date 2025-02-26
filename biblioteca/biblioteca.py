@@ -105,7 +105,9 @@ class Biblioteca():
 
     def agregar_libro(self, libro_nuevo: object, cantidad: int):
         if self.lista_libros: # Si la lista de libros no esta vacia
-            if self.buscar_libro(libro_nuevo):
+
+            # Utilizo el metodo buscar_libro(self, libro_buscado: object) de esta misma clase (Biblioteca) para comprobar si el libro existe
+            if self.buscar_libro(libro_nuevo): 
                 self.libro_y_cantidad[libro_nuevo] += cantidad
                 self.libro_y_disponibles[libro_nuevo] += cantidad
                             
@@ -128,6 +130,8 @@ class Biblioteca():
             return f"{lector.nombre} {lector.apellido} no puede reservar, porque no esta registrado en esta biblioteca\n"
 
         if self.lista_libros: # Si hay libros en la lista de libros
+
+            # Utilizo el metodo buscar_libro(self, libro_buscado: object) de esta misma clase (Biblioteca) para comprobar si el libro existe
             if self.buscar_libro(libro_reservado): # Si el libro esta en la biblioteca
                 if self.libro_y_disponibles[libro_reservado] > 0: # Si hay algun ejemplar disponible
                     self.libro_y_disponibles[libro_reservado] -= 1 # Le resta 1 a la cantidad
@@ -150,7 +154,9 @@ class Biblioteca():
         if lector not in self.lista_lectores:
             return f"{lector.nombre} {lector.apellido} no puede reservar, porque no esta registrado en esta biblioteca\n"
 
-        if self.lista_libros: # Si hay libros en la lista de libros            
+        if self.lista_libros: # Si hay libros en la lista de libros 
+
+            # Utilizo el metodo buscar_libro(self, libro_buscado: object) de esta misma clase (Biblioteca) para comprobar si el libro existe           
             if self.buscar_libro(libro_devuelto): # Si el libro esta en la biblioteca
                 self.lector_reserva = {"lector": f"{lector.nombre} {lector.apellido}", "libro": libro_devuelto.titulo}
                 if self.lector_reserva in self.lista_reservas: # Si existe la reserva
