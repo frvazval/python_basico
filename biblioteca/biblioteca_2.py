@@ -67,13 +67,15 @@ class Biblioteca():
             col_autor = 20
             col_titulo = 30
             col_cantidad = 11
-
-            # print("| Autor              | Titulo                       | Cantidad")
+            
+            # Creo el valor de la cabecera en la variable 'cabecera'
             cabecera = "| Autor" + " " * (col_autor - len("| Autor"))
             cabecera += "| Titulo" + " " * (col_titulo - len("| Titulo"))
-            cabecera += "| Cantidad"
+            cabecera += "| Cantidad" + " " * (col_cantidad - len("| Cantidad"))
+            cabecera += "| Disponibles"
+            # Muestro la cabecera en pantalla
             print(cabecera)
-            print("-" * (col_autor + col_titulo + len("| Cantidad")))
+            print("-" * (col_autor + col_titulo + len("| Cantidad") + len("| Disponibles")) + "-") 
 
             for libro in self.lista_libros:
                 autor = "| " + libro.nombre_autor + " " + libro.apellido_autor
@@ -93,6 +95,9 @@ class Biblioteca():
                 cantidad = "| " + str(self.libro_y_cantidad[libro])
                 caracteres = col_cantidad - len(cantidad)
                 mensaje += f"{cantidad}" + " " * (col_cantidad - len(cantidad))
+
+                disponibles = "| " + str(self.libro_y_disponibles[libro])
+                mensaje += f"{disponibles}" # No hay que poner nada mas porque es el ultimo
 
                 # mensaje = f"Titulo: {libro.titulo}, Autor: {libro.nombre_autor} {libro.apellido_autor} Cantidad: {self.libro_y_cantidad[libro]}, "
                 # mensaje += f"Disponibles: {self.libro_y_disponibles[libro]}\n"               
