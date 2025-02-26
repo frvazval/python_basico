@@ -64,33 +64,65 @@ class Biblioteca():
 
     def mostrar_libros(self):
         if self.lista_libros: # Si la lista de libros no esta vacia
-            print("Lista de libros")
-            print("==========================================================================================\n")
-            for libro in self.lista_libros:
-                mensaje = f"Titulo: {libro.titulo}, Autor: {libro.nombre_autor} {libro.apellido_autor} Cantidad: {self.libro_y_cantidad[libro]}, "
-                mensaje += f"Disponibles: {self.libro_y_disponibles[libro]}\n"               
+            # Caracteres de anchura de las columnas
+            col_autor = 20
+            col_titulo = 30
+            col_cantidad = 11
+            
+            print(f"Libros disponibles en '{self.nombre}'")
+            # Creo el valor de la cabecera en la variable 'cabecera'
+            cabecera = "| Autor" + " " * (col_autor - len("| Autor"))
+            cabecera += "| Titulo" + " " * (col_titulo - len("| Titulo"))
+            cabecera += "| Cantidad" + " " * (col_cantidad - len("| Cantidad"))
+            cabecera += "| Disponibles"
+            # Muestro la cabecera en pantalla
+            print(cabecera)
+            print("-" * (col_autor + col_titulo + len("| Cantidad") + len("| Disponibles")) + "-") 
 
+            for libro in self.lista_libros:
+                autor = "| " + libro.nombre_autor + " " + libro.apellido_autor
+                caracteres = col_autor - 3 # Los 3 que le resto son los '...'
+                if len(autor) > col_autor: # Si es mas largo que la columna Autor
+                    mensaje = f"{autor[:caracteres]}..."
+                else:
+                    mensaje = f"{autor}" + " " * (col_autor - len(autor))
+
+                titulo = "| " + libro.titulo
+                caracteres = col_titulo - 3 # Los 3 que le resto son los '...'
+                if len(titulo) > col_titulo: # Si es mas largo que la columna Titulo
+                    mensaje += f"{titulo[:caracteres]}..."
+                else:
+                    mensaje += f"{titulo}" + " " * (col_titulo - len(titulo))
+
+                cantidad = "| " + str(self.libro_y_cantidad[libro])
+                caracteres = col_cantidad - len(cantidad)
+                mensaje += f"{cantidad}" + " " * (col_cantidad - len(cantidad))
+
+                disponibles = "| " + str(self.libro_y_disponibles[libro])
+                mensaje += f"{disponibles}" # No hay que poner nada mas porque es el ultimo
+
+                # Muestro por pantalla la linea entera
                 print(mensaje)
-            print("==========================================================================================\n")
+            print("-" * (col_autor + col_titulo + len("| Cantidad") + len("| Disponibles")) + "-\n")
         else: # Si la lista de libros esta vacia
             print("Actualmente no hay libros disponibles en esta biblioteca\n")
         
     def mostrar_lectores(self):
         if self.lista_lectores: # Si la lista de lectores no esta vacia
-            print("Lista de lectores")
-            print("==========================================================================================\n")
+            print(f"Liectores registrados en '{self.nombre}'")
+            print("-" * 47)
             for lector in self.lista_lectores:
-                print(f"Nombre: {lector.nombre} Apellido: {lector.apellido}\n")
-            print("==========================================================================================\n")
+                print(f"{lector.nombre} {lector.apellido}")
+            print("-" * 47 +"\n")
         else: # Si la lista de lectores esta vacia
             print("Actualmente no hay lectores registrados en esta biblioteca\n")
 
     def mostrar_reservas(self):
-        print("Lista de reservas")
-        print("==========================================================================================\n")
+        print(f"Lista de reservas de {self.nombre}")
+        print("-" * 41)
         for reserva in self.lista_reservas:
-            print(f"Libro: {reserva['libro']}, reservado por {reserva['lector']}\n")
-        print("==========================================================================================\n")
+            print(f"Libro: {reserva['libro']}, reservado por {reserva['lector']}")
+        print("-" * 41 + "\n")
 
     def agregar_lector(self, lector_nuevo: str):
         if self.lista_lectores: # Si la lista de lectores no esta vacia
@@ -227,10 +259,3 @@ print(biblioteca_1.devolucion_libro(libro_2, lector_3)) # Libro existente en la 
 print(biblioteca_1.devolucion_libro(libro_3, lector_1)) # Libro que no existe en la biblioteca
 print(biblioteca_1.devolucion_libro(libro_2, lector_1)) # Libro y lector existente en la lista de reservados
 print(biblioteca_1.devolucion_libro(libro_2, lector_1)) # Como ya lo ha devuelto altes, ya no existe esta reserva
-
-
-
-
-
-
-
