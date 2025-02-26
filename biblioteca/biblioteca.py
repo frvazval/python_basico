@@ -40,20 +40,25 @@ class Biblioteca():
     def __init__(self, nombre: str, direccion: str):
         self.nombre = nombre
         self.direccion = direccion
-        self.lista_lectores = []
-        self.lista_libros = [] 
-        self.libro_y_cantidad = {}       
+        self.lista_lectores = [] # Contiene los lectores añadidos a la biblioteca
+        self.lista_libros = [] # Contiene los libros añadidos a la biblioteca
+        self.libro_y_cantidad = {} # Contiene las cantidades que hay de cada libro
 
     # Metodos de la clase Biblioteca
     def mostrar_libros(self):
-        if self.lista_libros:
+        if self.lista_libros: # Si la lista de libros no esta vacia
             for libro in self.lista_libros:
                 print(f"Titulo: {libro.titulo}, Autor: {libro.nombre_autor} {libro.apellido_autor} Cantidad: {self.libro_y_cantidad[libro]}\n")
+        else: # Si la lista de libros esta vacia
+            print("Actualmente no hay libros disponibles en esta biblioteca\n")
         
     def mostrar_lectores(self):
-        if self.lista_lectores:
+        if self.lista_lectores: # Si la lista de lectores no esta vacia
             for lector in self.lista_lectores:
                 print(f"Nombre: {lector.nombre} Apellido: {lector.apellido}\n")
+        else: # Si la lista de lectores esta vacia
+            print("Actualmente no hay lectores registrados en esta biblioteca\n")
+
 
     def agregar_lector(self, lector_nuevo: str):
         if self.lista_lectores: # Si la lista de lectores no esta vacia
