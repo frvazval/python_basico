@@ -75,9 +75,12 @@ class Biblioteca():
             print("-" * (col_autor + col_titulo + len("| Cantidad")))
 
             for libro in self.lista_libros:
-                autor = libro.nombre_autor + " " + libro.apellido_autor
-                long_autor = len(autor)
-                mensaje = f"| {autor[:-(col_autor - long_autor)]}...|"
+                autor = "| " + libro.nombre_autor + " " + libro.apellido_autor
+                caracteres = col_autor - len(autor)
+                if len(autor) > col_autor:
+                    mensaje = f"{autor[:-caracteres]}..."
+                else:
+                    mensaje = f"{autor}" + " " * (col_autor - len(autor)) + "|"
                 # mensaje = f"Titulo: {libro.titulo}, Autor: {libro.nombre_autor} {libro.apellido_autor} Cantidad: {self.libro_y_cantidad[libro]}, "
                 # mensaje += f"Disponibles: {self.libro_y_disponibles[libro]}\n"               
 
