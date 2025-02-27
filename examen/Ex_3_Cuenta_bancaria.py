@@ -50,3 +50,8 @@ El programa debe:
     Nota: no hace falta crear inputs para la entrada de datos.
     Se pueden utilizar directamente los métodos.
 """
+
+import os # importa libreria os        
+os.system("cls") # Limpia la pantalla
+
+

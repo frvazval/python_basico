@@ -71,7 +71,7 @@ def agregar_modificar(nombre: str):
                 nombre_telefono[nombre] = telefono
                 return f"El telefono de '{nombre}' se ha modificado correctamente\n"
             else:
-                return f"No se ha modificado nada en '{nombre}'"
+                return f"No se ha modificado el telefono en '{nombre}'"
         else: # Si no esta en la lista lo añado
             telefono = input("Introduce el número de telefono: ")
             nombre_telefono[nombre] = telefono        
