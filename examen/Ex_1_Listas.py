@@ -83,7 +83,8 @@ while continuar:
                 if cantidad > 0:
                     # Pregunta la palabra a introducir en la lista tantas veces como se indique en cantidad
                     for num in range(cantidad):
-                        palabra = input(f"Introduce la palabra {num + 1}: ") # Pregunta la palabra
+                        # Pregunta la palabra, le quita los espacios y la pone en minusculas
+                        palabra = input(f"Introduce la palabra {num + 1}: ").lower().strip()
                         lista_palabras.append(palabra) # La añade a la lista 
 
                     print(f"Las {num + 1} palabras se han añadido correctamente a la lista\n")
@@ -99,13 +100,14 @@ while continuar:
             pass
 
         case "3": # Añadir palabra a la lista
+            print("AÑADIR PALABRA A LA LISTA")
+            print("-" * 25)
             # Comprueba que la lista no esta vacia
             if lista_palabras:
-                print("AÑADIR PALABRA A LA LISTA")
-                print("-" * 25)
+                
 
-                # Pide la palabra
-                palabra = input("Introduce la palabra que quieres añadir a la lista: ")
+                # Pregunta la palabra, le quita los espacios y la pone en minusculas
+                palabra = input("Introduce la palabra que quieres añadir a la lista: ").lower().strip()
 
                 # La añade a la lista
                 lista_palabras.append(palabra)
@@ -114,14 +116,21 @@ while continuar:
             else:
                 print("La lista de palabras esta vacia\n")
         
-        case "4":
-            pass
-        case "5": # Mostrar la lista de palabras
+        case "4": # Borrar una palabra de la lista
+            print("BORRAR UNA PALABRA DE LA LISTA")
+            print("-" * 30)
+
             # Comprueba que la lista no esta vacia
             if lista_palabras:
-                print("LISTA DE PALABRAS")
-                print("-" * 17)
-            
+                pass
+                
+            else:
+                print("La lista de palabras esta vacia\n")
+        case "5": # Mostrar la lista de palabras
+            print("LISTA DE PALABRAS")
+            print("-" * 17)
+            # Comprueba que la lista no esta vacia
+            if lista_palabras:                                       
                 # Recorre la lista y muestra las palabras
                 for palabra in lista_palabras:
                     print(palabra)
