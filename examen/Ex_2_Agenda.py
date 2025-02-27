@@ -50,12 +50,34 @@ import os # importa libreria os
 os.system("cls") # Limpia la pantalla
 
 # Definición de variables
-agenda = {} # Diccionario que contendra la agenda
+nombre_telefono = {} # Diccionario que contendra nombre y telefono
 continuar = True # Para salir del menu
 
 # Definición de funciones
 def agregar_modificar(nombre: str):
-    pass
+    # Compruebo que la agenda no este vacia
+    if nombre_telefono:       
+        if nombre in nombre_telefono:
+            # Muestro el dato
+            print(f"Nombre: {nombre}, Telefono: {nombre_telefono[nombre]}\n")
+
+            # Pregunto si lo quiere modificar
+            opcion = "a" # Para que entre la primera vez en el bucle
+            while opcion != "s" and opcion != "n":
+                opcion = input("¿Quieres modificar el telefono (s / n): ").lower()
+            
+            if opcion == "s":
+                telefono = input("Introduce el nuevo telefono: ")
+                nombre_telefono[nombre] = telefono
+                return f"El telefono de '{nombre}' se ha modificado correctamente\n"
+            else:
+                return f"No se ha modificado nada en '{nombre}'"
+
+    else: # Si esta vacia añado el nuevo nombre y su telefono        
+        telefono = input("Introduce el número de telefono: ")
+        nombre_telefono[nombre] = telefono        
+
+        return f"El nombre '{nombre}' con el telefono '{telefono}' se ha añadido correctamente a la agenda\n"        
 
 def buscar(nombre: str):
     pass
@@ -65,7 +87,7 @@ def borrar(nombre: str):
 
 def listar():
     # Compruebo que el diccionario no este vacio
-    if agenda:
+    if nombre_telefono:
         pass
     else:
         return "No se pueden mostrar los contactos porque la agenda esta vacia\n"
@@ -89,7 +111,15 @@ while continuar:
 
     match opcion:
         case "a":
-            pass
+            print("AÑADIR / MODIFICAR")
+            print("-" * 18)
+
+            # Pregunto el nombre que quiero añadir/modificar, (Quito los espacios y le pongo la primera letra en mayusculas)
+            nombre = input("Introduce el nombre: ").strip().capitalize()
+
+            # LLamo a la función agregar_modificar(nombre: str)
+            print(agregar_modificar(nombre))
+
         case "b":
             pass
         case "c":
