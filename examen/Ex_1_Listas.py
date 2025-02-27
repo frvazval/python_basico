@@ -96,15 +96,34 @@ while continuar:
 
             
 
-        case "2":
-            pass
+        case "2": # Buscar palabra en la lista
+            print("BUSCAR PALABRA EN LA LISTA")
+            print("-" * 26)
 
+            # Comprueba que la lista no esta vacia
+            if lista_palabras: 
+                # Pregunta la palabra, le quita los espacios y la pone en minusculas
+                palabra = input("Introduce la palabra que quieres buscar en la lista: ").lower().strip()
+
+                # Comprueba si la palabra esta en la lista
+                if palabra in lista_palabras:
+                    contador = 0 # Cuenta cuantas veces esta la palabra en la lista
+
+                    for p in lista_palabras:
+                        if p == palabra:
+                            contador += 1
+                    
+                    print(f"La palabra '{palabra}' aparece en la lista {contador} vez / veces")
+                else:
+                    print(f"La palabra '{palabra}' no esta en la lista\n")
+
+            else: # Si la lista esta vacia
+                print("La lista de palabras esta vacia\n")  
         case "3": # Añadir palabra a la lista
             print("AÑADIR PALABRA A LA LISTA")
             print("-" * 25)
             # Comprueba que la lista no esta vacia
-            if lista_palabras:
-                
+            if lista_palabras:             
 
                 # Pregunta la palabra, le quita los espacios y la pone en minusculas
                 palabra = input("Introduce la palabra que quieres añadir a la lista: ").lower().strip()
@@ -122,7 +141,17 @@ while continuar:
 
             # Comprueba que la lista no esta vacia
             if lista_palabras:
-                pass
+                # Pregunta la palabra, le quita los espacios y la pone en minusculas
+                palabra = input("Introduce la palabra que quieres eliminar de la lista: ").lower().strip()
+
+                if palabra in lista_palabras: # Si la palabra esta en la lista
+                    for p in lista_palabras: # Recorre la lista
+                        if p == palabra: # Si la encuentra, la elimina
+                            lista_palabras.remove(palabra) 
+                    print(f"La palabra '{palabra}' ha sido eliminada correctamente de la lista\n")                           
+
+                else: # Si la palabra no esta en la lista
+                    print(f"La palabra '{palabra}' no se puede eliminar porque no esta en la lista\n")
                 
             else:
                 print("La lista de palabras esta vacia\n")
