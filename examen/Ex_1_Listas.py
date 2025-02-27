@@ -50,7 +50,6 @@ os.system("cls") # Limpia la pantalla
 # Declaración de variables
 continuar = True # Para salir del bucle
 lista_palabras = [] # Contendra la lista de palabras
-cantidad = 0 # Cantidad de palabras que contendra la lista
 
 # Bucle para que se repita el menu, hasta que elija la opción salir
 while continuar:
@@ -67,27 +66,67 @@ while continuar:
         5. Mostrar la lista de palabras
 
         Cualquier otra opción para salir
-
-        Tu elección es ....
+        
     """)
-    opcion = input("Elige una opción: -> ")
-    os.system("cls") # Limpia la pantalla
+    opcion = input("\tTu elección es .... ")
+    print("\n")    
+    
     match opcion:
         case "1": # Crear la lista, indicando el número de palabras
             print("CREAR LISTA")
             print("-" * 11)
-            try:
 
+            try: # Para controlar el error si no es un numero
+                cantidad = int(input("Cuantas palabras tendra la lista: "))
+
+                # Si es mayor que 0
+                if cantidad > 0:
+                    # Pregunta la palabra a introducir en la lista tantas veces como se indique en cantidad
+                    for num in range(cantidad):
+                        palabra = input(f"Introduce la palabra {num + 1}: ") # Pregunta la palabra
+                        lista_palabras.append(palabra) # La añade a la lista 
+
+                    print(f"Las {num + 1} palabras se han añadido correctamente a la lista\n")
+                else:
+                    print("El número de palabras ha de ser mayor que 0\n")               
+                
             except ValueError:
                 print("Hay que introducir un número entero valido, no se pueden introducir letras\n")
 
+            
+
         case "2":
             pass
-        case "3":
-            pass
+
+        case "3": # Añadir palabra a la lista
+            # Comprueba que la lista no esta vacia
+            if lista_palabras:
+                print("AÑADIR PALABRA A LA LISTA")
+                print("-" * 25)
+
+                # Pide la palabra
+                palabra = input("Introduce la palabra que quieres añadir a la lista: ")
+
+                # La añade a la lista
+                lista_palabras.append(palabra)
+
+                print("La nueva palabra se ha añadido correctamente a la lista\n")
+            else:
+                print("La lista de palabras esta vacia\n")
+        
         case "4":
             pass
-        case "5":
-            pass
+        case "5": # Mostrar la lista de palabras
+            # Comprueba que la lista no esta vacia
+            if lista_palabras:
+                print("LISTA DE PALABRAS")
+                print("-" * 17)
+            
+                # Recorre la lista y muestra las palabras
+                for palabra in lista_palabras:
+                    print(palabra)
+            else:
+                print("La lista de palabras esta vacia\n")
+
         case _: # Cualquier otra opción para salir
             continuar = False # Para que salga del bucle
