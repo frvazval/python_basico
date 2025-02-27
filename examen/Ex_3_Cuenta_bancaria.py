@@ -105,10 +105,16 @@ class CuentaBancaria():
 
     # Metodos
     def ingresar_dinero(self,cantidad: int):
-        pass
+        if cantidad > 0:
+            self.saldo += cantidad
+        else:
+            return "No se puede añadir 0 €"
 
     def retirar_dinero(self, cantidad: int):
-        pass
+        if cantidad > 0:
+            self.saldo -= cantidad
+        else:
+            return "No se puede retirar 0 €"
 
     def mostrar_saldo_cliente(self):
         return f"El saldo de {self.titular.nombre} {self.titular.apellido} es {self.saldo} €\n"
@@ -145,10 +151,16 @@ print(banco_1.eliminar_cuenta(cuenta_3))
 banco_1.mostrar_cuentas()
 
 
-# I
+# Hago un ingreso
+print(cuenta_1.ingresar_dinero(3000))
+print(cuenta_1.mostrar_saldo_cliente())
+
 # Muestro el saldo de un cliente
 print(cuenta_3.mostrar_saldo_cliente())
 
+# Retiro dinero
+print(cuenta_1.retirar_dinero(500))
+print(cuenta_1.mostrar_saldo_cliente())
 
 
 
