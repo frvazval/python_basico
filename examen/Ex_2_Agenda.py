@@ -72,6 +72,11 @@ def agregar_modificar(nombre: str):
                 return f"El telefono de '{nombre}' se ha modificado correctamente\n"
             else:
                 return f"No se ha modificado nada en '{nombre}'"
+        else: # Si no esta en la lista lo añado
+            telefono = input("Introduce el número de telefono: ")
+            nombre_telefono[nombre] = telefono        
+
+            return f"El nombre '{nombre}' con el telefono '{telefono}' se ha añadido correctamente a la agenda\n"
 
     else: # Si esta vacia añado el nuevo nombre y su telefono        
         telefono = input("Introduce el número de telefono: ")
@@ -80,15 +85,43 @@ def agregar_modificar(nombre: str):
         return f"El nombre '{nombre}' con el telefono '{telefono}' se ha añadido correctamente a la agenda\n"        
 
 def buscar(nombre: str):
-    pass
+    # Compruebo que la agenda no este vacia
+    if nombre_telefono: 
+        if nombre in nombre_telefono:
+            # devuelvo el dato
+            return f"Nombre: {nombre}, Telefono: {nombre_telefono[nombre]}\n"
+        else:
+            return f"El nombre '{nombre}' no esta en la agenda\n"
+    else: # Si el diccionario esta vacio
+        return f"No se puede buscar '{nombre}' en la agenda porque esta vacia\n"
 
 def borrar(nombre: str):
-    pass
+    # Compruebo que la agenda no este vacia
+    if nombre_telefono: 
+        if nombre in nombre_telefono:
+            # devuelvo el dato
+            print(f"Nombre: {nombre}, Telefono: {nombre_telefono[nombre]}\n")
+
+            # Pregunto si lo quiere borrar
+            opcion = "a" # Para que entre la primera vez en el bucle
+            while opcion != "s" and opcion != "n":
+                opcion = input("¿Quieres borrarlo? (s / n): ").lower()
+            
+            if opcion == "s":
+                del nombre_telefono[nombre] # Borro el nombre de la agenda
+                return f"'{nombre}' se ha borrado correctamente correctamente de la agenda\n"
+            else:
+                return f"'{nombre}' no se ha borrado de la agenda\n"            
+        else:
+            return f"El nombre '{nombre}' no esta en la agenda\n"
+    else: # Si el diccionario esta vacio
+        return f"No se puede borrar '{nombre}' en la agenda porque esta vacia\n"
 
 def listar():
     # Compruebo que el diccionario no este vacio
     if nombre_telefono:
-        pass
+       for nombre in nombre_telefono:
+            print(f"Nombre: {nombre}, Telefono: {nombre_telefono[nombre]}")            
     else:
         return "No se pueden mostrar los contactos porque la agenda esta vacia\n"
 
@@ -121,11 +154,32 @@ while continuar:
             print(agregar_modificar(nombre))
 
         case "b":
-            pass
-        case "c":
-            pass
+            print("BUSCAR")
+            print("-" * 6)
+
+            # Pregunto el nombre que quiero buscar, (Quito los espacios y le pongo la primera letra en mayusculas)
+            nombre = input("Introduce el nombre: ").strip().capitalize()
+
+            # LLamo a la función buscar(nombre: str)
+            print(buscar(nombre))
+
+        case "c": # Borrar un nombre de la agenda
+            print("BORRAR")
+            print("-" * 6)
+
+            # Pregunto el nombre que quiero borrar, (Quito los espacios y le pongo la primera letra en mayusculas)
+            nombre = input("Introduce el nombre: ").strip().capitalize()
+
+            # LLamo a la función borrar(nombre: str)
+            print(borrar(nombre))
+            
         case "d": # Listar contenido de la agenda
+            print("LISTAR")
+            print("-" * 6)            
+
+            # LLamo a la función listar()
             print(listar())
+
         case _: # Salir del programa
             continuar = False
 
