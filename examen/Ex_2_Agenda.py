@@ -46,3 +46,25 @@ Posibles mejoras:
 
 """
 
+import os # importa libreria os        
+os.system("cls") # Limpia la pantalla
+
+# Definición de funciones
+def agregar():
+    pass
+
+def buscar():
+    pass
+
+def modificar():
+    pass
+
+def borrar():
+    pass
+
+def listar():
+    pass
+
+# Definición de variables
+
+
