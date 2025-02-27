@@ -54,4 +54,106 @@ El programa debe:
 import os # importa libreria os        
 os.system("cls") # Limpia la pantalla
 
+import random # para utilizar numeros aleatorios
+
+# Creo las clases
+class Banco():
+    def __init__(self, nombre: str):
+        self.nombre = nombre
+        self.lista_cuentas = [] # Para guardar la cuentas
+
+    # Metodos
+    def crear_cuenta(self, cuenta: object):
+        # añado la cuenta a la lista de cuentas
+        self.lista_cuentas.append(cuenta)
+
+
+    def eliminar_cuenta(self, cuenta: object):
+        if self.lista_cuentas: # Si la lista no esta vacia
+           if cuenta in self.lista_cuentas: # Si esta en la lista
+               self.lista_cuentas.remove(cuenta)
+               return f"la cuenta {cuenta.num_cuenta}, se ha eliminado con exito"
+           else: # Si no esta en la lista
+               return f"la cuenta {cuenta.num_cuenta}, no se ha podido eliminar porque no existe\n"
+               
+        else:
+            print(f"No hay ninguna cuenta dada de alta en '{self.nombre}', no se puede eliminar")
+
+
+    def mostrar_cuentas(self):
+        if self.lista_cuentas: # Si la lista no esta vacia
+            print(f"Listado de cuentas de '{self.nombre}'")
+            print("-" * 22)
+            for cuenta in self.lista_cuentas:
+                print(f"Cuenta: {cuenta.num_cuenta}, Titular: {cuenta.titular.nombre} {cuenta.titular.apellido}")
+        else:
+            print(f"No hay ninguna cuenta dada de alta en '{self.nombre}'")
+
+
+
+class Cliente():
+    def __init__(self, nombre: str, apellido: str, edad: int):
+        self.nombre = nombre
+        self.apellido = apellido
+        self.edad = edad
+
+class CuentaBancaria():
+    def __init__(self, titular: object):
+        self.titular = titular
+        self.saldo = 0
+        self.num_cuenta = random.randint(100000, 999999)
+
+    # Metodos
+    def ingresar_dinero(self,cantidad: int):
+        pass
+
+    def retirar_dinero(self, cantidad: int):
+        pass
+
+    def mostrar_saldo_cliente(self):
+        return f"El saldo de {self.titular.nombre} {self.titular.apellido} es {self.saldo} €\n"
+
+
+# Programa principal
+# Creo el objeto banco
+banco_1 = Banco("Banesto")
+
+# Creo los clientes
+cliente_1 = Cliente("Antonio", "Perez", 40)
+cliente_2 = Cliente("Ana", "Martinez", 30)
+cliente_3 = Cliente("Pedro", "Fernandez", 50)
+
+# Creo las cuentas
+cuenta_1 = CuentaBancaria(cliente_1)
+cuenta_2 = CuentaBancaria(cliente_2)
+cuenta_3 = CuentaBancaria(cliente_3)
+cuenta_4 = CuentaBancaria(cliente_1)
+cuenta_5 = CuentaBancaria(cliente_3)
+
+# Añado las 5 cuentas al banco
+banco_1.crear_cuenta(cuenta_1)
+banco_1.crear_cuenta(cuenta_2)
+banco_1.crear_cuenta(cuenta_3)
+banco_1.crear_cuenta(cuenta_4)
+banco_1.crear_cuenta(cuenta_5)
+
+# Muestro las cuentas del banco
+banco_1.mostrar_cuentas()
+
+# Elimino una cuenta y vuelvo a mostrar la lista de cuentas
+print(banco_1.eliminar_cuenta(cuenta_3))
+banco_1.mostrar_cuentas()
+
+
+# I
+# Muestro el saldo de un cliente
+print(cuenta_3.mostrar_saldo_cliente())
+
+
+
+
+
+
+
+
 
