@@ -49,22 +49,53 @@ Posibles mejoras:
 import os # importa libreria os        
 os.system("cls") # Limpia la pantalla
 
+# Definición de variables
+agenda = {} # Diccionario que contendra la agenda
+continuar = True # Para salir del menu
+
 # Definición de funciones
-def agregar():
+def agregar_modificar(nombre: str):
     pass
 
-def buscar():
+def buscar(nombre: str):
     pass
 
-def modificar():
-    pass
-
-def borrar():
+def borrar(nombre: str):
     pass
 
 def listar():
-    pass
+    # Compruebo que el diccionario no este vacio
+    if agenda:
+        pass
+    else:
+        return "No se pueden mostrar los contactos porque la agenda esta vacia\n"
 
-# Definición de variables
+# Programa principal
+# Muestro el menu mientras no se elija la opcion salir
+while continuar:
+    print("\tAGENDA")
+    print("\t" + "-" * 6)
+    print("""
+    A - Añadir / Modificar
+    B - Buscar
+    C - Borrar
+    D - Listar
+          
+    Para salir cualquier otra opción
+          
+""")
+    # Pido la opción, le quito los espacios y la pongo en minusculas
+    opcion = input("Elige una opción: ").lower().strip()
 
+    match opcion:
+        case "a":
+            pass
+        case "b":
+            pass
+        case "c":
+            pass
+        case "d": # Listar contenido de la agenda
+            print(listar())
+        case _: # Salir del programa
+            continuar = False
 
