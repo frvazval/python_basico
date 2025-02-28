@@ -9,10 +9,7 @@ def dibuja_arbol(niveles):
         mensaje = " " * (niveles - nivel) + "*"
         
            
-        print(mensaje)
-        
-        
-
+        print(mensaje)       
 
 try:
     continuar = True
