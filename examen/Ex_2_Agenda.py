@@ -122,7 +122,7 @@ def listar():
     if nombre_telefono:
        for nombre in nombre_telefono:
             print(f"Nombre: {nombre}, Telefono: {nombre_telefono[nombre]}")            
-    else:
+    else: # Si el diccionario esta vacio
         return "No se pueden mostrar los contactos porque la agenda esta vacia\n"
 
 # Programa principal
@@ -178,7 +178,7 @@ while continuar:
             print("-" * 6)            
 
             # LLamo a la función listar()
-            print(listar())
+            listar()
 
         case _: # Salir del programa
             continuar = False
