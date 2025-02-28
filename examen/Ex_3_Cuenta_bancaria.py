@@ -81,10 +81,21 @@ class Banco():
 
     def mostrar_cuentas(self):
         if self.lista_cuentas: # Si la lista no esta vacia
+            col_titular = 25 # Anchura de la columna titular
             print(f"Listado de cuentas de '{self.nombre}'")
             print("-" * 22)
+            print("| Num. Cuenta | Titular" + " " * 16 + "| Saldo |")
+            print("-" * 48)
+            
             for cuenta in self.lista_cuentas:
-                print(f"Cuenta: {cuenta.num_cuenta}, Titular: {cuenta.titular.nombre} {cuenta.titular.apellido}")
+                mensaje = f"| {cuenta.num_cuenta}      |"
+                caracteres = col_titular - (len(cuenta.titular.nombre) + len(cuenta.titular.apellido)) 
+                mensaje += f" {cuenta.titular.nombre} {cuenta.titular.apellido}" + " " * (caracteres - 3)
+                mensaje += f"| {cuenta.saldo}"                
+                
+                print(mensaje)
+            print("\n")
+
         else:
             print(f"No hay ninguna cuenta dada de alta en '{self.nombre}'")
 
@@ -124,7 +135,6 @@ class CuentaBancaria():
 # Programa principal
 # Creo el objeto banco
 banco_1 = Banco("Banesto")
-banco_2 = Banco("Banco Sabadell")
 
 # Creo los clientes
 cliente_1 = Cliente("Antonio", "Perez", 40)
@@ -145,17 +155,12 @@ print(banco_1.crear_cuenta(cuenta_3))
 print(banco_1.crear_cuenta(cuenta_4))
 print(banco_1.crear_cuenta(cuenta_5))
 
-# Añado 2 cuentas al banco_2
-print(banco_2.crear_cuenta(cuenta_1))
-print(banco_2.crear_cuenta(cuenta_5))
-
 # Muestro las cuentas del banco
 banco_1.mostrar_cuentas()
 
 # Elimino una cuenta y vuelvo a mostrar la lista de cuentas
 print(banco_1.eliminar_cuenta(cuenta_3))
 banco_1.mostrar_cuentas()
-
 
 # Hago un ingreso
 print(cuenta_1.ingresar_dinero(3000))
@@ -167,6 +172,10 @@ print(cuenta_3.mostrar_saldo_cliente())
 # Retiro dinero
 print(cuenta_1.retirar_dinero(500))
 print(cuenta_1.mostrar_saldo_cliente())
+
+# Muestro las cuentas del banco con los saldos actualizados
+banco_1.mostrar_cuentas()
+
 
 
 
