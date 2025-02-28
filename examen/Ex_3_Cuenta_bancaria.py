@@ -66,24 +66,24 @@ class Banco():
     def crear_cuenta(self, cuenta: object):
         # añado la cuenta a la lista de cuentas
         self.lista_cuentas.append(cuenta)
-        return f"Se ha creado correctamente la cuenta {cuenta.num_cuenta} en {self.nombre}"
+        return f"Se ha creado correctamente la cuenta {cuenta.num_cuenta} en {self.nombre}\n"
 
     def eliminar_cuenta(self, cuenta: object):
         if self.lista_cuentas: # Si la lista no esta vacia
            if cuenta in self.lista_cuentas: # Si esta en la lista
                self.lista_cuentas.remove(cuenta)
-               return f"la cuenta {cuenta.num_cuenta}, se ha eliminado con exito"
+               return f"la cuenta {cuenta.num_cuenta}, se ha eliminado con exito\n"
            else: # Si no esta en la lista
                return f"la cuenta {cuenta.num_cuenta}, no se ha podido eliminar porque no existe\n"
                
         else:
-            print(f"No hay ninguna cuenta dada de alta en '{self.nombre}', no se puede eliminar")
+            print(f"No hay ninguna cuenta dada de alta en '{self.nombre}', no se puede eliminar\n")
 
     def mostrar_cuentas(self):
         if self.lista_cuentas: # Si la lista no esta vacia
             col_titular = 25 # Anchura de la columna titular
-            print(f"Listado de cuentas de '{self.nombre}'")
-            print("-" * 22)
+            print(f"Listado de cuentas de '{self.nombre}'\n")
+            
             print("| Num. Cuenta | Titular" + " " * 16 + "| Saldo |")
             print("-" * 48)
             
@@ -97,7 +97,7 @@ class Banco():
             print("\n")
 
         else:
-            print(f"No hay ninguna cuenta dada de alta en '{self.nombre}'")
+            print(f"No hay ninguna cuenta dada de alta en '{self.nombre}'\n")
 
 class Cliente():
     def __init__(self, nombre: str, apellido: str, edad: int):
@@ -115,22 +115,32 @@ class CuentaBancaria():
     def ingresar_dinero(self,cantidad: int):
         if cantidad > 0:
             self.saldo += cantidad
-            return f"Se han añadido {cantidad} € al saldo que habia en la cuenta"
+            return f"Se han añadido {cantidad} € al saldo que habia en la cuenta\n"
         else:
-            return "No se puede añadir 0 €"
+            return "No se puede añadir 0 €\n"
 
     def retirar_dinero(self, cantidad: int):
         if cantidad > 0:
             if self.saldo < cantidad: # Si no hay suficiente saldo en la cuenta
-                return f"No hay suficiente saldo en la cuenta para retirar {cantidad} €"
+                return f"No hay suficiente saldo en la cuenta para retirar {cantidad} €\n"
             else:
                 self.saldo -= cantidad
-                return f"Se han retiradoo {cantidad} € del saldo que habia en la cuenta"
+                return f"Se han retiradoo {cantidad} € del saldo que habia en la cuenta\n"
         else:
-            return "No se puede retirar 0 €"
+            return "No se puede retirar 0 €\n"
 
     def mostrar_saldo_cliente(self):
-        return f"El saldo de {self.titular.nombre} {self.titular.apellido} es {self.saldo} €\n"
+        col_titular = 25 # Anchura de la columna titular       
+        
+        print("| Num. Cuenta | Titular" + " " * 16 + "| Saldo |")
+        print("-" * 48)
+        caracteres = col_titular - (len(self.titular.nombre) + len(self.titular.apellido))
+        mensaje = f"| {self.num_cuenta}      |"
+        mensaje += f" {self.titular.nombre} {self.titular.apellido}" + " " * (caracteres - 3)
+        mensaje += f"| {self.saldo}"
+
+        print(mensaje)
+        print("\n")        
 
 # Programa principal
 # Creo el objeto banco
@@ -167,11 +177,11 @@ print(cuenta_1.ingresar_dinero(3000))
 print(cuenta_1.mostrar_saldo_cliente())
 
 # Muestro el saldo de un cliente
-print(cuenta_3.mostrar_saldo_cliente())
+cuenta_3.mostrar_saldo_cliente()
 
 # Retiro dinero
 print(cuenta_1.retirar_dinero(500))
-print(cuenta_1.mostrar_saldo_cliente())
+cuenta_1.mostrar_saldo_cliente()
 
 # Muestro las cuentas del banco con los saldos actualizados
 banco_1.mostrar_cuentas()
