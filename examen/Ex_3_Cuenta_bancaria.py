@@ -68,7 +68,6 @@ class Banco():
         self.lista_cuentas.append(cuenta)
         return f"Se ha creado correctamente la cuenta {cuenta.num_cuenta} en {self.nombre}"
 
-
     def eliminar_cuenta(self, cuenta: object):
         if self.lista_cuentas: # Si la lista no esta vacia
            if cuenta in self.lista_cuentas: # Si esta en la lista
@@ -80,7 +79,6 @@ class Banco():
         else:
             print(f"No hay ninguna cuenta dada de alta en '{self.nombre}', no se puede eliminar")
 
-
     def mostrar_cuentas(self):
         if self.lista_cuentas: # Si la lista no esta vacia
             print(f"Listado de cuentas de '{self.nombre}'")
@@ -89,8 +87,6 @@ class Banco():
                 print(f"Cuenta: {cuenta.num_cuenta}, Titular: {cuenta.titular.nombre} {cuenta.titular.apellido}")
         else:
             print(f"No hay ninguna cuenta dada de alta en '{self.nombre}'")
-
-
 
 class Cliente():
     def __init__(self, nombre: str, apellido: str, edad: int):
@@ -124,7 +120,6 @@ class CuentaBancaria():
 
     def mostrar_saldo_cliente(self):
         return f"El saldo de {self.titular.nombre} {self.titular.apellido} es {self.saldo} €\n"
-
 
 # Programa principal
 # Creo el objeto banco
