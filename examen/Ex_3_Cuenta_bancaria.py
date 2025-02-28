@@ -66,6 +66,7 @@ class Banco():
     def crear_cuenta(self, cuenta: object):
         # añado la cuenta a la lista de cuentas
         self.lista_cuentas.append(cuenta)
+        return f"Se ha creado correctamente la cuenta {cuenta.num_cuenta} en {self.nombre}"
 
 
     def eliminar_cuenta(self, cuenta: object):
@@ -101,18 +102,23 @@ class CuentaBancaria():
     def __init__(self, titular: object):
         self.titular = titular
         self.saldo = 0
-        self.num_cuenta = random.randint(100000, 999999)
+        self.num_cuenta = random.randint(100000, 999999) # Genera un numero aleatorio entre 100000 y 999999
 
     # Metodos
     def ingresar_dinero(self,cantidad: int):
         if cantidad > 0:
             self.saldo += cantidad
+            return f"Se han añadido {cantidad} € al saldo que habia en la cuenta"
         else:
             return "No se puede añadir 0 €"
 
     def retirar_dinero(self, cantidad: int):
         if cantidad > 0:
-            self.saldo -= cantidad
+            if self.saldo < cantidad: # Si no hay suficiente saldo en la cuenta
+                return f"No hay suficiente saldo en la cuenta para retirar {cantidad} €"
+            else:
+                self.saldo -= cantidad
+                return f"Se han retiradoo {cantidad} € del saldo que habia en la cuenta"
         else:
             return "No se puede retirar 0 €"
 
@@ -123,6 +129,7 @@ class CuentaBancaria():
 # Programa principal
 # Creo el objeto banco
 banco_1 = Banco("Banesto")
+banco_2 = Banco("Banco Sabadell")
 
 # Creo los clientes
 cliente_1 = Cliente("Antonio", "Perez", 40)
@@ -136,12 +143,16 @@ cuenta_3 = CuentaBancaria(cliente_3)
 cuenta_4 = CuentaBancaria(cliente_1)
 cuenta_5 = CuentaBancaria(cliente_3)
 
-# Añado las 5 cuentas al banco
-banco_1.crear_cuenta(cuenta_1)
-banco_1.crear_cuenta(cuenta_2)
-banco_1.crear_cuenta(cuenta_3)
-banco_1.crear_cuenta(cuenta_4)
-banco_1.crear_cuenta(cuenta_5)
+# Añado las 5 cuentas al banco_1
+print(banco_1.crear_cuenta(cuenta_1))
+print(banco_1.crear_cuenta(cuenta_2))
+print(banco_1.crear_cuenta(cuenta_3))
+print(banco_1.crear_cuenta(cuenta_4))
+print(banco_1.crear_cuenta(cuenta_5))
+
+# Añado 2 cuentas al banco_2
+print(banco_2.crear_cuenta(cuenta_1))
+print(banco_2.crear_cuenta(cuenta_5))
 
 # Muestro las cuentas del banco
 banco_1.mostrar_cuentas()
