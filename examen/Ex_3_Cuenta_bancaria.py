@@ -174,7 +174,7 @@ banco_1.mostrar_cuentas()
 
 # Hago un ingreso
 print(cuenta_1.ingresar_dinero(3000))
-print(cuenta_1.mostrar_saldo_cliente())
+cuenta_1.mostrar_saldo_cliente()
 
 # Muestro el saldo de un cliente
 cuenta_3.mostrar_saldo_cliente()
